@@ -1,0 +1,10 @@
+G:\PTUDTT\PTPM_AI_CT3\DAL\bin\Debug\DAL.dll
+G:\PTUDTT\PTPM_AI_CT3\DAL\bin\Debug\DAL.pdb
+G:\PTUDTT\PTPM_AI_CT3\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+G:\PTUDTT\PTPM_AI_CT3\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+G:\PTUDTT\PTPM_AI_CT3\DAL\obj\Debug\DAL.dll
+G:\PTUDTT\PTPM_AI_CT3\DAL\obj\Debug\DAL.pdb
+G:\PTUDTT\PTPM_AI_CT3\DAL\bin\Debug\DTO.dll
+G:\PTUDTT\PTPM_AI_CT3\DAL\bin\Debug\DTO.pdb
+G:\PTUDTT\PTPM_AI_CT3\DAL\bin\Debug\DTO.dll.config
+G:\PTUDTT\PTPM_AI_CT3\DAL\obj\Debug\DAL.csproj.CopyComplete

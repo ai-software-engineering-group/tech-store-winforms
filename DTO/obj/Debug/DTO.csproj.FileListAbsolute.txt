@@ -1,0 +1,7 @@
+G:\PTUDTT\PTPM_AI_CT3\DTO\bin\Debug\DTO.dll
+G:\PTUDTT\PTPM_AI_CT3\DTO\bin\Debug\DTO.pdb
+G:\PTUDTT\PTPM_AI_CT3\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
+G:\PTUDTT\PTPM_AI_CT3\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+G:\PTUDTT\PTPM_AI_CT3\DTO\obj\Debug\DTO.dll
+G:\PTUDTT\PTPM_AI_CT3\DTO\obj\Debug\DTO.pdb
+G:\PTUDTT\PTPM_AI_CT3\DTO\bin\Debug\DTO.dll.config
