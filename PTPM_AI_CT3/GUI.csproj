@@ -59,6 +59,12 @@
     <Compile Include="InsertBrand.Designer.cs">
       <DependentUpon>InsertBrand.cs</DependentUpon>
     </Compile>
+    <Compile Include="InvoicesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InvoicesForm.Designer.cs">
+      <DependentUpon>InvoicesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QLHANGSANXUAT.cs">
@@ -78,6 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InsertBrand.resx">
       <DependentUpon>InsertBrand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InvoicesForm.resx">
+      <DependentUpon>InvoicesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
