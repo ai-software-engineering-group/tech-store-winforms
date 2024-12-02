@@ -79,6 +79,12 @@
     <Compile Include="updateBrand.Designer.cs">
       <DependentUpon>updateBrand.cs</DependentUpon>
     </Compile>
+    <Compile Include="warehouseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="warehouseForm.Designer.cs">
+      <DependentUpon>warehouseForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="deleteBrand.resx">
       <DependentUpon>deleteBrand.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="updateBrand.resx">
       <DependentUpon>updateBrand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="warehouseForm.resx">
+      <DependentUpon>warehouseForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
