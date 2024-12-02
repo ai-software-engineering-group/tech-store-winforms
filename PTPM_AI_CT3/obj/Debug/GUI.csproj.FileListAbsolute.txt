@@ -20,3 +20,4 @@ G:\PTUDTT\PTPM_AI_CT3\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.InsertBrand.resources
 G:\PTUDTT\PTPM_AI_CT3\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.deleteBrand.resources
 G:\PTUDTT\PTPM_AI_CT3\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.updateBrand.resources
 G:\PTUDTT\PTPM_AI_CT3\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.InvoicesForm.resources
+G:\PTUDTT\PTPM_AI_CT3\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.warehouseForm.resources

@@ -47,6 +47,7 @@
     <Compile Include="BrandDaL.cs" />
     <Compile Include="InvoicesDaL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WareHouseDal.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">

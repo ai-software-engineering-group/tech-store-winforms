@@ -16,7 +16,7 @@ namespace PTPM_AI_CT3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new InvoicesForm());
+            Application.Run(new warehouseForm());
         }
     }
 }
