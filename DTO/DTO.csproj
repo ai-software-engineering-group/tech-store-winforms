@@ -49,10 +49,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="script.designer.cs">
+    <Compile Include="STechDB.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>script.dbml</DependentUpon>
+      <DependentUpon>STechDB.dbml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -61,13 +61,13 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="script.dbml">
+    <None Include="STechDB.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>script.designer.cs</LastGenOutput>
+      <LastGenOutput>STechDB.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="script.dbml.layout">
-      <DependentUpon>script.dbml</DependentUpon>
+    <None Include="STechDB.dbml.layout">
+      <DependentUpon>STechDB.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

@@ -8,3 +8,13 @@ G:\PTUDTT\PTPM_AI_CT3\DAL\bin\Debug\DTO.dll
 G:\PTUDTT\PTPM_AI_CT3\DAL\bin\Debug\DTO.pdb
 G:\PTUDTT\PTPM_AI_CT3\DAL\bin\Debug\DTO.dll.config
 G:\PTUDTT\PTPM_AI_CT3\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\HUFI\HK7\CNPM_AI\tech-store-winforms\DAL\bin\Debug\DAL.dll
+D:\HUFI\HK7\CNPM_AI\tech-store-winforms\DAL\bin\Debug\DAL.pdb
+D:\HUFI\HK7\CNPM_AI\tech-store-winforms\DAL\bin\Debug\DTO.dll
+D:\HUFI\HK7\CNPM_AI\tech-store-winforms\DAL\bin\Debug\DTO.pdb
+D:\HUFI\HK7\CNPM_AI\tech-store-winforms\DAL\bin\Debug\DTO.dll.config
+D:\HUFI\HK7\CNPM_AI\tech-store-winforms\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+D:\HUFI\HK7\CNPM_AI\tech-store-winforms\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\HUFI\HK7\CNPM_AI\tech-store-winforms\DAL\obj\Debug\DAL.csproj.Up2Date
+D:\HUFI\HK7\CNPM_AI\tech-store-winforms\DAL\obj\Debug\DAL.dll
+D:\HUFI\HK7\CNPM_AI\tech-store-winforms\DAL\obj\Debug\DAL.pdb

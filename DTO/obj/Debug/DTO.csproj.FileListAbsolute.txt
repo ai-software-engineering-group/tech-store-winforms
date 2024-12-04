@@ -5,3 +5,10 @@ G:\PTUDTT\PTPM_AI_CT3\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 G:\PTUDTT\PTPM_AI_CT3\DTO\obj\Debug\DTO.dll
 G:\PTUDTT\PTPM_AI_CT3\DTO\obj\Debug\DTO.pdb
 G:\PTUDTT\PTPM_AI_CT3\DTO\bin\Debug\DTO.dll.config
+D:\HUFI\HK7\CNPM_AI\tech-store-winforms\DTO\bin\Debug\DTO.dll.config
+D:\HUFI\HK7\CNPM_AI\tech-store-winforms\DTO\bin\Debug\DTO.dll
+D:\HUFI\HK7\CNPM_AI\tech-store-winforms\DTO\bin\Debug\DTO.pdb
+D:\HUFI\HK7\CNPM_AI\tech-store-winforms\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
+D:\HUFI\HK7\CNPM_AI\tech-store-winforms\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+D:\HUFI\HK7\CNPM_AI\tech-store-winforms\DTO\obj\Debug\DTO.dll
+D:\HUFI\HK7\CNPM_AI\tech-store-winforms\DTO\obj\Debug\DTO.pdb

@@ -10,7 +10,7 @@ namespace DAL
 {
     public class WareHouseDal
     {
-        scriptDataContext db = new scriptDataContext();   
+        STechDBDataContext db = new STechDBDataContext();   
         public WareHouseDal()
         {
 

@@ -10,7 +10,7 @@ namespace DAL
 {
     public class InvoicesDaL
     {
-        scriptDataContext db = new scriptDataContext();
+        STechDBDataContext db = new STechDBDataContext();
         public InvoicesDaL()
         {
 

@@ -12,7 +12,7 @@ namespace DAL
 {
     public class BrandDaL
     {
-        scriptDataContext db = new scriptDataContext();
+        STechDBDataContext db = new STechDBDataContext();
 
         public BrandDaL() { }
 
