@@ -81,10 +81,13 @@
             // 
             // btnDeleteProduct
             // 
+            this.btnDeleteProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDeleteProduct.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
             this.btnDeleteProduct.IconColor = System.Drawing.Color.Black;
             this.btnDeleteProduct.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnDeleteProduct.IconSize = 20;
+            this.btnDeleteProduct.IconSize = 15;
             this.btnDeleteProduct.Location = new System.Drawing.Point(76, 0);
             this.btnDeleteProduct.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteProduct.Name = "btnDeleteProduct";
@@ -94,11 +97,14 @@
             // 
             // btnEditProduct
             // 
+            this.btnEditProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEditProduct.ForeColor = System.Drawing.Color.White;
             this.btnEditProduct.IconChar = FontAwesome.Sharp.IconChar.PenAlt;
             this.btnEditProduct.IconColor = System.Drawing.Color.Black;
             this.btnEditProduct.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEditProduct.IconSize = 20;
+            this.btnEditProduct.IconSize = 15;
             this.btnEditProduct.Location = new System.Drawing.Point(42, 0);
             this.btnEditProduct.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditProduct.Name = "btnEditProduct";
@@ -126,6 +132,7 @@
             this.productImage.Margin = new System.Windows.Forms.Padding(2);
             this.productImage.Name = "productImage";
             this.productImage.Size = new System.Drawing.Size(41, 33);
+            this.productImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.productImage.TabIndex = 16;
             this.productImage.TabStop = false;
             // 

@@ -16,7 +16,7 @@ namespace PTPM_AI_CT3.Forms
     public partial class ProductsForm : Form
     {
         ProductBLL bll;
-        PagedList<Product> products;
+        IEnumerable<Product> products;
 
         public ProductsForm()
         {
@@ -34,12 +34,12 @@ namespace PTPM_AI_CT3.Forms
 
         private void loadProducts()
         {
-            products = bll.GetProducts(1, 20);
+            products = bll.GetProducts();
 
             int index = 1;
             int height = 0;
 
-            foreach(Product product in products.Items)
+            foreach(Product product in products)
             {
                 ProductListItem item = new ProductListItem(product, index);
                 item.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
@@ -50,6 +50,17 @@ namespace PTPM_AI_CT3.Forms
                 index++;
 
                 panelProducts.Controls.Add(item);
+            }
+
+            loadProductImages();
+        }
+
+        private async void loadProductImages()
+        {
+            List<ProductListItem> items = panelProducts.Controls.OfType<ProductListItem>().ToList();
+
+            foreach (ProductListItem item in items) { 
+                await item.loadImageFromUrl();
             }
         }
     }
