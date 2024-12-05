@@ -47,6 +47,7 @@
             this.panelTitle = new System.Windows.Forms.Panel();
             this.titleLabel = new System.Windows.Forms.Label();
             this.titleIcon = new FontAwesome.Sharp.IconButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panelSidebar.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -297,7 +298,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(3);
+            this.panel2.Padding = new System.Windows.Forms.Padding(10);
             this.panel2.Size = new System.Drawing.Size(163, 96);
             this.panel2.TabIndex = 0;
             // 
@@ -306,15 +307,16 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(10, 10);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(157, 90);
+            this.pictureBox1.Size = new System.Drawing.Size(143, 76);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // panel
             // 
+            this.panel.Controls.Add(this.panel1);
             this.panel.Controls.Add(this.panelMain);
             this.panel.Controls.Add(this.panelTitle);
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -328,6 +330,7 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 48);
             this.panelMain.Name = "panelMain";
+            this.panelMain.Padding = new System.Windows.Forms.Padding(10);
             this.panelMain.Size = new System.Drawing.Size(1146, 786);
             this.panelMain.TabIndex = 3;
             // 
@@ -369,6 +372,15 @@
             this.titleIcon.TabIndex = 0;
             this.titleIcon.UseVisualStyleBackColor = true;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Silver;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 48);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1146, 2);
+            this.panel1.TabIndex = 4;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -409,5 +421,6 @@
         private System.Windows.Forms.Panel panelTitle;
         private System.Windows.Forms.Label titleLabel;
         private FontAwesome.Sharp.IconButton titleIcon;
+        private System.Windows.Forms.Panel panel1;
     }
 }

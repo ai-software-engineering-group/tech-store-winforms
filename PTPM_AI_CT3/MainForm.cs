@@ -1,4 +1,5 @@
 ﻿using FontAwesome.Sharp;
+using PTPM_AI_CT3.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,6 +36,8 @@ namespace PTPM_AI_CT3
             InitializeComponent();
 
             initUI();
+
+            this.FormClosing += MainForm_FormClosing;
         }
 
         // Active sidebar button
@@ -49,6 +52,7 @@ namespace PTPM_AI_CT3
                 currentBtn.ForeColor = color;
                 currentBtn.IconColor = color;
 
+                leftBorderBtn.Height = currentBtn.Height;
                 leftBorderBtn.BackColor = color;
                 leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
                 leftBorderBtn.Visible = true;
@@ -122,6 +126,7 @@ namespace PTPM_AI_CT3
         private void BtnProducts_Click(object sender, EventArgs e)
         {
             ActiveBtn(sender, Colors.color3);
+            OpenChildForm(new ProductsForm());
         }
 
         private void BtnCategories_Click(object sender, EventArgs e)
@@ -152,6 +157,22 @@ namespace PTPM_AI_CT3
             titleLabel.Text = form.Text;
         }
 
-       
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                DialogResult r = MessageBox.Show("Bạn chắc chắn muốn thoát?", "Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+
+                if (r == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
+            }
+
+        }
     }
 }
