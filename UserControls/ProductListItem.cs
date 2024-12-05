@@ -1,14 +1,13 @@
 ﻿using DTO;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net;
 using System.Windows.Forms;
+using ImageMagick;
+using System.IO;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace UserControls
 {
@@ -25,12 +24,13 @@ namespace UserControls
             this.index = index;
 
             initUI();
+
             this.Load += ProductListItem_Load;
         }
 
         private void ProductListItem_Load(object sender, EventArgs e)
         {
-            initData();
+            LoadData();
         }
 
         private void initUI()
@@ -41,7 +41,7 @@ namespace UserControls
             btnDeleteProduct.BackColor = Color.FromArgb(227, 0, 25);
         }
 
-        private void initData()
+        private void LoadData()
         {
             int instock = product.WarehouseProducts.Sum(w => w.Quantity);
 
@@ -58,30 +58,32 @@ namespace UserControls
             {
                 lblInstock.ForeColor = Color.FromArgb(227, 0, 25);
             }
-
-            loadImageFromUrl(productImage, product.ProductImages.FirstOrDefault().ImageSrc);
         }
 
-        private async void loadImageFromUrl(PictureBox pictureBox, string url)
+        public async Task loadImageFromUrl()
         {
             try
             {
+                string url = product.ProductImages.FirstOrDefault().ImageSrc;
+
                 using (HttpClient client = new HttpClient())
                 {
-                    using (HttpResponseMessage response = await client.GetAsync(url))
+                    var imageBytes = await client.GetByteArrayAsync(url);
+                    using (var memoryStream = new MemoryStream(imageBytes))
                     {
-                        response.EnsureSuccessStatusCode();
-
-                        using(var stream = await response.Content.ReadAsStreamAsync())
+                        using (var magickImage = new MagickImage(memoryStream))
                         {
-                            pictureBox.Image = Image.FromStream(stream);
+                            using(var ms = new MemoryStream())
+                            {
+                                magickImage.Write(ms, MagickFormat.Png);
+                                productImage.Image = Image.FromStream(ms);
+                            }
                         }
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
-
             }
         }
     }
