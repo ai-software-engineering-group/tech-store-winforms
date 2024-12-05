@@ -72,7 +72,7 @@ namespace PTPM_AI_CT3
        
         public void loadDB()
         {
-            dataGridView1.DataSource = brandbll.getBrand();
+            dataGridView1.DataSource = brandbll.GetBrands();
         }
 
         private void loadBrand(object sender, EventArgs e)

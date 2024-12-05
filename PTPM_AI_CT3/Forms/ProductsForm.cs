@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DTO;
+using PTPM_AI_CT3.Constants;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,7 +30,22 @@ namespace PTPM_AI_CT3.Forms
 
         private void ProductsForm_Load(object sender, EventArgs e)
         {
+            initUI();
             loadProducts();
+        }
+
+        private void initUI()
+        {
+            btnAddProduct.BackColor = MyColors.GREEN;
+            btnAddProduct.ForeColor = Color.White;
+            btnAddProduct.Click += BtnAddProduct_Click;
+        }
+
+        private void BtnAddProduct_Click(object sender, EventArgs e)
+        {
+            AddUpdateProductForm form = new AddUpdateProductForm(false, null);
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.ShowDialog();
         }
 
         private void loadProducts()
@@ -52,7 +68,7 @@ namespace PTPM_AI_CT3.Forms
                 panelProducts.Controls.Add(item);
             }
 
-            loadProductImages();
+            //loadProductImages();
         }
 
         private async void loadProductImages()

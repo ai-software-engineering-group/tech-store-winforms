@@ -10,7 +10,7 @@ namespace BLL
 {
     public class InvoiceBLL
     {
-        InvoicesDaL invoicesdal = new InvoicesDaL();
+        InvoicesDAL invoicesdal = new InvoicesDAL();
         public InvoiceBLL()
         {
 

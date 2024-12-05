@@ -44,9 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BrandDaL.cs" />
+    <Compile Include="BrandDAL.cs" />
+    <Compile Include="CategoryDAL.cs" />
     <Compile Include="Extensions\PaginationExtension.cs" />
-    <Compile Include="InvoicesDaL.cs" />
+    <Compile Include="InvoicesDAL.cs" />
     <Compile Include="ProductDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WareHouseDal.cs" />

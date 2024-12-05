@@ -14,7 +14,7 @@ namespace PTPM_AI_CT3
 {
     public partial class warehouseForm : Form
     {
-        WareHouseBll wareHouseBll = new WareHouseBll();
+        WarehouseBLL wareHouseBll = new WarehouseBLL();
         public warehouseForm()
         {
             InitializeComponent();
