@@ -167,6 +167,9 @@
     <Compile Include="updateBrand.Designer.cs">
       <DependentUpon>updateBrand.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\FormatString.cs" />
+    <Compile Include="Utils\RandomUtils.cs" />
+    <Compile Include="Utils\RegexUtils.cs" />
     <Compile Include="warehouseForm.cs">
       <SubType>Form</SubType>
     </Compile>

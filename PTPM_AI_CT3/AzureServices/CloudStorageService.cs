@@ -1,6 +1,7 @@
 ﻿using Azure;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
+using PTPM_AI_CT3.Properties;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,9 +22,12 @@ namespace PTPM_AI_CT3.AzureServices
 
         public CloudStorageService()
         {
+            ConnectionString = Settings.Default.AzureConnectionString;
+            BlobContainerName = Settings.Default.AzureBlobContainerName;
+            BlobUrl = Settings.Default.AzureBlobUrl;
+
             BlobServiceClient = new BlobServiceClient(ConnectionString);
             ContainerClient = BlobServiceClient.GetBlobContainerClient(BlobContainerName);
-
         }
 
         public string GetContainerName()

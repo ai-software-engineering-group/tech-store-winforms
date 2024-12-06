@@ -19,6 +19,9 @@ namespace PTPM_AI_CT3.Forms
         ProductBLL bll;
         IEnumerable<Product> products;
 
+        private int currentPage = 1;
+        private int pageSize = 20;
+
         public ProductsForm()
         {
             InitializeComponent();
@@ -45,11 +48,18 @@ namespace PTPM_AI_CT3.Forms
         {
             AddUpdateProductForm form = new AddUpdateProductForm(false, null);
             form.StartPosition = FormStartPosition.CenterScreen;
+            form.OnLoadProducts += OnLoadProductsEvent;
             form.ShowDialog();
+        }
+
+        private void OnLoadProductsEvent(object sender, EventArgs e)
+        {
+            loadProducts();
         }
 
         private void loadProducts()
         {
+            panelProducts.Controls.Clear();
             products = bll.GetProducts();
 
             int index = 1;
@@ -61,6 +71,20 @@ namespace PTPM_AI_CT3.Forms
                 item.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
                 item.Top = height;
                 item.Width = panelProducts.ClientSize.Width;
+
+                item.SetClickEvent((s, e) =>
+                {
+                    AddUpdateProductForm form = new AddUpdateProductForm(true, product.ProductId);
+                    form.StartPosition = FormStartPosition.CenterScreen;
+                    form.ShowDialog();
+                }, (s, e) =>
+                {
+                    if (MessageBox.Show("Bạn có chắc chắn muốn xóa sản phẩm này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        //bll.DeleteProduct(product.ProductId);
+                        panelProducts.Controls.Remove(item);
+                    }
+                });
 
                 height += item.Height;
                 index++;
