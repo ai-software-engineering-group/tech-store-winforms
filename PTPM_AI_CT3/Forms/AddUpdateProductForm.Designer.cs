@@ -40,6 +40,8 @@
             this.txtSpecValue = new System.Windows.Forms.TextBox();
             this.btnAddSpec = new FontAwesome.Sharp.IconButton();
             this.dgvSpecifications = new System.Windows.Forms.DataGridView();
+            this.SpecName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SpecValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtDescription = new System.Windows.Forms.RichTextBox();
@@ -70,8 +72,6 @@
             this.txtOriginalPrice = new UserControls.TxtPositiveNumber();
             this.txtManuYear = new UserControls.TxtPositiveNumber();
             this.txtWarranty = new UserControls.TxtPositiveNumber();
-            this.SpecName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SpecValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -97,7 +97,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(831, 38);
+            this.panel1.Size = new System.Drawing.Size(848, 38);
             this.panel1.TabIndex = 0;
             // 
             // btnSubmit
@@ -120,10 +120,10 @@
             // 
             this.panel6.Controls.Add(this.groupBox5);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(12, 848);
+            this.panel6.Location = new System.Drawing.Point(12, 1128);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
-            this.panel6.Size = new System.Drawing.Size(831, 207);
+            this.panel6.Size = new System.Drawing.Size(848, 289);
             this.panel6.TabIndex = 9;
             // 
             // groupBox5
@@ -133,7 +133,7 @@
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(0, 15);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(831, 192);
+            this.groupBox5.Size = new System.Drawing.Size(848, 274);
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Thông số kỹ thuật";
@@ -151,7 +151,7 @@
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 173F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(825, 173);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(842, 255);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // tableLayoutPanel4
@@ -171,7 +171,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(399, 101);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(408, 101);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // label10
@@ -204,7 +204,7 @@
             this.txtSpecName.Location = new System.Drawing.Point(123, 8);
             this.txtSpecName.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.txtSpecName.Name = "txtSpecName";
-            this.txtSpecName.Size = new System.Drawing.Size(273, 20);
+            this.txtSpecName.Size = new System.Drawing.Size(282, 20);
             this.txtSpecName.TabIndex = 9;
             // 
             // txtSpecValue
@@ -213,7 +213,7 @@
             this.txtSpecValue.Location = new System.Drawing.Point(123, 40);
             this.txtSpecValue.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.txtSpecValue.Name = "txtSpecValue";
-            this.txtSpecValue.Size = new System.Drawing.Size(273, 20);
+            this.txtSpecValue.Size = new System.Drawing.Size(282, 20);
             this.txtSpecValue.TabIndex = 11;
             // 
             // btnAddSpec
@@ -225,7 +225,7 @@
             this.btnAddSpec.IconColor = System.Drawing.Color.White;
             this.btnAddSpec.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAddSpec.IconSize = 17;
-            this.btnAddSpec.Location = new System.Drawing.Point(330, 67);
+            this.btnAddSpec.Location = new System.Drawing.Point(339, 67);
             this.btnAddSpec.Name = "btnAddSpec";
             this.btnAddSpec.Size = new System.Drawing.Size(66, 31);
             this.btnAddSpec.TabIndex = 12;
@@ -241,10 +241,22 @@
             this.SpecName,
             this.SpecValue});
             this.dgvSpecifications.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvSpecifications.Location = new System.Drawing.Point(408, 3);
+            this.dgvSpecifications.Location = new System.Drawing.Point(417, 3);
             this.dgvSpecifications.Name = "dgvSpecifications";
-            this.dgvSpecifications.Size = new System.Drawing.Size(414, 167);
+            this.dgvSpecifications.Size = new System.Drawing.Size(422, 249);
             this.dgvSpecifications.TabIndex = 0;
+            // 
+            // SpecName
+            // 
+            this.SpecName.DataPropertyName = "SpecName";
+            this.SpecName.HeaderText = "Tên thông số";
+            this.SpecName.Name = "SpecName";
+            // 
+            // SpecValue
+            // 
+            this.SpecValue.DataPropertyName = "SpecValue";
+            this.SpecValue.HeaderText = "Mô tả thông số";
+            this.SpecValue.Name = "SpecValue";
             // 
             // panel5
             // 
@@ -253,7 +265,7 @@
             this.panel5.Location = new System.Drawing.Point(12, 701);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
-            this.panel5.Size = new System.Drawing.Size(831, 147);
+            this.panel5.Size = new System.Drawing.Size(848, 427);
             this.panel5.TabIndex = 8;
             // 
             // groupBox4
@@ -263,7 +275,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(0, 15);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(831, 132);
+            this.groupBox4.Size = new System.Drawing.Size(848, 412);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Mô tả sản phẩm (HTML)";
@@ -273,7 +285,7 @@
             this.txtDescription.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtDescription.Location = new System.Drawing.Point(3, 16);
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(825, 113);
+            this.txtDescription.Size = new System.Drawing.Size(842, 393);
             this.txtDescription.TabIndex = 0;
             this.txtDescription.Text = "";
             // 
@@ -284,7 +296,7 @@
             this.panel4.Location = new System.Drawing.Point(12, 554);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
-            this.panel4.Size = new System.Drawing.Size(831, 147);
+            this.panel4.Size = new System.Drawing.Size(848, 147);
             this.panel4.TabIndex = 7;
             // 
             // groupBox3
@@ -294,7 +306,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(0, 15);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(831, 132);
+            this.groupBox3.Size = new System.Drawing.Size(848, 132);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Mô tả ngắn (HTML)";
@@ -304,7 +316,7 @@
             this.txtShortDescription.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtShortDescription.Location = new System.Drawing.Point(3, 16);
             this.txtShortDescription.Name = "txtShortDescription";
-            this.txtShortDescription.Size = new System.Drawing.Size(825, 113);
+            this.txtShortDescription.Size = new System.Drawing.Size(842, 113);
             this.txtShortDescription.TabIndex = 0;
             this.txtShortDescription.Text = "";
             // 
@@ -315,7 +327,7 @@
             this.panel2.Location = new System.Drawing.Point(12, 251);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
-            this.panel2.Size = new System.Drawing.Size(831, 303);
+            this.panel2.Size = new System.Drawing.Size(848, 303);
             this.panel2.TabIndex = 6;
             // 
             // groupBox2
@@ -326,7 +338,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 15);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(831, 288);
+            this.groupBox2.Size = new System.Drawing.Size(848, 288);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Hình ảnh";
@@ -337,7 +349,7 @@
             this.panelImages.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelImages.Location = new System.Drawing.Point(3, 60);
             this.panelImages.Name = "panelImages";
-            this.panelImages.Size = new System.Drawing.Size(825, 225);
+            this.panelImages.Size = new System.Drawing.Size(842, 225);
             this.panelImages.TabIndex = 1;
             // 
             // panel7
@@ -346,7 +358,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(3, 16);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(825, 44);
+            this.panel7.Size = new System.Drawing.Size(842, 44);
             this.panel7.TabIndex = 0;
             // 
             // btnUploadImages
@@ -376,7 +388,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 50);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(8, 12, 8, 8);
-            this.groupBox1.Size = new System.Drawing.Size(831, 201);
+            this.groupBox1.Size = new System.Drawing.Size(848, 201);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin chung";
@@ -407,7 +419,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 176F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(815, 100);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(832, 100);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // label4
@@ -450,7 +462,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label6.Location = new System.Drawing.Point(400, 8);
+            this.label6.Location = new System.Drawing.Point(409, 8);
             this.label6.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(114, 15);
@@ -462,7 +474,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label7.Location = new System.Drawing.Point(400, 40);
+            this.label7.Location = new System.Drawing.Point(409, 40);
             this.label7.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(114, 15);
@@ -474,7 +486,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label8.Location = new System.Drawing.Point(400, 72);
+            this.label8.Location = new System.Drawing.Point(409, 72);
             this.label8.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(114, 15);
@@ -489,17 +501,17 @@
             this.cbbBrands.Location = new System.Drawing.Point(103, 72);
             this.cbbBrands.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.cbbBrands.Name = "cbbBrands";
-            this.cbbBrands.Size = new System.Drawing.Size(291, 23);
+            this.cbbBrands.Size = new System.Drawing.Size(300, 23);
             this.cbbBrands.TabIndex = 13;
             // 
             // cbbCategories
             // 
             this.cbbCategories.Dock = System.Windows.Forms.DockStyle.Top;
             this.cbbCategories.FormattingEnabled = true;
-            this.cbbCategories.Location = new System.Drawing.Point(520, 72);
+            this.cbbCategories.Location = new System.Drawing.Point(529, 72);
             this.cbbCategories.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.cbbCategories.Name = "cbbCategories";
-            this.cbbCategories.Size = new System.Drawing.Size(292, 23);
+            this.cbbCategories.Size = new System.Drawing.Size(300, 23);
             this.cbbCategories.TabIndex = 14;
             // 
             // tableLayoutPanel1
@@ -517,7 +529,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 130F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(815, 63);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(832, 63);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label2
@@ -538,7 +550,7 @@
             this.txtProductName.Location = new System.Drawing.Point(103, 38);
             this.txtProductName.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(709, 21);
+            this.txtProductName.Size = new System.Drawing.Size(726, 21);
             this.txtProductName.TabIndex = 3;
             // 
             // label1
@@ -559,7 +571,7 @@
             this.txtProductId.Location = new System.Drawing.Point(103, 8);
             this.txtProductId.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.txtProductId.Name = "txtProductId";
-            this.txtProductId.Size = new System.Drawing.Size(709, 21);
+            this.txtProductId.Size = new System.Drawing.Size(726, 21);
             this.txtProductId.TabIndex = 1;
             // 
             // txtPrice
@@ -568,16 +580,16 @@
             this.txtPrice.Location = new System.Drawing.Point(103, 8);
             this.txtPrice.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(291, 21);
+            this.txtPrice.Size = new System.Drawing.Size(300, 21);
             this.txtPrice.TabIndex = 15;
             // 
             // txtOriginalPrice
             // 
             this.txtOriginalPrice.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtOriginalPrice.Location = new System.Drawing.Point(520, 8);
+            this.txtOriginalPrice.Location = new System.Drawing.Point(529, 8);
             this.txtOriginalPrice.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.txtOriginalPrice.Name = "txtOriginalPrice";
-            this.txtOriginalPrice.Size = new System.Drawing.Size(292, 21);
+            this.txtOriginalPrice.Size = new System.Drawing.Size(300, 21);
             this.txtOriginalPrice.TabIndex = 16;
             // 
             // txtManuYear
@@ -586,36 +598,24 @@
             this.txtManuYear.Location = new System.Drawing.Point(103, 40);
             this.txtManuYear.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.txtManuYear.Name = "txtManuYear";
-            this.txtManuYear.Size = new System.Drawing.Size(291, 21);
+            this.txtManuYear.Size = new System.Drawing.Size(300, 21);
             this.txtManuYear.TabIndex = 17;
             // 
             // txtWarranty
             // 
             this.txtWarranty.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtWarranty.Location = new System.Drawing.Point(520, 40);
+            this.txtWarranty.Location = new System.Drawing.Point(529, 40);
             this.txtWarranty.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.txtWarranty.Name = "txtWarranty";
-            this.txtWarranty.Size = new System.Drawing.Size(292, 21);
+            this.txtWarranty.Size = new System.Drawing.Size(300, 21);
             this.txtWarranty.TabIndex = 18;
-            // 
-            // SpecName
-            // 
-            this.SpecName.DataPropertyName = "SpecName";
-            this.SpecName.HeaderText = "Tên thông số";
-            this.SpecName.Name = "SpecName";
-            // 
-            // SpecValue
-            // 
-            this.SpecValue.DataPropertyName = "SpecValue";
-            this.SpecValue.HeaderText = "Mô tả thông số";
-            this.SpecValue.Name = "SpecValue";
             // 
             // AddUpdateProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(872, 774);
+            this.ClientSize = new System.Drawing.Size(889, 774);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);

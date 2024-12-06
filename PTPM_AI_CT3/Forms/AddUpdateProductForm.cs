@@ -26,6 +26,7 @@ namespace PTPM_AI_CT3.Forms
         private int imageCurrentRow = 0, imageCurrentCol = 0;
         private List<ProductSpecification> specs;
         List<ProductImage> images;
+        List<ProductImage> oldImages;
 
         public bool isUpdate;
         public string productUpdateId;
@@ -47,6 +48,7 @@ namespace PTPM_AI_CT3.Forms
 
             specs = new List<ProductSpecification>();
             images = new List<ProductImage>();
+            oldImages = new List<ProductImage>();
 
 
             this.Load += AddUpdateProductForm_Load;
@@ -100,7 +102,7 @@ namespace PTPM_AI_CT3.Forms
 
                 foreach (string filePath in openFileDialog.FileNames)
                 {
-                    RenderImageToPanel(filePath);
+                    RenderImageToPanel(filePath, false);
                     images.Add(new ProductImage
                     {
                         ImageSrc = filePath,
@@ -109,7 +111,7 @@ namespace PTPM_AI_CT3.Forms
             }
         }
 
-        private void RenderImageToPanel(string filePath)
+        private async void RenderImageToPanel(string filePath, bool fromCloud)
         {
             int margin = 15;
             int pictureBoxSize = 100;
@@ -119,7 +121,7 @@ namespace PTPM_AI_CT3.Forms
             {
                 Size = new Size(pictureBoxSize, pictureBoxSize),
                 SizeMode = PictureBoxSizeMode.Zoom,
-                Image = Image.FromFile(filePath),
+                Image = fromCloud ? await ImageUtils.LoadImageFromUrl(filePath) : Image.FromFile(filePath),
                 BorderStyle = BorderStyle.FixedSingle
             };
 
@@ -159,21 +161,7 @@ namespace PTPM_AI_CT3.Forms
 
                 this.Cursor = Cursors.WaitCursor;    
 
-                Product product = new Product
-                {
-                    ProductId = txtProductId.Text,
-                    ProductName = txtProductName.Text,
-                    BrandId = cbbBrands.SelectedIndex > 0 ? cbbBrands.SelectedValue.ToString() : null,
-                    CategoryId = cbbCategories.SelectedIndex > 0 ? cbbCategories.SelectedValue.ToString() : null,
-                    Price = decimal.Parse(txtPrice.Text),
-                    OriginalPrice = string.IsNullOrEmpty(txtOriginalPrice.Text) ? null : (decimal?)decimal.Parse(txtOriginalPrice.Text),
-                    ShortDescription = txtShortDescription.Text,
-                    Description = txtDescription.Text,
-                    ManufacturedYear = string.IsNullOrEmpty(txtManuYear.Text) ? null : (int?)int.Parse(txtManuYear.Text),
-                    Warranty = string.IsNullOrEmpty(txtWarranty.Text) ? null : (int?)int.Parse(txtWarranty.Text),
-                    DateAdded = DateTime.Now,
-                    IsActive = true,
-                };
+                Product product = GetProductFormData();
 
                 await uploadImagesToAzure(product.ProductId, product.ProductName);
 
@@ -185,14 +173,76 @@ namespace PTPM_AI_CT3.Forms
                     MessageBox.Show("Không thể thêm sản phẩm, vui lòng nhập đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+
+                MessageBox.Show("Thêm sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
+                Product product = GetProductFormData();
 
+                submitResult = productBLL.UpdateProduct(product, images, specs);
+                this.Cursor = Cursors.Default;
+
+                if (!submitResult)
+                {
+                    MessageBox.Show("Không thể cập nhật sản phẩm, vui lòng nhập đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                MessageBox.Show("Cập nhật sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             OnLoadProducts?.Invoke(this, EventArgs.Empty);
             this.Close();
+        }
+
+        private Product GetProductFormData()
+        {
+            return new Product
+            {
+                ProductId = txtProductId.Text,
+                ProductName = txtProductName.Text,
+                BrandId = cbbBrands.SelectedIndex > 0 ? cbbBrands.SelectedValue.ToString() : null,
+                CategoryId = cbbCategories.SelectedIndex > 0 ? cbbCategories.SelectedValue.ToString() : null,
+                Price = decimal.Parse(txtPrice.Text),
+                OriginalPrice = string.IsNullOrEmpty(txtOriginalPrice.Text) ? null : (decimal?)decimal.Parse(txtOriginalPrice.Text),
+                ShortDescription = txtShortDescription.Text,
+                Description = txtDescription.Text,
+                ManufacturedYear = string.IsNullOrEmpty(txtManuYear.Text) ? null : (int?)int.Parse(txtManuYear.Text),
+                Warranty = string.IsNullOrEmpty(txtWarranty.Text) ? null : (int?)int.Parse(txtWarranty.Text),
+                DateAdded = DateTime.Now,
+                IsActive = true,
+            };
+        }
+
+        private void LoadProductFormData()
+        {
+            Product product = productBLL.GetProductById(productUpdateId);
+
+            txtProductId.Text = product.ProductId;
+            txtProductName.Text = product.ProductName;
+            cbbBrands.SelectedValue = product.BrandId;
+            cbbCategories.SelectedValue = product.CategoryId;
+            txtPrice.Text = product.Price.ToString();
+            txtOriginalPrice.Text = product.OriginalPrice?.ToString();
+            txtShortDescription.Text = product.ShortDescription;
+            txtDescription.Text = product.Description;
+            txtManuYear.Text = product.ManufacturedYear?.ToString();
+            txtWarranty.Text = product.Warranty?.ToString();
+
+            foreach(ProductImage image in product.ProductImages)
+            {
+                images.Add(image);
+                oldImages.Add(image);
+                RenderImageToPanel(image.ImageSrc, true);
+            }
+
+            specs.AddRange(product.ProductSpecifications);
+            dgvSpecifications.DataSource = specs.Select(s => new
+            {
+                s.SpecName,
+                s.SpecValue
+            }).ToList();
         }
 
         private bool ProcessData()
@@ -270,18 +320,6 @@ namespace PTPM_AI_CT3.Forms
 
         private void initUI()
         {
-            btnUploadImages.BackColor = MyColors.LIGHTBLUE;
-            btnAddSpec.BackColor = MyColors.LIGHTBLUE;
-            btnSubmit.BackColor = MyColors.GREEN;
-
-            if(isUpdate)
-            {
-                txtProductId.Enabled = false;
-                btnSubmit.Text = "Cập nhật";
-
-               // Product product = productBLL.GetProductById(productUpdateId);
-            }
-
             List<Brand> brands = new List<Brand>
             {
                 new Brand
@@ -309,6 +347,50 @@ namespace PTPM_AI_CT3.Forms
             cbbCategories.DataSource = categories;
             cbbCategories.ValueMember = nameof(Category.CategoryId);
             cbbCategories.DisplayMember = nameof(Category.CategoryName);
+
+            btnUploadImages.BackColor = MyColors.LIGHTBLUE;
+            btnAddSpec.BackColor = MyColors.LIGHTBLUE;
+            btnSubmit.BackColor = MyColors.GREEN;
+
+            DataGridViewButtonColumn deleteButtonColumn = new DataGridViewButtonColumn
+            {
+                Name = "DeleteButton",
+                HeaderText = "",
+                Text = "Xóa",
+                UseColumnTextForButtonValue = true,
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+            };
+            dgvSpecifications.Columns.Add(deleteButtonColumn);
+            dgvSpecifications.CellContentClick += DgvSpecifications_CellContentClick;
+
+            if (isUpdate)
+            {
+                txtProductId.Enabled = false;
+                btnSubmit.Text = "Cập nhật";
+
+                LoadProductFormData();
+            }
+        }
+
+        private void DgvSpecifications_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvSpecifications.Columns[e.ColumnIndex].Name != "DeleteButton")
+            {
+                return;
+            }
+
+            var selectedRow = dgvSpecifications.Rows[e.RowIndex];
+
+            var itemToDelete = specs
+                .FirstOrDefault(s => s.SpecName == selectedRow.Cells["SpecName"].Value.ToString() 
+                                && s.SpecValue == selectedRow.Cells["SpecValue"].Value.ToString());
+            specs.Remove(itemToDelete);
+
+            dgvSpecifications.DataSource = specs.Select(s => new
+            {
+                s.SpecName,
+                s.SpecValue
+            }).ToList();
         }
     }
 }
