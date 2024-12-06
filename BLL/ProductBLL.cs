@@ -22,6 +22,11 @@ namespace BLL
             return productDAL.GetProducts(page, pageSize);
         }
 
+        public PagedList<Product> SearchProducts(int page, int pageSize, string search)
+        {
+            return productDAL.SearchProducts(page, pageSize, search);
+        }
+
         public Product GetProductById(string productId)
         {
             return productDAL.GetProductById(productId);
@@ -30,6 +35,16 @@ namespace BLL
         public bool AddProduct(Product product, List<ProductImage> images, List<ProductSpecification> specs)
         {
             return productDAL.AddProduct(product, images, specs);
+        }
+
+        public bool UpdateProduct(Product product, List<ProductImage> images, List<ProductSpecification> specs)
+        {
+            return productDAL.UpdateProduct(product, images, specs);
+        }
+
+        public bool DeleteProduct(string productId)
+        {
+            return productDAL.DeleteProduct(productId);
         }
     }
 }

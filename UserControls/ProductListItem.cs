@@ -57,7 +57,7 @@ namespace UserControls
             lblNo.Text = index.ToString();
             lblProductName.Text = product.ProductName;
             lblPrice.Text = product.Price.ToString("##,###") + "đ";
-            lblOriginalPrice.Text = product.OriginalPrice?.ToString("##,###") + "đ";
+            lblOriginalPrice.Text = product.OriginalPrice == null ? "--" : product.OriginalPrice?.ToString("##,###") + "đ";
             lblInstock.Text = instock.ToString();
 
             if(instock == 0)
