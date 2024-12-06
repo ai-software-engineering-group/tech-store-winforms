@@ -10,15 +10,15 @@ using System.Windows.Forms;
 
 namespace DAL
 {
-    public class BrandDaL
+    public class BrandDAL
     {
         STechDBDataContext db = new STechDBDataContext();
 
-        public BrandDaL() { }
+        public BrandDAL() { }
 
-        public List<Brand> LoadBrand()
+        public List<Brand> LoadBrands()
         {
-            return db.Brands.Select(Brand => Brand).ToList();
+            return db.Brands.ToList();
         }
 
         public bool themBrand(Brand br)

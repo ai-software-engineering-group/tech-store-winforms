@@ -21,5 +21,39 @@ namespace DAL
         {
             return context.Products.ToPagedList(page, pageSize);
         }
+
+        public Product GetProductById(string productId)
+        {
+            return context.Products.FirstOrDefault(p => p.ProductId == productId);
+        }
+
+        public bool AddProduct(Product product, List<ProductImage> images, List<ProductSpecification> specs)
+        {
+            try
+            {
+                context.Products.InsertOnSubmit(product);
+                context.SubmitChanges();
+
+                foreach (var image in images)
+                {
+                    image.ProductId = product.ProductId;
+                    context.ProductImages.InsertOnSubmit(image);
+                }
+
+                foreach (var spec in specs)
+                {
+                    spec.ProductId = product.ProductId;
+                    context.ProductSpecifications.InsertOnSubmit(spec);
+                }
+
+                context.SubmitChanges();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

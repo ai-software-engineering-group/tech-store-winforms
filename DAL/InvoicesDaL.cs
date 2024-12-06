@@ -8,10 +8,10 @@ using DTO;
 
 namespace DAL
 {
-    public class InvoicesDaL
+    public class InvoicesDAL
     {
         STechDBDataContext db = new STechDBDataContext();
-        public InvoicesDaL()
+        public InvoicesDAL()
         {
 
         }

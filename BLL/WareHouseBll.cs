@@ -8,10 +8,10 @@ using DAL;
 
 namespace BLL
 {
-    public class WareHouseBll
+    public class WarehouseBLL
     {
         WareHouseDal wareHouseDal = new WareHouseDal();
-        public WareHouseBll()
+        public WarehouseBLL()
         {
 
         }

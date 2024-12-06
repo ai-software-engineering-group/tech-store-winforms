@@ -28,6 +28,12 @@ namespace UserControls
             this.Load += ProductListItem_Load;
         }
 
+        public void SetClickEvent(EventHandler editEvent, EventHandler deleteEvent)
+        {
+            btnEditProduct.Click += editEvent;
+            btnDeleteProduct.Click += deleteEvent;
+        }
+
         private void ProductListItem_Load(object sender, EventArgs e)
         {
             LoadData();

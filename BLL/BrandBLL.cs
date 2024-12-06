@@ -10,16 +10,16 @@ namespace BLL
 {
     public class BrandBLL
     {
-        BrandDaL brandDal = new BrandDaL();
+        BrandDAL brandDal = new BrandDAL();
 
         public BrandBLL()
         {
 
         }
 
-        public List<Brand> getBrand()
+        public List<Brand> GetBrands()
         {
-            return brandDal.LoadBrand();
+            return brandDal.LoadBrands();
         }
 
         public bool themBrand(Brand brand)

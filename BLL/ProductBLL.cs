@@ -21,5 +21,15 @@ namespace BLL
         {
             return productDAL.GetProducts(page, pageSize);
         }
+
+        public Product GetProductById(string productId)
+        {
+            return productDAL.GetProductById(productId);
+        }
+
+        public bool AddProduct(Product product, List<ProductImage> images, List<ProductSpecification> specs)
+        {
+            return productDAL.AddProduct(product, images, specs);
+        }
     }
 }
