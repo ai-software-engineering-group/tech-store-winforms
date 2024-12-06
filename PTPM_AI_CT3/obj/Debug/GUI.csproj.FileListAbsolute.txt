@@ -95,3 +95,4 @@ D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\bin\Debug\Magick.NET.Core.dl
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\bin\Debug\Magick.NET-Q8-AnyCPU.xml
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\bin\Debug\Magick.NET.Core.xml
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.Forms.AddUpdateProductForm.resources
+D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.Forms.LoginForm.resources

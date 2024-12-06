@@ -123,6 +123,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Auth\AuthenticatedUser.cs" />
     <Compile Include="AzureServices\CloudStorageService.cs" />
     <Compile Include="Constants\MyColors.cs" />
     <Compile Include="deleteBrand.cs">
@@ -136,6 +137,12 @@
     </Compile>
     <Compile Include="Forms\AddUpdateProductForm.Designer.cs">
       <DependentUpon>AddUpdateProductForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ProductsForm.cs">
       <SubType>Form</SubType>
@@ -178,6 +185,7 @@
     <Compile Include="Utils\FormatString.cs" />
     <Compile Include="Utils\ImageUtils.cs" />
     <Compile Include="Utils\PaginateUtils.cs" />
+    <Compile Include="Utils\PasswordUtils.cs" />
     <Compile Include="Utils\RandomUtils.cs" />
     <Compile Include="Utils\RegexUtils.cs" />
     <Compile Include="warehouseForm.cs">
@@ -191,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddUpdateProductForm.resx">
       <DependentUpon>AddUpdateProductForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProductsForm.resx">
       <DependentUpon>ProductsForm.cs</DependentUpon>
