@@ -58,6 +58,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyTextbox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyTextbox.Designer.cs">
+      <DependentUpon>MyTextbox.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductListHeader.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="MyTextbox.resx">
+      <DependentUpon>MyTextbox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductListHeader.resx">
       <DependentUpon>ProductListHeader.cs</DependentUpon>
     </EmbeddedResource>
