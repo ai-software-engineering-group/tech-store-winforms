@@ -54,7 +54,7 @@ namespace PTPM_AI_CT3.Forms
                 return;
             }
 
-            AuthenticatedUser.SetAuthenticatedUser(user, new List<Function>());
+            AuthenticatedUser.SetAuthenticatedUser(user);
             this.Hide();
 
             new MainForm().Show();

@@ -179,7 +179,7 @@
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ProductsForm";
-            this.Text = "it pu";
+            this.Text = "Danh sách sản phẩm";
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
