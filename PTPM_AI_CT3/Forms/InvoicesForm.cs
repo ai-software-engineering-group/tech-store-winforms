@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using DTO;
 using BLL;
 
-namespace PTPM_AI_CT3
+namespace PTPM_AI_CT3.Forms
 {
     public partial class InvoicesForm : Form
     {

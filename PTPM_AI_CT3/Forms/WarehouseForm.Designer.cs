@@ -1,6 +1,6 @@
 ﻿namespace PTPM_AI_CT3
 {
-    partial class warehouseForm
+    partial class WarehouseForm
     {
         /// <summary>
         /// Required designer variable.

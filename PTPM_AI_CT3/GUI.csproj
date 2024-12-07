@@ -159,10 +159,10 @@
     <Compile Include="InsertBrand.Designer.cs">
       <DependentUpon>InsertBrand.cs</DependentUpon>
     </Compile>
-    <Compile Include="InvoicesForm.cs">
+    <Compile Include="Forms\InvoicesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InvoicesForm.Designer.cs">
+    <Compile Include="Forms\InvoicesForm.Designer.cs">
       <DependentUpon>InvoicesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
@@ -173,17 +173,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QLHANGSANXUAT.cs">
+    <Compile Include="Forms\BrandForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QLHANGSANXUAT.Designer.cs">
-      <DependentUpon>QLHANGSANXUAT.cs</DependentUpon>
+    <Compile Include="Forms\BrandForm.Designer.cs">
+      <DependentUpon>BrandForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="QLKhachHang.cs">
+    <Compile Include="Forms\CustomerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QLKhachHang.Designer.cs">
-      <DependentUpon>QLKhachHang.cs</DependentUpon>
+    <Compile Include="Forms\CustomerForm.Designer.cs">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="updateBrand.cs">
       <SubType>UserControl</SubType>
@@ -197,11 +197,11 @@
     <Compile Include="Utils\PasswordUtils.cs" />
     <Compile Include="Utils\RandomUtils.cs" />
     <Compile Include="Utils\RegexUtils.cs" />
-    <Compile Include="warehouseForm.cs">
+    <Compile Include="Forms\WarehouseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="warehouseForm.Designer.cs">
-      <DependentUpon>warehouseForm.cs</DependentUpon>
+    <Compile Include="Forms\WarehouseForm.Designer.cs">
+      <DependentUpon>WarehouseForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="deleteBrand.resx">
       <DependentUpon>deleteBrand.cs</DependentUpon>
@@ -218,7 +218,7 @@
     <EmbeddedResource Include="InsertBrand.resx">
       <DependentUpon>InsertBrand.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InvoicesForm.resx">
+    <EmbeddedResource Include="Forms\InvoicesForm.resx">
       <DependentUpon>InvoicesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
@@ -233,17 +233,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="QLHANGSANXUAT.resx">
-      <DependentUpon>QLHANGSANXUAT.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\BrandForm.resx">
+      <DependentUpon>BrandForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QLKhachHang.resx">
-      <DependentUpon>QLKhachHang.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\CustomerForm.resx">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="updateBrand.resx">
       <DependentUpon>updateBrand.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="warehouseForm.resx">
-      <DependentUpon>warehouseForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\WarehouseForm.resx">
+      <DependentUpon>WarehouseForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

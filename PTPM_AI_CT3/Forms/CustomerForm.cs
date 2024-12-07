@@ -7,14 +7,14 @@ using BLL;
 using DTO;
 using DAL;
 
-namespace PTPM_AI_CT3
+namespace PTPM_AI_CT3.Forms
 {
-    public partial class QLKhachHang : Form
+    public partial class CustomerForm : Form
     {
         List<Customer> customers = new List<Customer>();
         CustomersBLL customersBLL = new CustomersBLL();
         private CustomersDAL customersDAL;
-        public QLKhachHang()
+        public CustomerForm()
         {
             InitializeComponent();
             customersDAL = new CustomersDAL();

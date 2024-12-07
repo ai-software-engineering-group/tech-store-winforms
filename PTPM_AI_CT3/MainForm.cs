@@ -99,7 +99,7 @@ namespace PTPM_AI_CT3
         private void BtnWarehouses_Click(object sender, EventArgs e)
         {
             ActiveBtn(sender, Colors.color9);
-            OpenChildForm(new warehouseForm());
+            OpenChildForm(new WarehouseForm());
         }
 
         private void BtnEmployees_Click(object sender, EventArgs e)
@@ -110,7 +110,7 @@ namespace PTPM_AI_CT3
         private void BtnCustomers_Click(object sender, EventArgs e)
         {
             ActiveBtn(sender, Colors.color7);
-            OpenChildForm(new QLKhachHang());
+            OpenChildForm(new CustomerForm());
         }
 
         private void BtnOrders_Click(object sender, EventArgs e)

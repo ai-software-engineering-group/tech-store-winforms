@@ -34,9 +34,7 @@ D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\bin\Debug\DAL.pdb
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\obj\Debug\GUI.csproj.AssemblyReference.cache
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.deleteBrand.resources
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.InsertBrand.resources
-D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.InvoicesForm.resources
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.Properties.Resources.resources
-D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.QLHANGSANXUAT.resources
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.updateBrand.resources
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.warehouseForm.resources
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\obj\Debug\GUI.csproj.GenerateResource.cache
@@ -172,4 +170,6 @@ D:\Thu3\tech-store-winforms\PTPM_AI_CT3\bin\Debug\Magick.Native-Q8-arm64.dll
 D:\Thu3\tech-store-winforms\PTPM_AI_CT3\bin\Debug\Magick.Native-Q8-x64.dll
 D:\Thu3\tech-store-winforms\PTPM_AI_CT3\bin\Debug\Magick.Native-Q8-x86.dll
 D:\Thu3\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.QLKhachHang.resources
-D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.QLKhachHang.resources
+D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.Forms.InvoicesForm.resources
+D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.Forms.BrandForm.resources
+D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.Forms.CustomerForm.resources

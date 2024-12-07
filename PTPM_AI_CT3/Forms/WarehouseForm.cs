@@ -12,10 +12,10 @@ using BLL;
 
 namespace PTPM_AI_CT3
 {
-    public partial class warehouseForm : Form
+    public partial class WarehouseForm : Form
     {
         WarehouseBLL wareHouseBll = new WarehouseBLL();
-        public warehouseForm()
+        public WarehouseForm()
         {
             InitializeComponent();
             this.Load += WarehouseForm_Load;
