@@ -26,5 +26,17 @@ namespace BLL
         {
             return dal.CreateUser(user);
         }
+        public List<User> Load()
+        {
+            try
+            {
+                return dal.LoadUser();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi lấy danh sách khách hàng: " + ex.Message);
+                return null;
+            }
+        }
     }
 }

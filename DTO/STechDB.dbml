@@ -1,5 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="STechDB" Class="STechDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=AORUS-Laptop;Initial Catalog=STechDB;Integrated Security=True;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="STechDBConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-M9A6EQEQ\D;Initial Catalog=STechDB;Integrated Security=True" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="STechDBConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Banners" Member="Banners">
+    <Type Name="Banner">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BannerImgSrc" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="RedirectUrl" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="BannerType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="BannerType_Banner" Member="BannerType1" ThisKey="BannerType" OtherKey="Id" Type="BannerType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WarrantySlips" Member="WarrantySlips">
+    <Type Name="WarrantySlip">
+      <Column Name="WSId" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SentDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ReturnedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Reason" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ProductStatus" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="WarrantyFee" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ProductId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="InvoiceId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Employee_WarrantySlip" Member="Employee" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="Employee" IsForeignKey="true" />
+      <Association Name="Employee_WarrantySlip1" Member="Employee1" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="Employee" IsForeignKey="true" />
+      <Association Name="Invoice_WarrantySlip" Member="Invoice" ThisKey="InvoiceId" OtherKey="InvoiceId" Type="Invoice" IsForeignKey="true" />
+      <Association Name="Invoice_WarrantySlip1" Member="Invoice1" ThisKey="InvoiceId" OtherKey="InvoiceId" Type="Invoice" IsForeignKey="true" />
+      <Association Name="Product_WarrantySlip" Member="Product" ThisKey="ProductId" OtherKey="ProductId" Type="Product" IsForeignKey="true" />
+      <Association Name="Product_WarrantySlip1" Member="Product1" ThisKey="ProductId" OtherKey="ProductId" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BannerTypes" Member="BannerTypes">
+    <Type Name="BannerType">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="BannerType_Banner" Member="Banners" ThisKey="Id" OtherKey="BannerType" Type="Banner" />
+    </Type>
+  </Table>
   <Table Name="dbo.Brands" Member="Brands">
     <Type Name="Brand">
       <Column Name="BrandId" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -33,7 +70,6 @@
       <Column Name="DistrictCode" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="Province" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="ProvinceCode" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="MemberSince" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Customer_Invoice" Member="Invoices" ThisKey="CustomerId" OtherKey="CustomerId" Type="Invoice" />
     </Type>
   </Table>
@@ -69,13 +105,16 @@
       <Column Name="DistrictCode" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="Province" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="ProvinceCode" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="Employee_WarrantySlip" Member="WarrantySlips" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="WarrantySlip" />
+      <Association Name="Employee_WarrantySlip1" Member="WarrantySlips1" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="WarrantySlip" />
       <Association Name="Employee_Invoice" Member="Invoices" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="Invoice" />
       <Association Name="Employee_PackingSlip" Member="PackingSlips" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="PackingSlip" />
       <Association Name="Employee_ReturnExchangeSlip" Member="ReturnExchangeSlips" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="ReturnExchangeSlip" />
+      <Association Name="Employee_ReturnExchangeSlip1" Member="ReturnExchangeSlips1" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="ReturnExchangeSlip" />
       <Association Name="Employee_User" Member="Users" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="User" />
       <Association Name="Employee_WarehouseExport" Member="WarehouseExports" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="WarehouseExport" />
       <Association Name="Employee_WarehouseImport" Member="WarehouseImports" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="WarehouseImport" />
-      <Association Name="Employee_WarrantySlip" Member="WarrantySlips" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="WarrantySlip" />
+      <Association Name="Employee_WarehouseImport1" Member="WarehouseImports1" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="WarehouseImport" />
     </Type>
   </Table>
   <Table Name="dbo.FunctionAuthorization" Member="FunctionAuthorizations">
@@ -84,7 +123,9 @@
       <Column Name="FuncId" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="IsAuthorized" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Function_FunctionAuthorization" Member="Function" ThisKey="FuncId" OtherKey="FuncId" Type="Function" IsForeignKey="true" />
+      <Association Name="Function_FunctionAuthorization1" Member="Function1" ThisKey="FuncId" OtherKey="FuncId" Type="Function" IsForeignKey="true" />
       <Association Name="UserGroup_FunctionAuthorization" Member="UserGroup" ThisKey="GroupId" OtherKey="GroupId" Type="UserGroup" IsForeignKey="true" />
+      <Association Name="UserGroup_FunctionAuthorization1" Member="UserGroup1" ThisKey="GroupId" OtherKey="GroupId" Type="UserGroup" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.FunctionCategories" Member="FunctionCategories">
@@ -102,6 +143,7 @@
       <Column Name="FuncCateId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="IconSrc" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Association Name="Function_FunctionAuthorization" Member="FunctionAuthorizations" ThisKey="FuncId" OtherKey="FuncId" Type="FunctionAuthorization" />
+      <Association Name="Function_FunctionAuthorization1" Member="FunctionAuthorizations1" ThisKey="FuncId" OtherKey="FuncId" Type="FunctionAuthorization" />
       <Association Name="FunctionCategory_Function" Member="FunctionCategory" ThisKey="FuncCateId" OtherKey="FuncCateId" Type="FunctionCategory" IsForeignKey="true" />
     </Type>
   </Table>
@@ -139,12 +181,14 @@
       <Column Name="CompletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="IsAccepted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="AcceptedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Invoice_WarrantySlip" Member="WarrantySlips" ThisKey="InvoiceId" OtherKey="InvoiceId" Type="WarrantySlip" />
+      <Association Name="Invoice_WarrantySlip1" Member="WarrantySlips1" ThisKey="InvoiceId" OtherKey="InvoiceId" Type="WarrantySlip" />
       <Association Name="Invoice_InvoiceDetail" Member="InvoiceDetails" ThisKey="InvoiceId" OtherKey="InvoiceId" Type="InvoiceDetail" />
       <Association Name="Invoice_InvoiceStatus" Member="InvoiceStatus" ThisKey="InvoiceId" OtherKey="InvoiceId" Type="InvoiceStatus" />
       <Association Name="Invoice_PackingSlip" Member="PackingSlips" ThisKey="InvoiceId" OtherKey="InvoiceId" Type="PackingSlip" />
       <Association Name="Invoice_ReturnExchangeSlip" Member="ReturnExchangeSlips" ThisKey="InvoiceId" OtherKey="InvoiceId" Type="ReturnExchangeSlip" />
+      <Association Name="Invoice_ReturnExchangeSlip1" Member="ReturnExchangeSlips1" ThisKey="InvoiceId" OtherKey="InvoiceId" Type="ReturnExchangeSlip" />
       <Association Name="Invoice_WarehouseExport" Member="WarehouseExports" ThisKey="InvoiceId" OtherKey="InvoiceId" Type="WarehouseExport" />
-      <Association Name="Invoice_WarrantySlip" Member="WarrantySlips" ThisKey="InvoiceId" OtherKey="InvoiceId" Type="WarrantySlip" />
       <Association Name="Customer_Invoice" Member="Customer" ThisKey="CustomerId" OtherKey="CustomerId" Type="Customer" IsForeignKey="true" />
       <Association Name="DeliveryMethod_Invoice" Member="DeliveryMethod" ThisKey="DeliveryMedId" OtherKey="DeliveryMedId" Type="DeliveryMethod" IsForeignKey="true" />
       <Association Name="Employee_Invoice" Member="Employee" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="Employee" IsForeignKey="true" />
@@ -159,6 +203,34 @@
       <Column Name="Status" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Invoice_InvoiceStatus" Member="Invoice" ThisKey="InvoiceId" OtherKey="InvoiceId" Type="Invoice" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Menu" Member="Menus">
+    <Type Name="Menu">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MenuName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RedirectUrl" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="MenuIcon" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Menu_MenuLevel1" Member="MenuLevel1s" ThisKey="Id" OtherKey="MenuId" Type="MenuLevel1" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MenuLevel1" Member="MenuLevel1s">
+    <Type Name="MenuLevel1">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MenuName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RedirectUrl" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="MenuId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="MenuLevel1_MenuLevel2" Member="MenuLevel2s" ThisKey="Id" OtherKey="MenuLevel1Id" Type="MenuLevel2" />
+      <Association Name="Menu_MenuLevel1" Member="Menu" ThisKey="MenuId" OtherKey="Id" Type="Menu" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MenuLevel2" Member="MenuLevel2s">
+    <Type Name="MenuLevel2">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MenuName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RedirectUrl" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="MenuLevel1Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="MenuLevel1_MenuLevel2" Member="MenuLevel1" ThisKey="MenuLevel1Id" OtherKey="Id" Type="MenuLevel1" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.PackingSlips" Member="PackingSlips">
@@ -182,6 +254,36 @@
       <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="Sort" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
       <Association Name="PaymentMethod_Invoice" Member="Invoices" ThisKey="PaymentMedId" OtherKey="PaymentMedId" Type="Invoice" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductGroupItems" Member="ProductGroupItems">
+    <Type Name="ProductGroupItem">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GroupId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="ProductGroup_ProductGroupItem" Member="ProductGroup" ThisKey="GroupId" OtherKey="Id" Type="ProductGroup" IsForeignKey="true" />
+      <Association Name="Product_ProductGroupItem" Member="Product" ThisKey="ProductId" OtherKey="ProductId" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductGroups" Member="ProductGroups">
+    <Type Name="ProductGroup">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GroupTypeId" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="GroupName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="BackgroundColor" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="HeaderTextColor" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="ProductGroup_ProductGroupItem" Member="ProductGroupItems" ThisKey="Id" OtherKey="GroupId" Type="ProductGroupItem" />
+      <Association Name="ProductGroupType_ProductGroup" Member="ProductGroupType" ThisKey="GroupTypeId" OtherKey="TypeId" Type="ProductGroupType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductGroupTypes" Member="ProductGroupTypes">
+    <Type Name="ProductGroupType">
+      <Column Name="TypeId" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="ProductGroupType_ProductGroup" Member="ProductGroups" ThisKey="TypeId" OtherKey="GroupTypeId" Type="ProductGroup" />
     </Type>
   </Table>
   <Table Name="dbo.ProductImages" Member="ProductImages">
@@ -208,19 +310,21 @@
       <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="DateDeleted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Product_WarrantySlip" Member="WarrantySlips" ThisKey="ProductId" OtherKey="ProductId" Type="WarrantySlip" />
+      <Association Name="Product_WarrantySlip1" Member="WarrantySlips1" ThisKey="ProductId" OtherKey="ProductId" Type="WarrantySlip" />
       <Association Name="Product_InvoiceDetail" Member="InvoiceDetails" ThisKey="ProductId" OtherKey="ProductId" Type="InvoiceDetail" />
+      <Association Name="Product_ProductGroupItem" Member="ProductGroupItems" ThisKey="ProductId" OtherKey="ProductId" Type="ProductGroupItem" />
       <Association Name="Product_ProductImage" Member="ProductImages" ThisKey="ProductId" OtherKey="ProductId" Type="ProductImage" />
       <Association Name="Product_ProductSpecification" Member="ProductSpecifications" ThisKey="ProductId" OtherKey="ProductId" Type="ProductSpecification" />
-      <Association Name="Product_ProductGroupItem" Member="ProductGroupItems" ThisKey="ProductId" OtherKey="ProductId" Type="ProductGroupItem" />
       <Association Name="Product_ReturnExchangeSlip" Member="ReturnExchangeSlips" ThisKey="ProductId" OtherKey="ProductId" Type="ReturnExchangeSlip" />
+      <Association Name="Product_ReturnExchangeSlip1" Member="ReturnExchangeSlips1" ThisKey="ProductId" OtherKey="ProductId" Type="ReturnExchangeSlip" />
       <Association Name="Product_Review" Member="Reviews" ThisKey="ProductId" OtherKey="ProductId" Type="Review" />
       <Association Name="Product_SaleProduct" Member="SaleProducts" ThisKey="ProductId" OtherKey="ProductId" Type="SaleProduct" />
       <Association Name="Product_UserCart" Member="UserCarts" ThisKey="ProductId" OtherKey="ProductId" Type="UserCart" />
       <Association Name="Product_WarehouseExportDetail" Member="WarehouseExportDetails" ThisKey="ProductId" OtherKey="ProductId" Type="WarehouseExportDetail" />
       <Association Name="Product_WarehouseImportDetail" Member="WarehouseImportDetails" ThisKey="ProductId" OtherKey="ProductId" Type="WarehouseImportDetail" />
-      <Association Name="Product_WarehouseImportHistory" Member="WarehouseImportHistories" ThisKey="ProductId" OtherKey="ProductId" Type="WarehouseImportHistory" />
+      <Association Name="Product_WarehouseImportDetail1" Member="WarehouseImportDetails1" ThisKey="ProductId" OtherKey="ProductId" Type="WarehouseImportDetail" />
       <Association Name="Product_WarehouseProduct" Member="WarehouseProducts" ThisKey="ProductId" OtherKey="ProductId" Type="WarehouseProduct" />
-      <Association Name="Product_WarrantySlip" Member="WarrantySlips" ThisKey="ProductId" OtherKey="ProductId" Type="WarrantySlip" />
       <Association Name="Category_Product" Member="Category" ThisKey="CategoryId" OtherKey="CategoryId" Type="Category" IsForeignKey="true" />
       <Association Name="Brand_Product" Member="Brand" ThisKey="BrandId" OtherKey="BrandId" Type="Brand" IsForeignKey="true" />
     </Type>
@@ -236,36 +340,6 @@
       <Association Name="SpecFilterValue_ProductSpecification" Member="SpecFilterValue" ThisKey="SpecFilterId" OtherKey="Id" Type="SpecFilterValue" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.ProductGroupItems" Member="ProductGroupItems">
-    <Type Name="ProductGroupItem">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="GroupId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ProductId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Product_ProductGroupItem" Member="Product" ThisKey="ProductId" OtherKey="ProductId" Type="Product" IsForeignKey="true" />
-      <Association Name="ProductGroup_ProductGroupItem" Member="ProductGroup" ThisKey="GroupId" OtherKey="Id" Type="ProductGroup" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.ProductGroups" Member="ProductGroups">
-    <Type Name="ProductGroup">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="GroupTypeId" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="GroupName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="BackgroundColor" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="HeaderTextColor" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="ProductGroup_ProductGroupItem" Member="ProductGroupItems" ThisKey="Id" OtherKey="GroupId" Type="ProductGroupItem" />
-      <Association Name="ProductGroupType_ProductGroup" Member="ProductGroupType" ThisKey="GroupTypeId" OtherKey="TypeId" Type="ProductGroupType" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.ProductGroupTypes" Member="ProductGroupTypes">
-    <Type Name="ProductGroupType">
-      <Column Name="TypeId" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Association Name="ProductGroupType_ProductGroup" Member="ProductGroups" ThisKey="TypeId" OtherKey="GroupTypeId" Type="ProductGroup" />
-    </Type>
-  </Table>
   <Table Name="dbo.ReturnExchangeSlips" Member="ReturnExchangeSlips">
     <Type Name="ReturnExchangeSlip">
       <Column Name="RESId" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -278,8 +352,11 @@
       <Column Name="InvoiceId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="EmployeeId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="Employee_ReturnExchangeSlip" Member="Employee" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="Employee" IsForeignKey="true" />
+      <Association Name="Employee_ReturnExchangeSlip1" Member="Employee1" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="Employee" IsForeignKey="true" />
       <Association Name="Invoice_ReturnExchangeSlip" Member="Invoice" ThisKey="InvoiceId" OtherKey="InvoiceId" Type="Invoice" IsForeignKey="true" />
+      <Association Name="Invoice_ReturnExchangeSlip1" Member="Invoice1" ThisKey="InvoiceId" OtherKey="InvoiceId" Type="Invoice" IsForeignKey="true" />
       <Association Name="Product_ReturnExchangeSlip" Member="Product" ThisKey="ProductId" OtherKey="ProductId" Type="Product" IsForeignKey="true" />
+      <Association Name="Product_ReturnExchangeSlip1" Member="Product1" ThisKey="ProductId" OtherKey="ProductId" Type="Product" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ReviewImages" Member="ReviewImages">
@@ -362,9 +439,15 @@
       <Column Name="EndDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="BackgroundColor" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="HeaderTextColor" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="Sale_InvoiceDetail" Member="InvoiceDetails" ThisKey="SaleId" OtherKey="SaleId" Type="InvoiceDetail" />
       <Association Name="Sale_SaleProduct" Member="SaleProducts" ThisKey="SaleId" OtherKey="SaleId" Type="SaleProduct" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sliders" Member="Sliders">
+    <Type Name="Slider">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SliderImgSrc" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="RedirectUrl" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.SpecFilterByCategory" Member="SpecFilterByCategories">
@@ -401,6 +484,7 @@
       <Column Name="Address" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="Phone" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
       <Association Name="Supplier_WarehouseImport" Member="WarehouseImports" ThisKey="SupplierId" OtherKey="SupplierId" Type="WarehouseImport" />
+      <Association Name="Supplier_WarehouseImport1" Member="WarehouseImports1" ThisKey="SupplierId" OtherKey="SupplierId" Type="WarehouseImport" />
     </Type>
   </Table>
   <Table Name="dbo.UserAddresses" Member="UserAddresses">
@@ -447,9 +531,10 @@
     <Type Name="UserGroup">
       <Column Name="GroupId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="GroupName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="HasAllPermissions" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="UserGroup_FunctionAuthorization" Member="FunctionAuthorizations" ThisKey="GroupId" OtherKey="GroupId" Type="FunctionAuthorization" />
+      <Association Name="UserGroup_FunctionAuthorization1" Member="FunctionAuthorizations1" ThisKey="GroupId" OtherKey="GroupId" Type="FunctionAuthorization" />
       <Association Name="UserGroup_User" Member="Users" ThisKey="GroupId" OtherKey="GroupId" Type="User" />
+      <Association Name="UserGroup_User1" Member="Users1" ThisKey="GroupId" OtherKey="GroupId" Type="User" />
     </Type>
   </Table>
   <Table Name="dbo.Users" Member="Users">
@@ -471,7 +556,6 @@
       <Column Name="AuthenticationProvider" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="EmployeeId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="GroupId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CreateAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="User_Invoice" Member="Invoices" ThisKey="UserId" OtherKey="UserId" Type="Invoice" />
       <Association Name="User_ReviewLike" Member="ReviewLikes" ThisKey="UserId" OtherKey="UserId" Type="ReviewLike" />
       <Association Name="User_ReviewReply" Member="ReviewReplies" ThisKey="UserId" OtherKey="UserReplyId" Type="ReviewReply" />
@@ -480,6 +564,7 @@
       <Association Name="User_UserCart" Member="UserCarts" ThisKey="UserId" OtherKey="UserId" Type="UserCart" />
       <Association Name="User_UserCode" Member="UserCodes" ThisKey="UserId" OtherKey="UserId" Type="UserCode" />
       <Association Name="UserGroup_User" Member="UserGroup" ThisKey="GroupId" OtherKey="GroupId" Type="UserGroup" IsForeignKey="true" />
+      <Association Name="UserGroup_User1" Member="UserGroup1" ThisKey="GroupId" OtherKey="GroupId" Type="UserGroup" IsForeignKey="true" />
       <Association Name="Employee_User" Member="Employee" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="Employee" IsForeignKey="true" />
       <Association Name="Role_User" Member="Role" ThisKey="RoleId" OtherKey="RoleId" Type="Role" IsForeignKey="true" />
     </Type>
@@ -507,6 +592,8 @@
       <Column Name="EmployeeId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="WarehouseId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="WarehouseExport_WarehouseExportDetail" Member="WarehouseExportDetails" ThisKey="WEId" OtherKey="WEId" Type="WarehouseExportDetail" />
+      <Association Name="WarehouseExport_WarehouseImportDetail" Member="WarehouseImportDetails" ThisKey="WEId" OtherKey="WIId" Type="WarehouseImportDetail" />
+      <Association Name="WarehouseExport_WarehouseImportDetail1" Member="WarehouseImportDetails1" ThisKey="WEId" OtherKey="WIId" Type="WarehouseImportDetail" />
       <Association Name="Employee_WarehouseExport" Member="Employee" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="Employee" IsForeignKey="true" />
       <Association Name="Invoice_WarehouseExport" Member="Invoice" ThisKey="InvoiceId" OtherKey="InvoiceId" Type="Invoice" IsForeignKey="true" />
       <Association Name="Warehouse_WarehouseExport" Member="Warehouse" ThisKey="WarehouseId" OtherKey="WarehouseId" Type="Warehouse" IsForeignKey="true" />
@@ -520,19 +607,9 @@
       <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
       <Association Name="Product_WarehouseImportDetail" Member="Product" ThisKey="ProductId" OtherKey="ProductId" Type="Product" IsForeignKey="true" />
-      <Association Name="WarehouseImport_WarehouseImportDetail" Member="WarehouseImport" ThisKey="WIId" OtherKey="WIId" Type="WarehouseImport" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.WarehouseImportHistories" Member="WarehouseImportHistories">
-    <Type Name="WarehouseImportHistory">
-      <Column Name="HistoryId" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="WIId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ProductId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ImportDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="BatchNumber" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Product_WarehouseImportHistory" Member="Product" ThisKey="ProductId" OtherKey="ProductId" Type="Product" IsForeignKey="true" />
-      <Association Name="WarehouseImport_WarehouseImportHistory" Member="WarehouseImport" ThisKey="WIId" OtherKey="WIId" Type="WarehouseImport" IsForeignKey="true" />
+      <Association Name="Product_WarehouseImportDetail1" Member="Product1" ThisKey="ProductId" OtherKey="ProductId" Type="Product" IsForeignKey="true" />
+      <Association Name="WarehouseExport_WarehouseImportDetail" Member="WarehouseExport" ThisKey="WIId" OtherKey="WEId" Type="WarehouseExport" IsForeignKey="true" />
+      <Association Name="WarehouseExport_WarehouseImportDetail1" Member="WarehouseExport1" ThisKey="WIId" OtherKey="WEId" Type="WarehouseExport" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.WarehouseImports" Member="WarehouseImports">
@@ -545,11 +622,12 @@
       <Column Name="EmployeeId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="WarehouseId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="SupplierId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="WarehouseImport_WarehouseImportDetail" Member="WarehouseImportDetails" ThisKey="WIId" OtherKey="WIId" Type="WarehouseImportDetail" />
-      <Association Name="WarehouseImport_WarehouseImportHistory" Member="WarehouseImportHistories" ThisKey="WIId" OtherKey="WIId" Type="WarehouseImportHistory" />
       <Association Name="Employee_WarehouseImport" Member="Employee" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="Employee" IsForeignKey="true" />
+      <Association Name="Employee_WarehouseImport1" Member="Employee1" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="Employee" IsForeignKey="true" />
       <Association Name="Supplier_WarehouseImport" Member="Supplier" ThisKey="SupplierId" OtherKey="SupplierId" Type="Supplier" IsForeignKey="true" />
+      <Association Name="Supplier_WarehouseImport1" Member="Supplier1" ThisKey="SupplierId" OtherKey="SupplierId" Type="Supplier" IsForeignKey="true" />
       <Association Name="Warehouse_WarehouseImport" Member="Warehouse" ThisKey="WarehouseId" OtherKey="WarehouseId" Type="Warehouse" IsForeignKey="true" />
+      <Association Name="Warehouse_WarehouseImport1" Member="Warehouse1" ThisKey="WarehouseId" OtherKey="WarehouseId" Type="Warehouse" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.WarehouseProducts" Member="WarehouseProducts">
@@ -577,25 +655,8 @@
       <Column Name="Longtitude" Type="System.Decimal" DbType="Decimal(18,10)" CanBeNull="true" />
       <Association Name="Warehouse_WarehouseExport" Member="WarehouseExports" ThisKey="WarehouseId" OtherKey="WarehouseId" Type="WarehouseExport" />
       <Association Name="Warehouse_WarehouseImport" Member="WarehouseImports" ThisKey="WarehouseId" OtherKey="WarehouseId" Type="WarehouseImport" />
+      <Association Name="Warehouse_WarehouseImport1" Member="WarehouseImports1" ThisKey="WarehouseId" OtherKey="WarehouseId" Type="WarehouseImport" />
       <Association Name="Warehouse_WarehouseProduct" Member="WarehouseProducts" ThisKey="WarehouseId" OtherKey="WarehouseId" Type="WarehouseProduct" />
-    </Type>
-  </Table>
-  <Table Name="dbo.WarrantySlips" Member="WarrantySlips">
-    <Type Name="WarrantySlip">
-      <Column Name="WSId" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="SentDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="ReturnedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Reason" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="ProductStatus" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="WarrantyFee" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Note" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="ProductId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="InvoiceId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="EmployeeId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Employee_WarrantySlip" Member="Employee" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="Employee" IsForeignKey="true" />
-      <Association Name="Invoice_WarrantySlip" Member="Invoice" ThisKey="InvoiceId" OtherKey="InvoiceId" Type="Invoice" IsForeignKey="true" />
-      <Association Name="Product_WarrantySlip" Member="Product" ThisKey="ProductId" OtherKey="ProductId" Type="Product" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

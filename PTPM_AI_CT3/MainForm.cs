@@ -110,6 +110,7 @@ namespace PTPM_AI_CT3
         private void BtnCustomers_Click(object sender, EventArgs e)
         {
             ActiveBtn(sender, Colors.color7);
+            OpenChildForm(new QLKhachHang());
         }
 
         private void BtnOrders_Click(object sender, EventArgs e)

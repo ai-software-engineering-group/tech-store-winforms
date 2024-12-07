@@ -44,6 +44,9 @@
     <Reference Include="Azure.Storage.Common, Version=12.22.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
       <HintPath>..\packages\Azure.Storage.Common.12.22.0\lib\netstandard2.0\Azure.Storage.Common.dll</HintPath>
     </Reference>
+    <Reference Include="DAL">
+      <HintPath>..\DAL\bin\Debug\DAL.dll</HintPath>
+    </Reference>
     <Reference Include="FontAwesome.Sharp, Version=6.6.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.6.6.0\lib\net48\FontAwesome.Sharp.dll</HintPath>
     </Reference>
@@ -176,6 +179,12 @@
     <Compile Include="QLHANGSANXUAT.Designer.cs">
       <DependentUpon>QLHANGSANXUAT.cs</DependentUpon>
     </Compile>
+    <Compile Include="QLKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLKhachHang.Designer.cs">
+      <DependentUpon>QLKhachHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="updateBrand.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -226,6 +235,9 @@
     </Compile>
     <EmbeddedResource Include="QLHANGSANXUAT.resx">
       <DependentUpon>QLHANGSANXUAT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLKhachHang.resx">
+      <DependentUpon>QLKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="updateBrand.resx">
       <DependentUpon>updateBrand.cs</DependentUpon>
