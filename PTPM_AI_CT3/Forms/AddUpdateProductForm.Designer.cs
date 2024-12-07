@@ -63,15 +63,15 @@
             this.label8 = new System.Windows.Forms.Label();
             this.cbbBrands = new System.Windows.Forms.ComboBox();
             this.cbbCategories = new System.Windows.Forms.ComboBox();
+            this.txtPrice = new UserControls.TxtPositiveNumber();
+            this.txtOriginalPrice = new UserControls.TxtPositiveNumber();
+            this.txtManuYear = new UserControls.TxtPositiveNumber();
+            this.txtWarranty = new UserControls.TxtPositiveNumber();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.txtProductName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtProductId = new System.Windows.Forms.TextBox();
-            this.txtPrice = new UserControls.TxtPositiveNumber();
-            this.txtOriginalPrice = new UserControls.TxtPositiveNumber();
-            this.txtManuYear = new UserControls.TxtPositiveNumber();
-            this.txtWarranty = new UserControls.TxtPositiveNumber();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -150,7 +150,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 173F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 255F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(842, 255);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
@@ -514,6 +514,42 @@
             this.cbbCategories.Size = new System.Drawing.Size(300, 23);
             this.cbbCategories.TabIndex = 14;
             // 
+            // txtPrice
+            // 
+            this.txtPrice.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtPrice.Location = new System.Drawing.Point(103, 8);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(300, 21);
+            this.txtPrice.TabIndex = 15;
+            // 
+            // txtOriginalPrice
+            // 
+            this.txtOriginalPrice.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtOriginalPrice.Location = new System.Drawing.Point(529, 8);
+            this.txtOriginalPrice.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.txtOriginalPrice.Name = "txtOriginalPrice";
+            this.txtOriginalPrice.Size = new System.Drawing.Size(300, 21);
+            this.txtOriginalPrice.TabIndex = 16;
+            // 
+            // txtManuYear
+            // 
+            this.txtManuYear.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtManuYear.Location = new System.Drawing.Point(103, 40);
+            this.txtManuYear.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.txtManuYear.Name = "txtManuYear";
+            this.txtManuYear.Size = new System.Drawing.Size(300, 21);
+            this.txtManuYear.TabIndex = 17;
+            // 
+            // txtWarranty
+            // 
+            this.txtWarranty.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtWarranty.Location = new System.Drawing.Point(529, 40);
+            this.txtWarranty.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.txtWarranty.Name = "txtWarranty";
+            this.txtWarranty.Size = new System.Drawing.Size(300, 21);
+            this.txtWarranty.TabIndex = 18;
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
@@ -573,42 +609,6 @@
             this.txtProductId.Name = "txtProductId";
             this.txtProductId.Size = new System.Drawing.Size(726, 21);
             this.txtProductId.TabIndex = 1;
-            // 
-            // txtPrice
-            // 
-            this.txtPrice.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtPrice.Location = new System.Drawing.Point(103, 8);
-            this.txtPrice.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(300, 21);
-            this.txtPrice.TabIndex = 15;
-            // 
-            // txtOriginalPrice
-            // 
-            this.txtOriginalPrice.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtOriginalPrice.Location = new System.Drawing.Point(529, 8);
-            this.txtOriginalPrice.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
-            this.txtOriginalPrice.Name = "txtOriginalPrice";
-            this.txtOriginalPrice.Size = new System.Drawing.Size(300, 21);
-            this.txtOriginalPrice.TabIndex = 16;
-            // 
-            // txtManuYear
-            // 
-            this.txtManuYear.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtManuYear.Location = new System.Drawing.Point(103, 40);
-            this.txtManuYear.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
-            this.txtManuYear.Name = "txtManuYear";
-            this.txtManuYear.Size = new System.Drawing.Size(300, 21);
-            this.txtManuYear.TabIndex = 17;
-            // 
-            // txtWarranty
-            // 
-            this.txtWarranty.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtWarranty.Location = new System.Drawing.Point(529, 40);
-            this.txtWarranty.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
-            this.txtWarranty.Name = "txtWarranty";
-            this.txtWarranty.Size = new System.Drawing.Size(300, 21);
-            this.txtWarranty.TabIndex = 18;
             // 
             // AddUpdateProductForm
             // 
