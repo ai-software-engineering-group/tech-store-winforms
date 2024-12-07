@@ -30,12 +30,12 @@ namespace DTO
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertBannerType(BannerType instance);
-    partial void UpdateBannerType(BannerType instance);
-    partial void DeleteBannerType(BannerType instance);
     partial void InsertBanner(Banner instance);
     partial void UpdateBanner(Banner instance);
     partial void DeleteBanner(Banner instance);
+    partial void InsertBannerType(BannerType instance);
+    partial void UpdateBannerType(BannerType instance);
+    partial void DeleteBannerType(BannerType instance);
     partial void InsertBrand(Brand instance);
     partial void UpdateBrand(Brand instance);
     partial void DeleteBrand(Brand instance);
@@ -45,12 +45,12 @@ namespace DTO
     partial void InsertCustomer(Customer instance);
     partial void UpdateCustomer(Customer instance);
     partial void DeleteCustomer(Customer instance);
-    partial void InsertDeliveryMethod(DeliveryMethod instance);
-    partial void UpdateDeliveryMethod(DeliveryMethod instance);
-    partial void DeleteDeliveryMethod(DeliveryMethod instance);
     partial void InsertDeliveryUnit(DeliveryUnit instance);
     partial void UpdateDeliveryUnit(DeliveryUnit instance);
     partial void DeleteDeliveryUnit(DeliveryUnit instance);
+    partial void InsertDeliveryMethod(DeliveryMethod instance);
+    partial void UpdateDeliveryMethod(DeliveryMethod instance);
+    partial void DeleteDeliveryMethod(DeliveryMethod instance);
     partial void InsertEmployee(Employee instance);
     partial void UpdateEmployee(Employee instance);
     partial void DeleteEmployee(Employee instance);
@@ -87,21 +87,21 @@ namespace DTO
     partial void InsertPaymentMethod(PaymentMethod instance);
     partial void UpdatePaymentMethod(PaymentMethod instance);
     partial void DeletePaymentMethod(PaymentMethod instance);
-    partial void InsertProductGroup(ProductGroup instance);
-    partial void UpdateProductGroup(ProductGroup instance);
-    partial void DeleteProductGroup(ProductGroup instance);
     partial void InsertProductGroupItem(ProductGroupItem instance);
     partial void UpdateProductGroupItem(ProductGroupItem instance);
     partial void DeleteProductGroupItem(ProductGroupItem instance);
-    partial void InsertProduct(Product instance);
-    partial void UpdateProduct(Product instance);
-    partial void DeleteProduct(Product instance);
-    partial void InsertProductImage(ProductImage instance);
-    partial void UpdateProductImage(ProductImage instance);
-    partial void DeleteProductImage(ProductImage instance);
     partial void InsertProductGroupType(ProductGroupType instance);
     partial void UpdateProductGroupType(ProductGroupType instance);
     partial void DeleteProductGroupType(ProductGroupType instance);
+    partial void InsertProductGroup(ProductGroup instance);
+    partial void UpdateProductGroup(ProductGroup instance);
+    partial void DeleteProductGroup(ProductGroup instance);
+    partial void InsertProductImage(ProductImage instance);
+    partial void UpdateProductImage(ProductImage instance);
+    partial void DeleteProductImage(ProductImage instance);
+    partial void InsertProduct(Product instance);
+    partial void UpdateProduct(Product instance);
+    partial void DeleteProduct(Product instance);
     partial void InsertProductSpecification(ProductSpecification instance);
     partial void UpdateProductSpecification(ProductSpecification instance);
     partial void DeleteProductSpecification(ProductSpecification instance);
@@ -132,12 +132,12 @@ namespace DTO
     partial void InsertSlider(Slider instance);
     partial void UpdateSlider(Slider instance);
     partial void DeleteSlider(Slider instance);
-    partial void InsertSpecFilterByCategory(SpecFilterByCategory instance);
-    partial void UpdateSpecFilterByCategory(SpecFilterByCategory instance);
-    partial void DeleteSpecFilterByCategory(SpecFilterByCategory instance);
     partial void InsertSpecFilterValue(SpecFilterValue instance);
     partial void UpdateSpecFilterValue(SpecFilterValue instance);
     partial void DeleteSpecFilterValue(SpecFilterValue instance);
+    partial void InsertSpecFilterByCategory(SpecFilterByCategory instance);
+    partial void UpdateSpecFilterByCategory(SpecFilterByCategory instance);
+    partial void DeleteSpecFilterByCategory(SpecFilterByCategory instance);
     partial void InsertSubHeader(SubHeader instance);
     partial void UpdateSubHeader(SubHeader instance);
     partial void DeleteSubHeader(SubHeader instance);
@@ -212,19 +212,19 @@ namespace DTO
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<BannerType> BannerTypes
-		{
-			get
-			{
-				return this.GetTable<BannerType>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Banner> Banners
 		{
 			get
 			{
 				return this.GetTable<Banner>();
+			}
+		}
+		
+		public System.Data.Linq.Table<BannerType> BannerTypes
+		{
+			get
+			{
+				return this.GetTable<BannerType>();
 			}
 		}
 		
@@ -252,19 +252,19 @@ namespace DTO
 			}
 		}
 		
-		public System.Data.Linq.Table<DeliveryMethod> DeliveryMethods
-		{
-			get
-			{
-				return this.GetTable<DeliveryMethod>();
-			}
-		}
-		
 		public System.Data.Linq.Table<DeliveryUnit> DeliveryUnits
 		{
 			get
 			{
 				return this.GetTable<DeliveryUnit>();
+			}
+		}
+		
+		public System.Data.Linq.Table<DeliveryMethod> DeliveryMethods
+		{
+			get
+			{
+				return this.GetTable<DeliveryMethod>();
 			}
 		}
 		
@@ -364,14 +364,6 @@ namespace DTO
 			}
 		}
 		
-		public System.Data.Linq.Table<ProductGroup> ProductGroups
-		{
-			get
-			{
-				return this.GetTable<ProductGroup>();
-			}
-		}
-		
 		public System.Data.Linq.Table<ProductGroupItem> ProductGroupItems
 		{
 			get
@@ -380,11 +372,19 @@ namespace DTO
 			}
 		}
 		
-		public System.Data.Linq.Table<Product> Products
+		public System.Data.Linq.Table<ProductGroupType> ProductGroupTypes
 		{
 			get
 			{
-				return this.GetTable<Product>();
+				return this.GetTable<ProductGroupType>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ProductGroup> ProductGroups
+		{
+			get
+			{
+				return this.GetTable<ProductGroup>();
 			}
 		}
 		
@@ -396,11 +396,11 @@ namespace DTO
 			}
 		}
 		
-		public System.Data.Linq.Table<ProductGroupType> ProductGroupTypes
+		public System.Data.Linq.Table<Product> Products
 		{
 			get
 			{
-				return this.GetTable<ProductGroupType>();
+				return this.GetTable<Product>();
 			}
 		}
 		
@@ -484,19 +484,19 @@ namespace DTO
 			}
 		}
 		
-		public System.Data.Linq.Table<SpecFilterByCategory> SpecFilterByCategories
-		{
-			get
-			{
-				return this.GetTable<SpecFilterByCategory>();
-			}
-		}
-		
 		public System.Data.Linq.Table<SpecFilterValue> SpecFilterValues
 		{
 			get
 			{
 				return this.GetTable<SpecFilterValue>();
+			}
+		}
+		
+		public System.Data.Linq.Table<SpecFilterByCategory> SpecFilterByCategories
+		{
+			get
+			{
+				return this.GetTable<SpecFilterByCategory>();
 			}
 		}
 		
@@ -618,120 +618,6 @@ namespace DTO
 			{
 				return this.GetTable<WarrantySlip>();
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BannerTypes")]
-	public partial class BannerType : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _Type;
-		
-		private EntitySet<Banner> _Banners;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnTypeChanging(string value);
-    partial void OnTypeChanged();
-    #endregion
-		
-		public BannerType()
-		{
-			this._Banners = new EntitySet<Banner>(new Action<Banner>(this.attach_Banners), new Action<Banner>(this.detach_Banners));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Type
-		{
-			get
-			{
-				return this._Type;
-			}
-			set
-			{
-				if ((this._Type != value))
-				{
-					this.OnTypeChanging(value);
-					this.SendPropertyChanging();
-					this._Type = value;
-					this.SendPropertyChanged("Type");
-					this.OnTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BannerType_Banner", Storage="_Banners", ThisKey="Id", OtherKey="BannerType")]
-		public EntitySet<Banner> Banners
-		{
-			get
-			{
-				return this._Banners;
-			}
-			set
-			{
-				this._Banners.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Banners(Banner entity)
-		{
-			this.SendPropertyChanging();
-			entity.BannerType1 = this;
-		}
-		
-		private void detach_Banners(Banner entity)
-		{
-			this.SendPropertyChanging();
-			entity.BannerType1 = null;
 		}
 	}
 	
@@ -907,6 +793,120 @@ namespace DTO
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BannerTypes")]
+	public partial class BannerType : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Type;
+		
+		private EntitySet<Banner> _Banners;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnTypeChanging(string value);
+    partial void OnTypeChanged();
+    #endregion
+		
+		public BannerType()
+		{
+			this._Banners = new EntitySet<Banner>(new Action<Banner>(this.attach_Banners), new Action<Banner>(this.detach_Banners));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Type
+		{
+			get
+			{
+				return this._Type;
+			}
+			set
+			{
+				if ((this._Type != value))
+				{
+					this.OnTypeChanging(value);
+					this.SendPropertyChanging();
+					this._Type = value;
+					this.SendPropertyChanged("Type");
+					this.OnTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BannerType_Banner", Storage="_Banners", ThisKey="Id", OtherKey="BannerType")]
+		public EntitySet<Banner> Banners
+		{
+			get
+			{
+				return this._Banners;
+			}
+			set
+			{
+				this._Banners.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Banners(Banner entity)
+		{
+			this.SendPropertyChanging();
+			entity.BannerType1 = this;
+		}
+		
+		private void detach_Banners(Banner entity)
+		{
+			this.SendPropertyChanging();
+			entity.BannerType1 = null;
 		}
 	}
 	
@@ -1636,120 +1636,6 @@ namespace DTO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DeliveryMethods")]
-	public partial class DeliveryMethod : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _DeliveryMedId;
-		
-		private string _DeliveryName;
-		
-		private EntitySet<Invoice> _Invoices;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnDeliveryMedIdChanging(string value);
-    partial void OnDeliveryMedIdChanged();
-    partial void OnDeliveryNameChanging(string value);
-    partial void OnDeliveryNameChanged();
-    #endregion
-		
-		public DeliveryMethod()
-		{
-			this._Invoices = new EntitySet<Invoice>(new Action<Invoice>(this.attach_Invoices), new Action<Invoice>(this.detach_Invoices));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeliveryMedId", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string DeliveryMedId
-		{
-			get
-			{
-				return this._DeliveryMedId;
-			}
-			set
-			{
-				if ((this._DeliveryMedId != value))
-				{
-					this.OnDeliveryMedIdChanging(value);
-					this.SendPropertyChanging();
-					this._DeliveryMedId = value;
-					this.SendPropertyChanged("DeliveryMedId");
-					this.OnDeliveryMedIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeliveryName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string DeliveryName
-		{
-			get
-			{
-				return this._DeliveryName;
-			}
-			set
-			{
-				if ((this._DeliveryName != value))
-				{
-					this.OnDeliveryNameChanging(value);
-					this.SendPropertyChanging();
-					this._DeliveryName = value;
-					this.SendPropertyChanged("DeliveryName");
-					this.OnDeliveryNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DeliveryMethod_Invoice", Storage="_Invoices", ThisKey="DeliveryMedId", OtherKey="DeliveryMedId")]
-		public EntitySet<Invoice> Invoices
-		{
-			get
-			{
-				return this._Invoices;
-			}
-			set
-			{
-				this._Invoices.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Invoices(Invoice entity)
-		{
-			this.SendPropertyChanging();
-			entity.DeliveryMethod = this;
-		}
-		
-		private void detach_Invoices(Invoice entity)
-		{
-			this.SendPropertyChanging();
-			entity.DeliveryMethod = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DeliveryUnits")]
 	public partial class DeliveryUnit : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1909,6 +1795,120 @@ namespace DTO
 		{
 			this.SendPropertyChanging();
 			entity.DeliveryUnit = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DeliveryMethods")]
+	public partial class DeliveryMethod : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _DeliveryMedId;
+		
+		private string _DeliveryName;
+		
+		private EntitySet<Invoice> _Invoices;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnDeliveryMedIdChanging(string value);
+    partial void OnDeliveryMedIdChanged();
+    partial void OnDeliveryNameChanging(string value);
+    partial void OnDeliveryNameChanged();
+    #endregion
+		
+		public DeliveryMethod()
+		{
+			this._Invoices = new EntitySet<Invoice>(new Action<Invoice>(this.attach_Invoices), new Action<Invoice>(this.detach_Invoices));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeliveryMedId", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string DeliveryMedId
+		{
+			get
+			{
+				return this._DeliveryMedId;
+			}
+			set
+			{
+				if ((this._DeliveryMedId != value))
+				{
+					this.OnDeliveryMedIdChanging(value);
+					this.SendPropertyChanging();
+					this._DeliveryMedId = value;
+					this.SendPropertyChanged("DeliveryMedId");
+					this.OnDeliveryMedIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeliveryName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string DeliveryName
+		{
+			get
+			{
+				return this._DeliveryName;
+			}
+			set
+			{
+				if ((this._DeliveryName != value))
+				{
+					this.OnDeliveryNameChanging(value);
+					this.SendPropertyChanging();
+					this._DeliveryName = value;
+					this.SendPropertyChanged("DeliveryName");
+					this.OnDeliveryNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DeliveryMethod_Invoice", Storage="_Invoices", ThisKey="DeliveryMedId", OtherKey="DeliveryMedId")]
+		public EntitySet<Invoice> Invoices
+		{
+			get
+			{
+				return this._Invoices;
+			}
+			set
+			{
+				this._Invoices.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Invoices(Invoice entity)
+		{
+			this.SendPropertyChanging();
+			entity.DeliveryMethod = this;
+		}
+		
+		private void detach_Invoices(Invoice entity)
+		{
+			this.SendPropertyChanging();
+			entity.DeliveryMethod = null;
 		}
 	}
 	
@@ -5393,6 +5393,336 @@ namespace DTO
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProductGroupItems")]
+	public partial class ProductGroupItem : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private int _GroupId;
+		
+		private string _ProductId;
+		
+		private EntityRef<ProductGroup> _ProductGroup;
+		
+		private EntityRef<Product> _Product;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnGroupIdChanging(int value);
+    partial void OnGroupIdChanged();
+    partial void OnProductIdChanging(string value);
+    partial void OnProductIdChanged();
+    #endregion
+		
+		public ProductGroupItem()
+		{
+			this._ProductGroup = default(EntityRef<ProductGroup>);
+			this._Product = default(EntityRef<Product>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GroupId", DbType="Int NOT NULL")]
+		public int GroupId
+		{
+			get
+			{
+				return this._GroupId;
+			}
+			set
+			{
+				if ((this._GroupId != value))
+				{
+					if (this._ProductGroup.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnGroupIdChanging(value);
+					this.SendPropertyChanging();
+					this._GroupId = value;
+					this.SendPropertyChanged("GroupId");
+					this.OnGroupIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductId", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string ProductId
+		{
+			get
+			{
+				return this._ProductId;
+			}
+			set
+			{
+				if ((this._ProductId != value))
+				{
+					if (this._Product.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnProductIdChanging(value);
+					this.SendPropertyChanging();
+					this._ProductId = value;
+					this.SendPropertyChanged("ProductId");
+					this.OnProductIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProductGroup_ProductGroupItem", Storage="_ProductGroup", ThisKey="GroupId", OtherKey="Id", IsForeignKey=true)]
+		public ProductGroup ProductGroup
+		{
+			get
+			{
+				return this._ProductGroup.Entity;
+			}
+			set
+			{
+				ProductGroup previousValue = this._ProductGroup.Entity;
+				if (((previousValue != value) 
+							|| (this._ProductGroup.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ProductGroup.Entity = null;
+						previousValue.ProductGroupItems.Remove(this);
+					}
+					this._ProductGroup.Entity = value;
+					if ((value != null))
+					{
+						value.ProductGroupItems.Add(this);
+						this._GroupId = value.Id;
+					}
+					else
+					{
+						this._GroupId = default(int);
+					}
+					this.SendPropertyChanged("ProductGroup");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_ProductGroupItem", Storage="_Product", ThisKey="ProductId", OtherKey="ProductId", IsForeignKey=true)]
+		public Product Product
+		{
+			get
+			{
+				return this._Product.Entity;
+			}
+			set
+			{
+				Product previousValue = this._Product.Entity;
+				if (((previousValue != value) 
+							|| (this._Product.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Product.Entity = null;
+						previousValue.ProductGroupItems.Remove(this);
+					}
+					this._Product.Entity = value;
+					if ((value != null))
+					{
+						value.ProductGroupItems.Add(this);
+						this._ProductId = value.ProductId;
+					}
+					else
+					{
+						this._ProductId = default(string);
+					}
+					this.SendPropertyChanged("Product");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProductGroupTypes")]
+	public partial class ProductGroupType : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _TypeId;
+		
+		private string _TypeName;
+		
+		private System.DateTime _CreatedDate;
+		
+		private EntitySet<ProductGroup> _ProductGroups;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnTypeIdChanging(string value);
+    partial void OnTypeIdChanged();
+    partial void OnTypeNameChanging(string value);
+    partial void OnTypeNameChanged();
+    partial void OnCreatedDateChanging(System.DateTime value);
+    partial void OnCreatedDateChanged();
+    #endregion
+		
+		public ProductGroupType()
+		{
+			this._ProductGroups = new EntitySet<ProductGroup>(new Action<ProductGroup>(this.attach_ProductGroups), new Action<ProductGroup>(this.detach_ProductGroups));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TypeId", DbType="VarChar(30) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string TypeId
+		{
+			get
+			{
+				return this._TypeId;
+			}
+			set
+			{
+				if ((this._TypeId != value))
+				{
+					this.OnTypeIdChanging(value);
+					this.SendPropertyChanging();
+					this._TypeId = value;
+					this.SendPropertyChanged("TypeId");
+					this.OnTypeIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TypeName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string TypeName
+		{
+			get
+			{
+				return this._TypeName;
+			}
+			set
+			{
+				if ((this._TypeName != value))
+				{
+					this.OnTypeNameChanging(value);
+					this.SendPropertyChanging();
+					this._TypeName = value;
+					this.SendPropertyChanged("TypeName");
+					this.OnTypeNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime NOT NULL")]
+		public System.DateTime CreatedDate
+		{
+			get
+			{
+				return this._CreatedDate;
+			}
+			set
+			{
+				if ((this._CreatedDate != value))
+				{
+					this.OnCreatedDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedDate = value;
+					this.SendPropertyChanged("CreatedDate");
+					this.OnCreatedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProductGroupType_ProductGroup", Storage="_ProductGroups", ThisKey="TypeId", OtherKey="GroupTypeId")]
+		public EntitySet<ProductGroup> ProductGroups
+		{
+			get
+			{
+				return this._ProductGroups;
+			}
+			set
+			{
+				this._ProductGroups.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ProductGroups(ProductGroup entity)
+		{
+			this.SendPropertyChanging();
+			entity.ProductGroupType = this;
+		}
+		
+		private void detach_ProductGroups(ProductGroup entity)
+		{
+			this.SendPropertyChanging();
+			entity.ProductGroupType = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProductGroups")]
 	public partial class ProductGroup : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -5668,19 +5998,17 @@ namespace DTO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProductGroupItems")]
-	public partial class ProductGroupItem : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProductImages")]
+	public partial class ProductImage : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _Id;
 		
-		private int _GroupId;
-		
 		private string _ProductId;
 		
-		private EntityRef<ProductGroup> _ProductGroup;
+		private string _ImageSrc;
 		
 		private EntityRef<Product> _Product;
 		
@@ -5690,15 +6018,14 @@ namespace DTO
     partial void OnCreated();
     partial void OnIdChanging(int value);
     partial void OnIdChanged();
-    partial void OnGroupIdChanging(int value);
-    partial void OnGroupIdChanged();
     partial void OnProductIdChanging(string value);
     partial void OnProductIdChanged();
+    partial void OnImageSrcChanging(string value);
+    partial void OnImageSrcChanged();
     #endregion
 		
-		public ProductGroupItem()
+		public ProductImage()
 		{
-			this._ProductGroup = default(EntityRef<ProductGroup>);
 			this._Product = default(EntityRef<Product>);
 			OnCreated();
 		}
@@ -5719,30 +6046,6 @@ namespace DTO
 					this._Id = value;
 					this.SendPropertyChanged("Id");
 					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GroupId", DbType="Int NOT NULL")]
-		public int GroupId
-		{
-			get
-			{
-				return this._GroupId;
-			}
-			set
-			{
-				if ((this._GroupId != value))
-				{
-					if (this._ProductGroup.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnGroupIdChanging(value);
-					this.SendPropertyChanging();
-					this._GroupId = value;
-					this.SendPropertyChanged("GroupId");
-					this.OnGroupIdChanged();
 				}
 			}
 		}
@@ -5771,41 +6074,27 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProductGroup_ProductGroupItem", Storage="_ProductGroup", ThisKey="GroupId", OtherKey="Id", IsForeignKey=true)]
-		public ProductGroup ProductGroup
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageSrc", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string ImageSrc
 		{
 			get
 			{
-				return this._ProductGroup.Entity;
+				return this._ImageSrc;
 			}
 			set
 			{
-				ProductGroup previousValue = this._ProductGroup.Entity;
-				if (((previousValue != value) 
-							|| (this._ProductGroup.HasLoadedOrAssignedValue == false)))
+				if ((this._ImageSrc != value))
 				{
+					this.OnImageSrcChanging(value);
 					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._ProductGroup.Entity = null;
-						previousValue.ProductGroupItems.Remove(this);
-					}
-					this._ProductGroup.Entity = value;
-					if ((value != null))
-					{
-						value.ProductGroupItems.Add(this);
-						this._GroupId = value.Id;
-					}
-					else
-					{
-						this._GroupId = default(int);
-					}
-					this.SendPropertyChanged("ProductGroup");
+					this._ImageSrc = value;
+					this.SendPropertyChanged("ImageSrc");
+					this.OnImageSrcChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_ProductGroupItem", Storage="_Product", ThisKey="ProductId", OtherKey="ProductId", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_ProductImage", Storage="_Product", ThisKey="ProductId", OtherKey="ProductId", IsForeignKey=true)]
 		public Product Product
 		{
 			get
@@ -5822,12 +6111,12 @@ namespace DTO
 					if ((previousValue != null))
 					{
 						this._Product.Entity = null;
-						previousValue.ProductGroupItems.Remove(this);
+						previousValue.ProductImages.Remove(this);
 					}
 					this._Product.Entity = value;
 					if ((value != null))
 					{
-						value.ProductGroupItems.Add(this);
+						value.ProductImages.Add(this);
 						this._ProductId = value.ProductId;
 					}
 					else
@@ -6677,295 +6966,6 @@ namespace DTO
 		{
 			this.SendPropertyChanging();
 			entity.Product = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProductImages")]
-	public partial class ProductImage : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _ProductId;
-		
-		private string _ImageSrc;
-		
-		private EntityRef<Product> _Product;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnProductIdChanging(string value);
-    partial void OnProductIdChanged();
-    partial void OnImageSrcChanging(string value);
-    partial void OnImageSrcChanged();
-    #endregion
-		
-		public ProductImage()
-		{
-			this._Product = default(EntityRef<Product>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductId", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string ProductId
-		{
-			get
-			{
-				return this._ProductId;
-			}
-			set
-			{
-				if ((this._ProductId != value))
-				{
-					if (this._Product.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnProductIdChanging(value);
-					this.SendPropertyChanging();
-					this._ProductId = value;
-					this.SendPropertyChanged("ProductId");
-					this.OnProductIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageSrc", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string ImageSrc
-		{
-			get
-			{
-				return this._ImageSrc;
-			}
-			set
-			{
-				if ((this._ImageSrc != value))
-				{
-					this.OnImageSrcChanging(value);
-					this.SendPropertyChanging();
-					this._ImageSrc = value;
-					this.SendPropertyChanged("ImageSrc");
-					this.OnImageSrcChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_ProductImage", Storage="_Product", ThisKey="ProductId", OtherKey="ProductId", IsForeignKey=true)]
-		public Product Product
-		{
-			get
-			{
-				return this._Product.Entity;
-			}
-			set
-			{
-				Product previousValue = this._Product.Entity;
-				if (((previousValue != value) 
-							|| (this._Product.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Product.Entity = null;
-						previousValue.ProductImages.Remove(this);
-					}
-					this._Product.Entity = value;
-					if ((value != null))
-					{
-						value.ProductImages.Add(this);
-						this._ProductId = value.ProductId;
-					}
-					else
-					{
-						this._ProductId = default(string);
-					}
-					this.SendPropertyChanged("Product");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProductGroupTypes")]
-	public partial class ProductGroupType : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _TypeId;
-		
-		private string _TypeName;
-		
-		private System.DateTime _CreatedDate;
-		
-		private EntitySet<ProductGroup> _ProductGroups;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnTypeIdChanging(string value);
-    partial void OnTypeIdChanged();
-    partial void OnTypeNameChanging(string value);
-    partial void OnTypeNameChanged();
-    partial void OnCreatedDateChanging(System.DateTime value);
-    partial void OnCreatedDateChanged();
-    #endregion
-		
-		public ProductGroupType()
-		{
-			this._ProductGroups = new EntitySet<ProductGroup>(new Action<ProductGroup>(this.attach_ProductGroups), new Action<ProductGroup>(this.detach_ProductGroups));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TypeId", DbType="VarChar(30) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string TypeId
-		{
-			get
-			{
-				return this._TypeId;
-			}
-			set
-			{
-				if ((this._TypeId != value))
-				{
-					this.OnTypeIdChanging(value);
-					this.SendPropertyChanging();
-					this._TypeId = value;
-					this.SendPropertyChanged("TypeId");
-					this.OnTypeIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TypeName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string TypeName
-		{
-			get
-			{
-				return this._TypeName;
-			}
-			set
-			{
-				if ((this._TypeName != value))
-				{
-					this.OnTypeNameChanging(value);
-					this.SendPropertyChanging();
-					this._TypeName = value;
-					this.SendPropertyChanged("TypeName");
-					this.OnTypeNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime NOT NULL")]
-		public System.DateTime CreatedDate
-		{
-			get
-			{
-				return this._CreatedDate;
-			}
-			set
-			{
-				if ((this._CreatedDate != value))
-				{
-					this.OnCreatedDateChanging(value);
-					this.SendPropertyChanging();
-					this._CreatedDate = value;
-					this.SendPropertyChanged("CreatedDate");
-					this.OnCreatedDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProductGroupType_ProductGroup", Storage="_ProductGroups", ThisKey="TypeId", OtherKey="GroupTypeId")]
-		public EntitySet<ProductGroup> ProductGroups
-		{
-			get
-			{
-				return this._ProductGroups;
-			}
-			set
-			{
-				this._ProductGroups.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_ProductGroups(ProductGroup entity)
-		{
-			this.SendPropertyChanging();
-			entity.ProductGroupType = this;
-		}
-		
-		private void detach_ProductGroups(ProductGroup entity)
-		{
-			this.SendPropertyChanging();
-			entity.ProductGroupType = null;
 		}
 	}
 	
@@ -9507,172 +9507,6 @@ namespace DTO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SpecFilterByCategory")]
-	public partial class SpecFilterByCategory : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _CategoryId;
-		
-		private string _SpecFilterType;
-		
-		private string _SpecFilterTypeDisplay;
-		
-		private EntityRef<SpecFilterValue> _SpecFilterValue;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnCategoryIdChanging(string value);
-    partial void OnCategoryIdChanged();
-    partial void OnSpecFilterTypeChanging(string value);
-    partial void OnSpecFilterTypeChanged();
-    partial void OnSpecFilterTypeDisplayChanging(string value);
-    partial void OnSpecFilterTypeDisplayChanged();
-    #endregion
-		
-		public SpecFilterByCategory()
-		{
-			this._SpecFilterValue = default(EntityRef<SpecFilterValue>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryId", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string CategoryId
-		{
-			get
-			{
-				return this._CategoryId;
-			}
-			set
-			{
-				if ((this._CategoryId != value))
-				{
-					this.OnCategoryIdChanging(value);
-					this.SendPropertyChanging();
-					this._CategoryId = value;
-					this.SendPropertyChanged("CategoryId");
-					this.OnCategoryIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SpecFilterType", DbType="VarChar(30)")]
-		public string SpecFilterType
-		{
-			get
-			{
-				return this._SpecFilterType;
-			}
-			set
-			{
-				if ((this._SpecFilterType != value))
-				{
-					this.OnSpecFilterTypeChanging(value);
-					this.SendPropertyChanging();
-					this._SpecFilterType = value;
-					this.SendPropertyChanged("SpecFilterType");
-					this.OnSpecFilterTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SpecFilterTypeDisplay", DbType="NVarChar(30)")]
-		public string SpecFilterTypeDisplay
-		{
-			get
-			{
-				return this._SpecFilterTypeDisplay;
-			}
-			set
-			{
-				if ((this._SpecFilterTypeDisplay != value))
-				{
-					this.OnSpecFilterTypeDisplayChanging(value);
-					this.SendPropertyChanging();
-					this._SpecFilterTypeDisplay = value;
-					this.SendPropertyChanged("SpecFilterTypeDisplay");
-					this.OnSpecFilterTypeDisplayChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SpecFilterByCategory_SpecFilterValue", Storage="_SpecFilterValue", ThisKey="Id", OtherKey="Id", IsUnique=true, IsForeignKey=false)]
-		public SpecFilterValue SpecFilterValue
-		{
-			get
-			{
-				return this._SpecFilterValue.Entity;
-			}
-			set
-			{
-				SpecFilterValue previousValue = this._SpecFilterValue.Entity;
-				if (((previousValue != value) 
-							|| (this._SpecFilterValue.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._SpecFilterValue.Entity = null;
-						previousValue.SpecFilterByCategory = null;
-					}
-					this._SpecFilterValue.Entity = value;
-					if ((value != null))
-					{
-						value.SpecFilterByCategory = this;
-					}
-					this.SendPropertyChanged("SpecFilterValue");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SpecFilterValues")]
 	public partial class SpecFilterValue : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -9873,6 +9707,172 @@ namespace DTO
 		{
 			this.SendPropertyChanging();
 			entity.SpecFilterValue = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SpecFilterByCategory")]
+	public partial class SpecFilterByCategory : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _CategoryId;
+		
+		private string _SpecFilterType;
+		
+		private string _SpecFilterTypeDisplay;
+		
+		private EntityRef<SpecFilterValue> _SpecFilterValue;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnCategoryIdChanging(string value);
+    partial void OnCategoryIdChanged();
+    partial void OnSpecFilterTypeChanging(string value);
+    partial void OnSpecFilterTypeChanged();
+    partial void OnSpecFilterTypeDisplayChanging(string value);
+    partial void OnSpecFilterTypeDisplayChanged();
+    #endregion
+		
+		public SpecFilterByCategory()
+		{
+			this._SpecFilterValue = default(EntityRef<SpecFilterValue>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryId", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string CategoryId
+		{
+			get
+			{
+				return this._CategoryId;
+			}
+			set
+			{
+				if ((this._CategoryId != value))
+				{
+					this.OnCategoryIdChanging(value);
+					this.SendPropertyChanging();
+					this._CategoryId = value;
+					this.SendPropertyChanged("CategoryId");
+					this.OnCategoryIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SpecFilterType", DbType="VarChar(30)")]
+		public string SpecFilterType
+		{
+			get
+			{
+				return this._SpecFilterType;
+			}
+			set
+			{
+				if ((this._SpecFilterType != value))
+				{
+					this.OnSpecFilterTypeChanging(value);
+					this.SendPropertyChanging();
+					this._SpecFilterType = value;
+					this.SendPropertyChanged("SpecFilterType");
+					this.OnSpecFilterTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SpecFilterTypeDisplay", DbType="NVarChar(30)")]
+		public string SpecFilterTypeDisplay
+		{
+			get
+			{
+				return this._SpecFilterTypeDisplay;
+			}
+			set
+			{
+				if ((this._SpecFilterTypeDisplay != value))
+				{
+					this.OnSpecFilterTypeDisplayChanging(value);
+					this.SendPropertyChanging();
+					this._SpecFilterTypeDisplay = value;
+					this.SendPropertyChanged("SpecFilterTypeDisplay");
+					this.OnSpecFilterTypeDisplayChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SpecFilterByCategory_SpecFilterValue", Storage="_SpecFilterValue", ThisKey="Id", OtherKey="Id", IsUnique=true, IsForeignKey=false)]
+		public SpecFilterValue SpecFilterValue
+		{
+			get
+			{
+				return this._SpecFilterValue.Entity;
+			}
+			set
+			{
+				SpecFilterValue previousValue = this._SpecFilterValue.Entity;
+				if (((previousValue != value) 
+							|| (this._SpecFilterValue.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SpecFilterValue.Entity = null;
+						previousValue.SpecFilterByCategory = null;
+					}
+					this._SpecFilterValue.Entity = value;
+					if ((value != null))
+					{
+						value.SpecFilterByCategory = this;
+					}
+					this.SendPropertyChanged("SpecFilterValue");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
