@@ -3,13 +3,13 @@ using System.Windows.Forms;
 using BLL;
 using DTO;
 
-namespace PTPM_AI_CT3
+namespace PTPM_AI_CT3.Forms
 {
-    public partial class QLHANGSANXUAT : Form
+    public partial class BrandForm : Form
     {
         BrandBLL brandbll = new BrandBLL();
 
-        public QLHANGSANXUAT()
+        public BrandForm()
         {
             InitializeComponent();
             this.Load += loadBrand;

@@ -1,6 +1,6 @@
-﻿namespace PTPM_AI_CT3
+﻿namespace PTPM_AI_CT3.Forms
 {
-    partial class QLHANGSANXUAT
+    partial class BrandForm
     {
         /// <summary>
         /// Required designer variable.
