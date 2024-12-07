@@ -44,5 +44,23 @@ namespace DAL
 
             return user;
         }
+        public List<User> LoadUser()
+        {
+            try
+            {
+                if (context == null)
+                {
+                    throw new InvalidOperationException("Chưa có dữ liệu");
+                }
+
+                var userList = context.Users.ToList();
+                return userList ?? new List<User>();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return new List<User>();
+            }
+        }
     }
 }
