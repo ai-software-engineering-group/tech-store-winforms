@@ -1,4 +1,4 @@
-﻿namespace PTPM_AI_CT3
+﻿namespace UserControls
 {
     partial class updateBrand
     {

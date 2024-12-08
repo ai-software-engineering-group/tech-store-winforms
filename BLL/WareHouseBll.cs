@@ -10,7 +10,7 @@ namespace BLL
 {
     public class WarehouseBLL
     {
-        WareHouseDal wareHouseDal = new WareHouseDal();
+        WareHouseDAL wareHouseDal = new WareHouseDAL();
         public WarehouseBLL()
         {
 
@@ -36,5 +36,14 @@ namespace BLL
             return wareHouseDal.updateWareHouse(wh);
         }
 
+
+        #region Warehouse Import
+
+        public bool CreateImportSlip(WarehouseImport slip)
+        {
+            return wareHouseDal.CreateImportSlip(slip);
+        }
+
+        #endregion
     }
 }

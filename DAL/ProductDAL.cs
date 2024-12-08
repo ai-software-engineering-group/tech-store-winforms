@@ -29,6 +29,13 @@ namespace DAL
                 .ToPagedList(page, pageSize);
         }
 
+        public List<Product> SearchProducts(string search)
+        {
+            return context.Products.Where(p => p.ProductId == search ||
+                   p.ProductName.ToLower().Contains(search))
+                .ToList();
+        }
+
         public Product GetProductById(string productId)
         {
             return context.Products.FirstOrDefault(p => p.ProductId == productId);

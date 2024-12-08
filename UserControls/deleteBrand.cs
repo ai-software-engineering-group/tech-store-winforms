@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PTPM_AI_CT3
+namespace UserControls
 {
     public partial class deleteBrand : UserControl
     {

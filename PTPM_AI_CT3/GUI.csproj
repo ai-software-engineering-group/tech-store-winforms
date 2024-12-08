@@ -129,12 +129,6 @@
     <Compile Include="Auth\AuthenticatedUser.cs" />
     <Compile Include="AzureServices\CloudStorageService.cs" />
     <Compile Include="Constants\MyColors.cs" />
-    <Compile Include="deleteBrand.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="deleteBrand.Designer.cs">
-      <DependentUpon>deleteBrand.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\AddUpdateProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,17 +147,17 @@
     <Compile Include="Forms\ProductsForm.Designer.cs">
       <DependentUpon>ProductsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="InsertBrand.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="InsertBrand.Designer.cs">
-      <DependentUpon>InsertBrand.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\InvoicesForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\InvoicesForm.Designer.cs">
       <DependentUpon>InvoicesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WarehouseImportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WarehouseImportForm.Designer.cs">
+      <DependentUpon>WarehouseImportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -185,12 +179,6 @@
     <Compile Include="Forms\CustomerForm.Designer.cs">
       <DependentUpon>CustomerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="updateBrand.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="updateBrand.Designer.cs">
-      <DependentUpon>updateBrand.cs</DependentUpon>
-    </Compile>
     <Compile Include="Utils\FormatString.cs" />
     <Compile Include="Utils\ImageUtils.cs" />
     <Compile Include="Utils\PaginateUtils.cs" />
@@ -203,9 +191,6 @@
     <Compile Include="Forms\WarehouseForm.Designer.cs">
       <DependentUpon>WarehouseForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="deleteBrand.resx">
-      <DependentUpon>deleteBrand.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddUpdateProductForm.resx">
       <DependentUpon>AddUpdateProductForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -215,11 +200,11 @@
     <EmbeddedResource Include="Forms\ProductsForm.resx">
       <DependentUpon>ProductsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InsertBrand.resx">
-      <DependentUpon>InsertBrand.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\InvoicesForm.resx">
       <DependentUpon>InvoicesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WarehouseImportForm.resx">
+      <DependentUpon>WarehouseImportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -238,9 +223,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CustomerForm.resx">
       <DependentUpon>CustomerForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="updateBrand.resx">
-      <DependentUpon>updateBrand.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\WarehouseForm.resx">
       <DependentUpon>WarehouseForm.cs</DependentUpon>
