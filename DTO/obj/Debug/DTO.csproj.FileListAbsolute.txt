@@ -18,3 +18,9 @@ D:\Thu3\tech-store-winforms\DTO\bin\Debug\DTO.pdb
 D:\Thu3\tech-store-winforms\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 D:\Thu3\tech-store-winforms\DTO\obj\Debug\DTO.dll
 D:\Thu3\tech-store-winforms\DTO\obj\Debug\DTO.pdb
+D:\Thu3\Lamlai\tech-store-winforms\DTO\bin\Debug\DTO.dll.config
+D:\Thu3\Lamlai\tech-store-winforms\DTO\bin\Debug\DTO.dll
+D:\Thu3\Lamlai\tech-store-winforms\DTO\bin\Debug\DTO.pdb
+D:\Thu3\Lamlai\tech-store-winforms\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+D:\Thu3\Lamlai\tech-store-winforms\DTO\obj\Debug\DTO.dll
+D:\Thu3\Lamlai\tech-store-winforms\DTO\obj\Debug\DTO.pdb
