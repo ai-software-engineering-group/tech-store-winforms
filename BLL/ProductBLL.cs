@@ -27,6 +27,11 @@ namespace BLL
             return productDAL.SearchProducts(page, pageSize, search);
         }
 
+        public List<Product> SearchProducts(string search)
+        {
+            return productDAL.SearchProducts(search);
+        }
+
         public Product GetProductById(string productId)
         {
             return productDAL.GetProductById(productId);

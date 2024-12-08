@@ -43,11 +43,13 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panelMain = new System.Windows.Forms.Panel();
             this.panelTitle = new System.Windows.Forms.Panel();
             this.titleLabel = new System.Windows.Forms.Label();
             this.titleIcon = new FontAwesome.Sharp.IconButton();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnWHImport = new FontAwesome.Sharp.IconButton();
+            this.btnWHexport = new FontAwesome.Sharp.IconButton();
             this.panelSidebar.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -59,6 +61,8 @@
             // panelSidebar
             // 
             this.panelSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(233)))), ((int)(((byte)(247)))));
+            this.panelSidebar.Controls.Add(this.btnWHexport);
+            this.panelSidebar.Controls.Add(this.btnWHImport);
             this.panelSidebar.Controls.Add(this.btnWarehouses);
             this.panelSidebar.Controls.Add(this.btnEmployees);
             this.panelSidebar.Controls.Add(this.btnCustomers);
@@ -325,6 +329,15 @@
             this.panel.Size = new System.Drawing.Size(1146, 834);
             this.panel.TabIndex = 2;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Silver;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 48);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1146, 2);
+            this.panel1.TabIndex = 4;
+            // 
             // panelMain
             // 
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -372,14 +385,51 @@
             this.titleIcon.TabIndex = 0;
             this.titleIcon.UseVisualStyleBackColor = true;
             // 
-            // panel1
+            // btnWHImport
             // 
-            this.panel1.BackColor = System.Drawing.Color.Silver;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 48);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1146, 2);
-            this.panel1.TabIndex = 4;
+            this.btnWHImport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnWHImport.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnWHImport.FlatAppearance.BorderSize = 0;
+            this.btnWHImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWHImport.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWHImport.IconChar = FontAwesome.Sharp.IconChar.Warehouse;
+            this.btnWHImport.IconColor = System.Drawing.Color.Black;
+            this.btnWHImport.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnWHImport.IconSize = 35;
+            this.btnWHImport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnWHImport.Location = new System.Drawing.Point(0, 536);
+            this.btnWHImport.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnWHImport.Name = "btnWHImport";
+            this.btnWHImport.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.btnWHImport.Size = new System.Drawing.Size(163, 55);
+            this.btnWHImport.TabIndex = 9;
+            this.btnWHImport.Text = "Nhập kho";
+            this.btnWHImport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnWHImport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnWHImport.UseVisualStyleBackColor = true;
+            // 
+            // btnWHexport
+            // 
+            this.btnWHexport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnWHexport.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnWHexport.FlatAppearance.BorderSize = 0;
+            this.btnWHexport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWHexport.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWHexport.IconChar = FontAwesome.Sharp.IconChar.Warehouse;
+            this.btnWHexport.IconColor = System.Drawing.Color.Black;
+            this.btnWHexport.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnWHexport.IconSize = 35;
+            this.btnWHexport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnWHexport.Location = new System.Drawing.Point(0, 591);
+            this.btnWHexport.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnWHexport.Name = "btnWHexport";
+            this.btnWHexport.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.btnWHexport.Size = new System.Drawing.Size(163, 55);
+            this.btnWHexport.TabIndex = 10;
+            this.btnWHexport.Text = "Xuất kho";
+            this.btnWHexport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnWHexport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnWHexport.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -422,5 +472,7 @@
         private System.Windows.Forms.Label titleLabel;
         private FontAwesome.Sharp.IconButton titleIcon;
         private System.Windows.Forms.Panel panel1;
+        private FontAwesome.Sharp.IconButton btnWHexport;
+        private FontAwesome.Sharp.IconButton btnWHImport;
     }
 }

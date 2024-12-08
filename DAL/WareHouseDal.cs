@@ -8,10 +8,10 @@ using DTO;
 
 namespace DAL
 {
-    public class WareHouseDal
+    public class WareHouseDAL
     {
         STechDBDataContext db = new STechDBDataContext();   
-        public WareHouseDal()
+        public WareHouseDAL()
         {
 
         }
@@ -95,6 +95,63 @@ namespace DAL
         }
 
 
+        #region Warehouse Import
 
+        public bool CreateImportSlip(WarehouseImport slip)
+        {
+            try
+            {
+                db.WarehouseImports.InsertOnSubmit(slip);
+                db.SubmitChanges();
+
+                foreach (WarehouseImportDetail detail in slip.WarehouseImportDetails)
+                {
+                    WarehouseProduct wp = db.WarehouseProducts.FirstOrDefault(w => w.WarehouseId == detail.WIId
+                    && w.ProductId == detail.ProductId);
+
+                    if (wp != null)
+                    {
+                        wp.Quantity += detail.Quantity;
+                    }
+                    else
+                    {
+                        WarehouseProduct new_wp = new WarehouseProduct
+                        {
+                            Quantity = detail.Quantity,
+                            ProductId = detail.ProductId,
+                            WarehouseId = slip.WarehouseId
+                        };
+
+                        db.WarehouseProducts.InsertOnSubmit(new_wp);
+                    }
+
+                    //Create import history
+                    WarehouseImportHistory history = new WarehouseImportHistory
+                    {
+                        HistoryId = Guid.NewGuid().ToString(),
+                        BatchNumber = $"{detail.ProductId}_{slip.DateImport.Value.ToString("ddMMyyyyHHmm")}",
+                        ImportDate = slip.DateImport.Value,
+                        ProductId = detail.ProductId,
+                        Quantity = detail.Quantity,
+                        WIId = slip.WIId,
+                    };
+
+                    db.WarehouseImportHistories.InsertOnSubmit(history);
+                }
+
+                db.SubmitChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        #endregion
+
+
+        // Export
     }
 }

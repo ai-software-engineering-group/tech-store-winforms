@@ -10,12 +10,19 @@ namespace PTPM_AI_CT3.Utils
     {
         public static string GenerateRandomString(int length)
         {
-            string pattern = "bQ5sWak49EGPJTdw8LqBgcAFMK6fYjZznVemDhrpUHR27vS3";
+            const string pattern = "bQ5sWak49EGPJTdw8LqBgcAFMK6fYjZznVemDhrpUHR27vS3";
+            HashSet<char> usedChars = new HashSet<char>();
             StringBuilder sb = new StringBuilder();
 
-            for (int i = 0; i < length; i++)
+            Random random = new Random();
+            while (sb.Length < length)
             {
-                sb.Append(pattern[new Random().Next(0, pattern.Length)]);
+                char randomChar = pattern[random.Next(pattern.Length)];
+                if (!usedChars.Contains(randomChar))
+                {
+                    usedChars.Add(randomChar);
+                    sb.Append(randomChar);
+                }
             }
 
             return sb.ToString();

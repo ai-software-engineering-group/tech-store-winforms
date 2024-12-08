@@ -1,4 +1,5 @@
 ﻿using FontAwesome.Sharp;
+using PTPM_AI_CT3.Auth;
 using PTPM_AI_CT3.Forms;
 using System;
 using System.Collections.Generic;
@@ -86,6 +87,8 @@ namespace PTPM_AI_CT3
 
             panelMain.BackColor = Color.FromArgb(245, 245, 245);
 
+            this.Load += MainForm_Load;
+
             btnHome.Click += BtnHome_Click;
             btnCategories.Click += BtnCategories_Click;
             btnProducts.Click += BtnProducts_Click;
@@ -94,22 +97,46 @@ namespace PTPM_AI_CT3
             btnCustomers.Click += BtnCustomers_Click;
             btnEmployees.Click += BtnEmployees_Click;
             btnWarehouses.Click += BtnWarehouses_Click;
+            btnWHImport.Click += BtnWHImport_Click;
+            btnWHexport.Click += BtnWHexport_Click;
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            if(!AuthenticatedUser.IsAuthenticated)
+            {
+                MessageBox.Show("Vui lòng đăng nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Close();
+                return;
+            }
+        }
+
+        private void BtnWHexport_Click(object sender, EventArgs e)
+        {
+            ActiveBtn(sender, Colors.color8);
+
+        }
+
+        private void BtnWHImport_Click(object sender, EventArgs e)
+        {
+            ActiveBtn(sender, Colors.color8);
+            OpenChildForm(new WarehouseImportForm());
         }
 
         private void BtnWarehouses_Click(object sender, EventArgs e)
         {
-            ActiveBtn(sender, Colors.color9);
+            ActiveBtn(sender, Colors.color8);
             OpenChildForm(new WarehouseForm());
         }
 
         private void BtnEmployees_Click(object sender, EventArgs e)
         {
-            ActiveBtn(sender, Colors.color8);
+            ActiveBtn(sender, Colors.color7);
         }
 
         private void BtnCustomers_Click(object sender, EventArgs e)
         {
-            ActiveBtn(sender, Colors.color7);
+            ActiveBtn(sender, Colors.color6);
             OpenChildForm(new CustomerForm());
         }
 
@@ -142,20 +169,27 @@ namespace PTPM_AI_CT3
 
         private void OpenChildForm(Form form)
         {
-            if (currentChildForm != null)
+            try
             {
-                currentChildForm.Close();
-            }
+                if (currentChildForm != null)
+                {
+                    currentChildForm.Close();
+                }
 
-            currentChildForm = form;
-            form.TopLevel = false;
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.Dock = DockStyle.Fill;
-            panelMain.Controls.Add(form);
-            panelMain.Tag = form;
-            form.BringToFront();
-            form.Show();
-            titleLabel.Text = form.Text;
+                currentChildForm = form;
+                form.TopLevel = false;
+                form.FormBorderStyle = FormBorderStyle.None;
+                form.Dock = DockStyle.Fill;
+                panelMain.Controls.Add(form);
+                panelMain.Tag = form;
+                form.BringToFront();
+                form.Show();
+                titleLabel.Text = form.Text;
+            }
+            catch (Exception ex)
+            {
+                
+            }
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)

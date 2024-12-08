@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using BLL;
 using DTO;
 
-namespace PTPM_AI_CT3
+namespace UserControls
 {
     public partial class InsertBrand : UserControl
     {

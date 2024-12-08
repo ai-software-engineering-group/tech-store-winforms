@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using DTO;
 using BLL;
 
-namespace PTPM_AI_CT3
+namespace UserControls
 {
     public partial class updateBrand : UserControl
     {
