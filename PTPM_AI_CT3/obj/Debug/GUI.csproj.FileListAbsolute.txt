@@ -246,3 +246,4 @@ D:\Thu3\Lamlai\tech-store-winforms\PTPM_AI_CT3\obj\Debug\GUI.csproj.CopyComplete
 D:\Thu3\Lamlai\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.exe
 D:\Thu3\Lamlai\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.pdb
 D:\Thu3\Lamlai\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.Forms.CategoryForm.resources
+D:\Thu3\Lamlai\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.Forms.EmployeeForm.resources
