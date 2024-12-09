@@ -70,22 +70,19 @@ namespace PTPM_AI_CT3.Forms
         }
         private bool ValidateEmployeeData()
         {
-            // Kiểm tra tên khách hàng
             if (string.IsNullOrWhiteSpace(txt_TenNV.Text))
             {
                 MessageBox.Show("Tên khách hàng không được để trống", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
-            // Kiểm tra số điện thoại
-            string phonePattern = @"^(\+84|0)[0-9]{9,10}$"; // Kiểm tra số điện thoại Việt Nam
+            string phonePattern = @"^(\+84|0)[0-9]{9,10}$"; 
             if (!System.Text.RegularExpressions.Regex.IsMatch(txt_SDT.Text, phonePattern))
             {
                 MessageBox.Show("Số điện thoại không hợp lệ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
-            // Kiểm tra email
             try
             {
                 var email = new System.Net.Mail.MailAddress(txt_Email.Text);
@@ -96,21 +93,18 @@ namespace PTPM_AI_CT3.Forms
                 return false;
             }
 
-            // Kiểm tra ngày sinh
             if (dtpNgaySinh.Value > DateTime.Now || dtpNgaySinh.Value < new DateTime(1900, 1, 1))
             {
                 MessageBox.Show("Ngày sinh không hợp lệ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
-            // Kiểm tra địa chỉ
             if (string.IsNullOrWhiteSpace(txt_DiaChi.Text))
             {
                 MessageBox.Show("Địa chỉ không được để trống", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
-            // Kiểm tra tỉnh, quận, phường
             if (cb_Tinh.SelectedIndex == -1 || cb_Quan.SelectedIndex == -1 || cb_Phuong.SelectedIndex == -1)
             {
                 MessageBox.Show("Vui lòng chọn đầy đủ thông tin tỉnh, quận, phường", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -140,7 +134,6 @@ namespace PTPM_AI_CT3.Forms
                     dtpNgaySinh.Value = DateTime.Now;
                 }
 
-                // Chọn Giới tính
                 if (row.Cells["Gender"].Value?.ToString() == "Nam")
                 {
                     radio_Nam.Checked = true;
@@ -152,33 +145,29 @@ namespace PTPM_AI_CT3.Forms
 
                 txt_DiaChi.Text = row.Cells["Address"].Value?.ToString();
 
-                // Lấy thông tin tỉnh, quận, phường từ dòng dữ liệu
+
                 string provinceCode = row.Cells["ProvinceCode"].Value?.ToString();
                 string districtCode = row.Cells["DistrictCode"].Value?.ToString();
                 string wardCode = row.Cells["WardCode"].Value?.ToString();
 
-                // Hiển thị mã Tỉnh, Quận, Phường vào các TextBox
+
                 txt_MaTinh.Text = provinceCode;
                 txt_MaQuan.Text = districtCode;
                 txt_MaPhuong.Text = wardCode;
 
-                // Chọn tỉnh trong cb_Tinh
                 if (!string.IsNullOrEmpty(provinceCode))
                 {
                     cb_Tinh.SelectedValue = provinceCode;
                 }
 
-                // Tải và chọn quận trong cb_Quan
                 if (!string.IsNullOrEmpty(districtCode))
                 {
-                    await LoadDistrictsByProvince(provinceCode); // Tải quận khi tỉnh đã được chọn
+                    await LoadDistrictsByProvince(provinceCode); 
                     cb_Quan.SelectedValue = districtCode;
                 }
-
-                // Tải và chọn phường trong cb_Phuong
                 if (!string.IsNullOrEmpty(wardCode))
                 {
-                    await LoadWardsByDistrict(districtCode); // Tải phường khi quận đã được chọn
+                    await LoadWardsByDistrict(districtCode); 
                     cb_Phuong.SelectedValue = wardCode;
                 }
             }
@@ -241,7 +230,6 @@ namespace PTPM_AI_CT3.Forms
             }
         }
 
-        // Hàm lấy danh sách tỉnh
         private async void LoadProvincesAsync()
         {
             try
@@ -257,12 +245,11 @@ namespace PTPM_AI_CT3.Forms
             }
         }
 
-        // Hàm xử lý sự kiện chọn tỉnh
         private async void cb_Tinh_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cb_Tinh.SelectedValue == null)
             {
-                return; // Nếu không chọn tỉnh, không làm gì
+                return; 
             }
 
             string selectedProvinceCode = cb_Tinh.SelectedValue.ToString();
@@ -271,16 +258,16 @@ namespace PTPM_AI_CT3.Forms
 
             try
             {
-                // Lấy danh sách quận/huyện theo tỉnh đã chọn
+                
                 List<District> districts = await AddressService.GetDistrictsByProvinceAsync(selectedProvinceCode);
                 cb_Quan.DataSource = districts;
                 cb_Quan.DisplayMember = "Name";
                 cb_Quan.ValueMember = "Code";
                 cb_Quan.SelectedIndex = -1;
 
-                // Reset lại xã/phường khi thay đổi tỉnh
+               
                 cb_Phuong.DataSource = null;
-                cb_Phuong.SelectedIndex = -1;  // Không chọn xã/phường mặc định
+                cb_Phuong.SelectedIndex = -1;  
 
             }
             catch (Exception ex)
@@ -289,22 +276,22 @@ namespace PTPM_AI_CT3.Forms
         }
 
 
-        // Hàm xử lý sự kiện chọn quận
+      
         private async void cb_Quan_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cb_Quan.SelectedValue == null)
             {
-                return; // Nếu không chọn quận, không làm gì
+                return; 
             }
 
             string selectedDistrictCode = cb_Quan.SelectedValue.ToString();
 
-            // Hiển thị mã Quận vào TextBox
+            
             txt_MaQuan.Text = selectedDistrictCode;
 
             try
             {
-                // Lấy danh sách xã/phường theo quận đã chọn
+                
                 List<Ward> wards = await AddressService.GetWardsByDistrictAsync(selectedDistrictCode);
                 cb_Phuong.DataSource = wards;
                 cb_Phuong.DisplayMember = "Name";
@@ -320,12 +307,10 @@ namespace PTPM_AI_CT3.Forms
         {
             if (cb_Phuong.SelectedValue == null)
             {
-                return; // Nếu không chọn phường, không làm gì
+                return; 
             }
 
             string selectedWardCode = cb_Phuong.SelectedValue.ToString();
-
-            // Hiển thị mã Phường vào TextBox
             txt_MaPhuong.Text = selectedWardCode;
         }
         private void btnAdd_Click(object sender, EventArgs e)

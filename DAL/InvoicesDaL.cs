@@ -218,92 +218,122 @@ namespace DAL
                 return false;
             }
         }
-        // Hàm lấy dữ liệu doanh thu theo tháng
-        public List<SalesChartDTO> GetSalesDataForChart()
+        public int GetMonthlyProductsSold(int month, int year)
         {
-            var salesData = (from invoice in db.Invoices
-                             where invoice.IsCancelled == false
-                             // Kiểm tra null và lấy Year và Month nếu có giá trị
-                             group invoice by new
-                             {
-                                 Month = invoice.OrderDate.HasValue ? invoice.OrderDate.Value.Month : (int?)null,
-                                 Year = invoice.OrderDate.HasValue ? invoice.OrderDate.Value.Year : (int?)null
-                             } into g
-                             orderby g.Key.Year, g.Key.Month
-                             select new SalesChartDTO
-                             {
-                                 Date = new DateTime(g.Key.Year.Value, g.Key.Month.Value, 1),
-                                 TotalSales = g.Sum(x => x.Total)
-                             }).ToList();
-
-            return salesData;
+          
+            var productsSold = db.InvoiceDetails
+                .Where(id => id.Invoice.OrderDate.Value.Month == month && id.Invoice.OrderDate.Value.Year == year && id.Invoice.IsCancelled == false)
+                .Sum(id => (int?)id.Quantity) ?? 0; 
+            return productsSold;
         }
 
-        // Hàm tính tổng doanh thu
-        public decimal GetTotalSales()
+        public decimal GetMonthlySales(int month, int year)
         {
-            return db.Invoices
-                .Where(i => i.IsCancelled == false)
-                .Sum(i => i.Total);
+            var totalSales = db.Invoices
+                .Where(i => i.OrderDate.Value.Month == month && i.OrderDate.Value.Year == year && i.IsCancelled == false)
+                .Sum(i => (decimal?)i.Total) ?? 0m;  
+            return totalSales;
         }
 
-        // Hàm tính tổng số đơn hàng
-        public int GetTotalOrders()
+        public int GetMonthlyOrders(int month, int year)
         {
-            return db.Invoices
-                .Where(i => i.IsCancelled == false)
+            var totalOrders = db.Invoices
+                .Where(i => i.OrderDate.Value.Month == month && i.OrderDate.Value.Year == year && i.IsCancelled == false)
                 .Count();
+            return totalOrders;
         }
 
-        // Hàm lấy sản phẩm bán chạy
-        public List<ProductSalesDTO> GetTopSellingProducts()
+
+        public List<ProductSalesDTO> GetTopSellingProducts(int month, int year)
         {
-            var topSellingProducts = (from id in db.InvoiceDetails
-                                      join p in db.Products on id.ProductId equals p.ProductId
-                                      where id.Invoice.IsCancelled == false
-                                      group id by p.ProductName into g
-                                      orderby g.Sum(x => x.Quantity) descending
-                                      select new ProductSalesDTO
-                                      {
-                                          ProductName = g.Key,
-                                          TotalSold = g.Sum(x => x.Quantity)
-                                      }).Take(10).ToList();
-            return topSellingProducts;
+            return (from id in db.InvoiceDetails
+                    join p in db.Products on id.ProductId equals p.ProductId
+                    where id.Invoice.OrderDate.Value.Month == month && id.Invoice.OrderDate.Value.Year == year && id.Invoice.IsCancelled == false
+                    group id by p.ProductName into g
+                    orderby g.Sum(x => x.Quantity) descending
+                    select new ProductSalesDTO
+                    {
+                        ProductName = g.Key,
+                        TotalSold = g.Sum(x => x.Quantity)
+                    }).Take(10).ToList();
         }
 
-        // Hàm lấy người dùng hoạt động
+        public List<SalesChartDTO> GetSalesDataForChart(int month, int year)
+        {
+            return (from invoice in db.Invoices
+                    where invoice.OrderDate.Value.Month == month && invoice.OrderDate.Value.Year == year && invoice.IsCancelled == false
+                    group invoice by new
+                    {
+                        Year = invoice.OrderDate.Value.Year,
+                        Month = invoice.OrderDate.Value.Month
+                    } into g
+                    select new SalesChartDTO
+                    {
+                        Date = new DateTime(g.Key.Year, g.Key.Month, 1),
+                        TotalSales = g.Sum(x => x.Total),
+                        TotalOrders = g.Count()
+                    }).ToList();
+        }
+        public List<SalesData> GetSalesDataForChart(int year)
+        {
+            var salesData = db.Invoices
+            .Where(i => i.OrderDate.Value.Year == year && i.IsCancelled == false)  
+            .GroupBy(i => i.OrderDate.Value.Month)
+            .Select(g => new SalesData
+            {
+                Date = g.First().OrderDate.Value,
+                TotalSales = g.Sum(i => i.Total),
+                TotalOrders = g.Count() 
+            })
+            .ToList();
+
+
+            var allMonthsData = Enumerable.Range(1, 12).Select(month => new SalesData
+            {
+                Date = new DateTime(year, month, 1),
+                TotalSales = salesData.FirstOrDefault(d => d.Date.Month == month)?.TotalSales ?? 0,
+                TotalOrders = salesData.FirstOrDefault(d => d.Date.Month == month)?.TotalOrders ?? 0
+            }).ToList();
+
+            return allMonthsData;
+        }
         public List<UserActivityDTO> GetActiveUsers()
         {
-            var activeUsers = (from u in db.Users
-                               join i in db.Invoices on u.UserId equals i.UserId
-                               where u.IsActive == true
-                               group i by u.FullName into g
-                               orderby g.Count() descending
-                               select new UserActivityDTO
-                               {
-                                   FullName = g.Key,
-                                   OrdersCount = g.Count()
-                               }).ToList();
-            return activeUsers;
+            return (from u in db.Users
+                    join i in db.Invoices on u.UserId equals i.UserId
+                    where u.IsActive == true
+                    group i by u.FullName into g
+                    orderby g.Count() descending
+                    select new UserActivityDTO
+                    {
+                        FullName = g.Key,
+                        OrdersCount = g.Count()
+                    }).ToList();
         }
     }
-}
-// DTO để truyền dữ liệu của sản phẩm bán chạy và người dùng hoạt động
-public class ProductSalesDTO
-{
-    public string ProductName { get; set; }
-    public int TotalSold { get; set; }
-}
+    public class ProductSalesDTO
+    {
+        public string ProductName { get; set; }
+        public int TotalSold { get; set; }
+    }
 
-public class UserActivityDTO
-{
-    public string FullName { get; set; }
-    public int OrdersCount { get; set; }
-}
-public class SalesChartDTO
-{
-    public DateTime Date { get; set; }
-    public decimal TotalSales { get; set; }
+    public class UserActivityDTO
+    {
+        public string FullName { get; set; }
+        public int OrdersCount { get; set; }
+    }
 
-    
+    public class SalesChartDTO
+    {
+        public DateTime Date { get; set; }
+        public decimal TotalSales { get; set; }
+        public int TotalOrders { get; set; } 
+    }
+    public class SalesData
+    {
+        public DateTime Date { get; set; } 
+        public decimal TotalSales { get; set; } 
+        public int TotalOrders { get; set; } 
+    }
+
 }
