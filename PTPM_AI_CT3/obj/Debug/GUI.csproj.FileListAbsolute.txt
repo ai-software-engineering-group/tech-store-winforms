@@ -171,3 +171,4 @@ D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.Forms.
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.Forms.BrandForm.resources
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.Forms.CustomerForm.resources
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.Forms.WarehouseImportForm.resources
+D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.Forms.WarehouseImportListForm.resources
