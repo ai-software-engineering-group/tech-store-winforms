@@ -13,20 +13,13 @@ namespace PTPM_AI_CT3.Forms
 {
     public partial class EmployeeForm : Form
     {
-<<<<<<< HEAD
         EmployeeBLL employeeBLL = new EmployeeBLL();
         UserBLL userBLL = new UserBLL();
 
         public EmployeeForm()
         {
             InitializeComponent();
-=======
-        private readonly EmployeeBLL employeeBLL;
-        public EmployeeForm()
-        {
-            InitializeComponent();
             employeeBLL = new EmployeeBLL();
->>>>>>> 94e12daad8e6d412fb18153812a784fa48e8e1a1
             dgv_NV.CellClick += Dgv_NV_CellClick;
             this.Load += EmployeeForm_Load;
             LoadProvincesAsync(); cb_TimKiem.Items.Add("Mã nhân viên");
@@ -39,6 +32,12 @@ namespace PTPM_AI_CT3.Forms
             btnAdd.BackColor = MyColors.GREEN;
             btnUpdate.BackColor = MyColors.LIGHTBLUE;
             btnDelete.BackColor = MyColors.RED;
+
+            btn_TimKiem.Click += btn_TimKiem_Click;
+            btn_HienThiTatCa.Click += btn_HienThiTatCa_Click;
+            btnAdd.Click += btnAdd_Click;
+            btnUpdate.Click += btnUpdate_Click;
+            btnDelete.Click += btnDelete_Click;
 
             cb_TimKiem.SelectedIndex = 0;
             cb_TimKiem.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -349,13 +348,8 @@ namespace PTPM_AI_CT3.Forms
                 ProvinceCode = txt_MaTinh.Text
             };
 
-<<<<<<< HEAD
             string employeeId = employeeBLL.AddEmployee(newEmployee);
             if (employeeId != null)
-=======
-            bool isSuccess = employeeBLL.AddEmployee(newEmployee);
-            if (isSuccess)
->>>>>>> 94e12daad8e6d412fb18153812a784fa48e8e1a1
             {
                 string password = RandomUtils.GenerateRandomString(10);
                 string hashKey = RandomUtils.GenerateRandomString(20);
