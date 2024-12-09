@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO;
 using BLL;
+using System.Web.UI.WebControls;
 
 namespace PTPM_AI_CT3.Forms
 {
@@ -19,9 +20,42 @@ namespace PTPM_AI_CT3.Forms
         public InvoicesForm()
         {
             InitializeComponent();
+
             this.Load += InvoicesForm_Load;
             dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
             dataGridView1.CurrentCellDirtyStateChanged += dataGridView1_CurrentCellDirtyStateChanged;
+            this.buttonfind.Click += Buttonfind_Click;
+            this.buttonLoad.Click += ButtonLoad_Click;
+
+        }
+
+        private void ButtonLoad_Click(object sender, EventArgs e)
+        {
+            loadData();
+        }
+
+        private void Buttonfind_Click(object sender, EventArgs e)
+        {
+            string searchInvoicesId = textBoxFind.Text;
+            var invoice = InvoiceBLL.find_invoicesId(searchInvoicesId);
+            var invoiceStatus = InvoiceBLL.Find_InvoicesStatusDTO(searchInvoicesId);
+            if(invoiceStatus != null)
+            {
+                dataGridViewStatus.DataSource = new List<InvoicesStatusDTO> { invoiceStatus};
+
+            }
+            else
+            {
+                MessageBox.Show("Invoice not found.", "Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            if (invoice != null)
+            {
+                dataGridView1.DataSource = new List<InvoicesDTO> { invoice };
+            }
+            else
+            {
+                MessageBox.Show("Invoice not found.", "Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void InvoicesForm_Load(object sender, EventArgs e)
@@ -32,6 +66,7 @@ namespace PTPM_AI_CT3.Forms
         public void loadData()
         {
             dataGridView1.DataSource = InvoiceBLL.GetInvoices();
+            dataGridViewStatus.DataSource = InvoiceBLL.GetInvoiceStatuses();
         }
 
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -108,5 +143,7 @@ namespace PTPM_AI_CT3.Forms
                 MessageBox.Show("Cập nhật trạng thái hủy thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+      
     }
 }

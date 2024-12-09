@@ -16,9 +16,19 @@ namespace DAL
 
         }
 
-        public List<Warehouse>Loadwarehouses()
+        public List<warehouseDTO>Loadwarehouses()
         {
-            return db.Warehouses.Select(w => w).ToList();
+            return db.Warehouses.Select(w => new warehouseDTO
+            {
+                WareHouseId = w.WarehouseId,
+                WareHouseName= w.WarehouseName,
+                Address = w.Address,
+                Ward = w.Ward,
+                District = w.District,
+                Province = w.Province,
+                Type = w.Type,
+            }).ToList();
+
         }
 
         public bool KTKC()
@@ -26,21 +36,36 @@ namespace DAL
             return false;
         }
 
-        public bool insertWareHouse(Warehouse wh)
+        public bool InsertWareHouse(Warehouse wh)
         {
             try
             {
-                db.Warehouses.InsertOnSubmit(wh);
+                var warehouse = new Warehouse
+                {
+                    WarehouseId = wh.WarehouseId,
+                    WarehouseName = wh.WarehouseName,
+                    Address = wh.Address,
+                    WardCode = wh.WardCode,
+                    DistrictCode = wh.DistrictCode,
+                    ProvinceCode = wh.ProvinceCode,
+                    Ward = wh.Ward,
+                    District = wh.District,
+                    Province = wh.Province,
+                    Type = wh.Type,   
+                };
+
+                db.Warehouses.InsertOnSubmit(warehouse);
                 db.SubmitChanges();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
                 return false;
             }
         }
 
-       public bool deleteWareHouse(string warehouseID)
+
+        public bool deleteWareHouse(string warehouseID)
         {
             try
             {
@@ -62,28 +87,23 @@ namespace DAL
             }
         }
 
-        public bool updateWareHouse(Warehouse wh)
+        public bool updateWareHouse(warehouseDTO wh)
         {
             try
             {
-                Warehouse warehouse_dt = db.Warehouses.FirstOrDefault(w => w.WarehouseId == wh.WarehouseId);
+                Warehouse warehouse_dt = db.Warehouses.FirstOrDefault(w => w.WarehouseId == wh.WareHouseId);
 
                 if (warehouse_dt == null)
                 {
                     return false;
                 }
 
-                warehouse_dt.WarehouseName = wh.WarehouseName;
+                warehouse_dt.WarehouseName = wh.WareHouseName;
                 warehouse_dt.Address = wh.Address;
                 warehouse_dt.Ward = wh.Ward;
-                warehouse_dt.WardCode = wh.WardCode;
                 warehouse_dt.District = wh.District;
-                warehouse_dt.DistrictCode = wh.DistrictCode;
                 warehouse_dt.Province = wh.Province;
-                warehouse_dt.ProvinceCode = wh.ProvinceCode;
                 warehouse_dt.Type = wh.Type;
-                warehouse_dt.Latitude = wh.Latitude;
-                warehouse_dt.Longtitude = wh.Longtitude;
 
                 db.SubmitChanges();
                 return true;

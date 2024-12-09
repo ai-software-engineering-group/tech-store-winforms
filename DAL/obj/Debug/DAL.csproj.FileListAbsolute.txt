@@ -39,6 +39,20 @@ D:\HUFI\HK7\CNPM_AI\tech-store-winforms\DAL\bin\Debug\Newtonsoft.Json.dll
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\DAL\bin\Debug\DTO.pdb
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\DAL\bin\Debug\DTO.dll.config
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\DAL\bin\Debug\Newtonsoft.Json.xml
+<<<<<<< HEAD
+D:\DAN\tech-store-winforms\DAL\bin\Debug\DAL.dll
+D:\DAN\tech-store-winforms\DAL\bin\Debug\DAL.pdb
+D:\DAN\tech-store-winforms\DAL\bin\Debug\DTO.dll
+D:\DAN\tech-store-winforms\DAL\bin\Debug\Newtonsoft.Json.dll
+D:\DAN\tech-store-winforms\DAL\bin\Debug\DTO.pdb
+D:\DAN\tech-store-winforms\DAL\bin\Debug\DTO.dll.config
+D:\DAN\tech-store-winforms\DAL\bin\Debug\Newtonsoft.Json.xml
+D:\DAN\tech-store-winforms\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+D:\DAN\tech-store-winforms\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\DAN\tech-store-winforms\DAL\obj\Debug\DAL.csproj.Up2Date
+D:\DAN\tech-store-winforms\DAL\obj\Debug\DAL.dll
+D:\DAN\tech-store-winforms\DAL\obj\Debug\DAL.pdb
+=======
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\DAL\obj\Debug\DAL.csproj.Up2Date
@@ -56,3 +70,4 @@ D:\Thu3\Lamlainua\tech-store-winforms\DAL\obj\Debug\DAL.csproj.CoreCompileInputs
 D:\Thu3\Lamlainua\tech-store-winforms\DAL\obj\Debug\DAL.csproj.CopyComplete
 D:\Thu3\Lamlainua\tech-store-winforms\DAL\obj\Debug\DAL.dll
 D:\Thu3\Lamlainua\tech-store-winforms\DAL\obj\Debug\DAL.pdb
+>>>>>>> main

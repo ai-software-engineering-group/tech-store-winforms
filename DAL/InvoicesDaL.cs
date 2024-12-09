@@ -16,6 +16,80 @@ namespace DAL
 
         }
 
+        public List<InvoicesStatusDTO> invoiceStatuses()
+        {
+            return db.InvoiceStatus.Select(invoice => new InvoicesStatusDTO
+            {
+                InvoiceId = invoice.InvoiceId,
+                Status = invoice.Status,
+                dateUpdate = invoice.DateUpdated,
+            }).ToList();
+           
+        }
+
+        public InvoicesStatusDTO FindinvoiceStatus(string invoiceId)
+        {
+            try
+            {
+                var invoice = db.InvoiceStatus.FirstOrDefault(i => i.InvoiceId == invoiceId);
+                if (invoice != null)
+                {
+                    return new InvoicesStatusDTO
+                    {
+                        InvoiceId = invoice.InvoiceId,
+                        Status = invoice.Status,
+                        dateUpdate = invoice.DateUpdated ?? DateTime.MinValue,
+                    };
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error finding invoice: {ex.Message}");
+                return null;
+            }
+        }
+        public InvoicesDTO FindInvoice(string invoiceId)
+        {
+            try
+            {
+                var invoice = db.Invoices.SingleOrDefault(i => i.InvoiceId == invoiceId);
+                if (invoice != null)
+                {
+                    return new InvoicesDTO
+                    {
+                        InvoiceId = invoice.InvoiceId,
+                        OrderDate = invoice.OrderDate,
+                        SubTotal = invoice.SubTotal,
+                        Total = invoice.Total,
+                        PaymentMedId = invoice.PaymentMedId,
+                        PaymentStatus = invoice.PaymentStatus,
+                        DeliveryMedId = invoice.DeliveryMedId,
+                        DeliveryAddress = invoice.DeliveryAddress,
+                        RecipientPhone = invoice.RecipientPhone,
+                        RecipientName = invoice.RecipientName,
+                        Note = invoice.Note,
+                        IsCompleted = invoice.IsCompleted,
+                        CustomerId = invoice.CustomerId,
+                        UserId = invoice.UserId,
+                        EmployeeId = invoice.EmployeeId,
+                        IsCancelled = invoice.IsCancelled,
+                        CancelledDate = invoice.CancelledDate,
+                        CompletedDate = invoice.CompletedDate,
+                        IsAccepted = invoice.IsAccepted,
+                        AcceptedDate = invoice.AcceptedDate
+                    };
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error finding invoice: {ex.Message}");
+                return null;
+            }
+        }
+
+
         public List<InvoicesDTO> LoadInvoices()
         {
             return db.Invoices.Select(invoice => new InvoicesDTO
