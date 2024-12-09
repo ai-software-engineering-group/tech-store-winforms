@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PTPM_AI_CT3.Utils
+namespace DAL.Utils
 {
     public static class PasswordUtils
     {

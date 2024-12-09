@@ -5,20 +5,37 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using DTO;
-using DAL;
+using PTPM_AI_CT3.Constants;
+using PTPM_AI_CT3.AdressService;
 
 namespace PTPM_AI_CT3.Forms
 {
     public partial class CustomerForm : Form
     {
-        private readonly CustomersBLL customersBLL; // Thêm BLL vào GUI
+        List<Customer> customers = new List<Customer>();
+        CustomersBLL customersBLL = new CustomersBLL();
+
         public CustomerForm()
         {
             InitializeComponent();
-            customersBLL = new CustomersBLL(); // Khởi tạo BLL
+
             dgv_DSKH.CellClick += Dgv_DSKH_CellClick;
             cb_TimKiem.SelectedIndexChanged += Cb_TimKiem_SelectedIndexChanged;
             this.Load += QLKhachHang_Load;
+
+            btnAdd.BackColor = MyColors.GREEN;
+            btnUpdate.BackColor = MyColors.LIGHTBLUE;
+            btnDelete.BackColor = MyColors.RED;
+            btn_TimKiem.BackColor = MyColors.LIGHTBLUE;
+            btn_HienThiTatCa.BackColor = MyColors.LIGHTBLUE;
+
+
+            btnAdd.Click += btnAdd_Click;
+            btnUpdate.Click += btnUpdate_Click;
+            btnDelete.Click += btnDelete_Click;
+            btn_TimKiem.Click += btn_TimKiem_Click;
+            btn_HienThiTatCa.Click += btn_HienThiTatCa_Click;
+
             // Thêm các lựa chọn vào ComboBox
             cb_TimKiem.Items.Add("Mã khách hàng");
             cb_TimKiem.Items.Add("Tên khách hàng");
@@ -46,12 +63,6 @@ namespace PTPM_AI_CT3.Forms
             }
         }
 
-        private void AddCustomerForm_Load(object sender, EventArgs e)
-        {
-            string customerId = customersBLL.GenerateCustomerId();
-            txt_MaKH.Text = customerId;
-            Console.WriteLine("Mã khách hàng: " + customerId);
-        }
         private async void Dgv_DSKH_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -275,7 +286,6 @@ namespace PTPM_AI_CT3.Forms
                 return;
             Customer newCustomer = new Customer
             {
-                CustomerId = txt_MaKH.Text,
                 CustomerName = txt_TenKH.Text,
                 Phone = txt_SDT.Text,
                 Email = txt_Email.Text,

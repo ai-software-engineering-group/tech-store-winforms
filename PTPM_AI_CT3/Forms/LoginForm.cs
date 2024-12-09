@@ -57,7 +57,14 @@ namespace PTPM_AI_CT3.Forms
             AuthenticatedUser.SetAuthenticatedUser(user);
             this.Hide();
 
-            new MainForm().Show();
+            if(user.FirstLogin == true)
+            {
+                new ChangePasswordForm().Show();
+            }
+            else
+            {
+                new MainForm().Show();
+            }
         }
 
         private void LblCancel_Click(object sender, EventArgs e)

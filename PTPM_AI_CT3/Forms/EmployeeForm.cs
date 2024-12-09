@@ -5,13 +5,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using DTO;
-using DAL;
+using PTPM_AI_CT3.Constants;
+using PTPM_AI_CT3.Utils;
+using PTPM_AI_CT3.AdressService;
+using System.ComponentModel.Design;
 
 namespace PTPM_AI_CT3.Forms
 {
     public partial class EmployeeForm : Form
     {
-        private readonly EmployeeBLL employeeBLL;
+        EmployeeBLL employeeBLL = new EmployeeBLL();
+        UserBLL userBLL = new UserBLL();
+
         public EmployeeForm()
         {
             InitializeComponent();
@@ -22,6 +27,18 @@ namespace PTPM_AI_CT3.Forms
             cb_TimKiem.Items.Add("Tên nhân viên");
             cb_TimKiem.Items.Add("Số điện thoại");
             cb_TimKiem.Items.Add("Ngày sinh");
+
+            btn_TimKiem.BackColor = MyColors.LIGHTBLUE;
+            btn_HienThiTatCa.BackColor = MyColors.LIGHTBLUE;
+            btnAdd.BackColor = MyColors.GREEN;
+            btnUpdate.BackColor = MyColors.LIGHTBLUE;
+            btnDelete.BackColor = MyColors.RED;
+
+            btn_TimKiem.Click += btn_TimKiem_Click;
+            btn_HienThiTatCa.Click += btn_HienThiTatCa_Click;
+            btnAdd.Click += btnAdd_Click;
+            btnUpdate.Click += btnUpdate_Click;
+            btnDelete.Click += btnDelete_Click;
 
             cb_TimKiem.SelectedIndex = 0;
             cb_TimKiem.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -317,7 +334,6 @@ namespace PTPM_AI_CT3.Forms
                 return;
             Employee newEmployee = new Employee
             {
-                EmployeeId = txt_MaNV.Text,
                 EmployeeName = txt_TenNV.Text,
                 Phone = txt_SDT.Text,
                 Email = txt_Email.Text,
@@ -333,10 +349,39 @@ namespace PTPM_AI_CT3.Forms
                 ProvinceCode = txt_MaTinh.Text
             };
 
-            bool isSuccess = employeeBLL.AddEmployee(newEmployee);
-            if (isSuccess)
+            string employeeId = employeeBLL.AddEmployee(newEmployee);
+            if (employeeId != null)
             {
-                MessageBox.Show("Thêm khách hàng thành công.");
+                string password = RandomUtils.GenerateRandomString(10);
+                string hashKey = RandomUtils.GenerateRandomString(20);
+
+                bool result = userBLL.CreateUser(new User
+                {
+                    UserId = Guid.NewGuid().ToString(),
+                    Username = employeeId,
+                    PasswordHash = password.HashPasswordMD5(hashKey),
+                    CreateAt = DateTime.Now,
+                    Email = newEmployee.Email,
+                    DOB = newEmployee.DOB,
+                    FirstLogin = true,
+                    Gender = newEmployee.Gender,
+                    FullName = newEmployee.EmployeeName,
+                    Phone = newEmployee.Phone,
+                    RandomKey = hashKey,
+                    IsActive = true,
+                    RoleId = "admin",
+                    EmployeeId = newEmployee.EmployeeId
+                });
+
+                if(result)
+                {
+                    Clipboard.SetText(password);
+                    MessageBox.Show($"Thêm nhân viên thành công. \n" +
+                        $"Tài khoản đăng nhập: {employeeId}\n" +
+                        $"Mật khẩu: {password} \n\n" +
+                        $"Đã copy mật khẩu vào clipboard");
+                }
+
                 LoadEmployee();
             }
             else
@@ -382,19 +427,22 @@ namespace PTPM_AI_CT3.Forms
 
             if (string.IsNullOrWhiteSpace(employeeId))
             {
-                MessageBox.Show("Vui lòng chọn khách hàng để xóa", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Vui lòng chọn nhân viên để xóa", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (employeeBLL.DeleteEmployee(employeeId))
+            userBLL.DeleteEmployeeUser(employeeId);
+
+            if(employeeBLL.DeleteEmployee(employeeId))
             {
                 MessageBox.Show("Xóa nhân viên thành công");
-                LoadEmployee(); 
             }
             else
             {
                 MessageBox.Show("Xóa nhân viên thất bại");
+                return;
             }
+            LoadEmployee(); 
         }
         private void btn_TimKiem_Click(object sender, EventArgs e)
         {

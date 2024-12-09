@@ -153,6 +153,7 @@ D:\Thu3\Lamlainua\tech-store-winforms\PTPM_AI_CT3\bin\Debug\Magick.Native-Q8-arm
 D:\Thu3\Lamlainua\tech-store-winforms\PTPM_AI_CT3\bin\Debug\Magick.Native-Q8-x64.dll
 D:\Thu3\Lamlainua\tech-store-winforms\PTPM_AI_CT3\bin\Debug\Magick.Native-Q8-x86.dll
 D:\Thu3\Lamlainua\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.Forms.StatisticalForm.resources
+<<<<<<< HEAD
 D:\DAN\tech-store-winforms\PTPM_AI_CT3\obj\Debug\GUI.csproj.AssemblyReference.cache
 D:\DAN\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.Forms.AddUpdateProductForm.resources
 D:\DAN\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.Forms.CategoryForm.resources
@@ -172,3 +173,7 @@ D:\DAN\tech-store-winforms\PTPM_AI_CT3\obj\Debug\GUI.csproj.GenerateResource.cac
 D:\DAN\tech-store-winforms\PTPM_AI_CT3\obj\Debug\GUI.csproj.CoreCompileInputs.cache
 D:\DAN\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.exe
 D:\DAN\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.pdb
+=======
+D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.Forms.StatisticalForm.resources
+D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.Forms.ChangePasswordForm.resources
+>>>>>>> 88c090a639eb4105e8dcb2361597e50c4433f556

@@ -183,7 +183,7 @@ namespace DTO
     #endregion
 		
 		public STechDBDataContext() : 
-				base(global::DTO.Properties.Settings.Default.STechDBConnectionString2, mappingSource)
+				base(global::DTO.Properties.Settings.Default.STechDBConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace DAL
+namespace PTPM_AI_CT3.AdressService
 {
     // Định nghĩa lớp Tỉnh, Huyện, Xã
     public class Province

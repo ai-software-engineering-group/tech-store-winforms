@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using BLL;
 using DTO;
 using DAL;
+using PTPM_AI_CT3.Constants;
 namespace PTPM_AI_CT3.Forms
 {
     public partial class CategoryForm : Form
@@ -14,6 +15,15 @@ namespace PTPM_AI_CT3.Forms
         public CategoryForm()
         {
             InitializeComponent();
+
+            btnAdd.BackColor = MyColors.GREEN;
+            btnUpdate.BackColor = MyColors.LIGHTBLUE;
+            btnDelete.BackColor = MyColors.RED;
+
+            btnAdd.Click += btnAdd_Click;
+            btnUpdate.Click += btnUpdate_Click;
+            btnDelete.Click += btnDelete_Click;
+
             dgv_DM.CellClick += Dgv_DM_CellClick;
             this.Load += CategoryForm_Load;
         }
