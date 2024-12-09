@@ -251,3 +251,5 @@ D:\Thu3\Lamlai\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.Forms.Emplo
 =======
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.Forms.WarehouseImportListForm.resources
 >>>>>>> sang
+D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.Forms.CategoryForm.resources
+D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.Forms.EmployeeForm.resources
