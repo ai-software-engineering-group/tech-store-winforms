@@ -8,6 +8,7 @@ using DTO;
 using PTPM_AI_CT3.Constants;
 using PTPM_AI_CT3.Utils;
 using PTPM_AI_CT3.AdressService;
+using System.ComponentModel.Design;
 
 namespace PTPM_AI_CT3.Forms
 {
@@ -430,15 +431,18 @@ namespace PTPM_AI_CT3.Forms
                 return;
             }
 
-            if (employeeBLL.DeleteEmployee(employeeId))
+            userBLL.DeleteEmployeeUser(employeeId);
+
+            if(employeeBLL.DeleteEmployee(employeeId))
             {
                 MessageBox.Show("Xóa nhân viên thành công");
-                LoadEmployee(); 
             }
             else
             {
                 MessageBox.Show("Xóa nhân viên thất bại");
+                return;
             }
+            LoadEmployee(); 
         }
         private void btn_TimKiem_Click(object sender, EventArgs e)
         {

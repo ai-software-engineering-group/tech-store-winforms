@@ -154,3 +154,4 @@ D:\Thu3\Lamlainua\tech-store-winforms\PTPM_AI_CT3\bin\Debug\Magick.Native-Q8-x64
 D:\Thu3\Lamlainua\tech-store-winforms\PTPM_AI_CT3\bin\Debug\Magick.Native-Q8-x86.dll
 D:\Thu3\Lamlainua\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.Forms.StatisticalForm.resources
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.Forms.StatisticalForm.resources
+D:\HUFI\HK7\CNPM_AI\tech-store-winforms\PTPM_AI_CT3\obj\Debug\PTPM_AI_CT3.Forms.ChangePasswordForm.resources

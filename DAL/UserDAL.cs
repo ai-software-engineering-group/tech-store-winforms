@@ -62,5 +62,47 @@ namespace DAL
                 return new List<User>();
             }
         }
+
+        public bool ChangePassword(string username, string password)
+        {
+            try
+            {
+                var user = context.Users
+                    .Where(u => u.Username == username)
+                    .FirstOrDefault();
+
+                if (user == null)
+                {
+                    return false;
+                }
+
+                user.PasswordHash = password.HashPasswordMD5(user.RandomKey);
+                user.FirstLogin = false;
+
+                context.SubmitChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool DeleteEmployeeUser(string employeeId)
+        {
+            User user = context.Users
+                .Where(u => u.EmployeeId == employeeId)
+                .FirstOrDefault();
+
+            if (user == null)
+            {
+                return false;
+            }
+
+            context.Users.DeleteOnSubmit(user);
+            context.SubmitChanges();
+
+            return false;
+        }
     }
 }

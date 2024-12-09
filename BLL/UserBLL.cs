@@ -38,5 +38,15 @@ namespace BLL
                 return null;
             }
         }
+
+        public bool ChangePassword(string username, string newPassword)
+        {
+           return dal.ChangePassword(username, newPassword);
+        }
+
+        public bool DeleteEmployeeUser(string employeeId)
+        {
+            return dal.DeleteEmployeeUser(employeeId);
+        }
     }
 }
