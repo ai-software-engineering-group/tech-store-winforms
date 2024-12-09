@@ -171,6 +171,12 @@
     <Compile Include="Forms\WarehouseImportForm.Designer.cs">
       <DependentUpon>WarehouseImportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\WarehouseImportListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WarehouseImportListForm.Designer.cs">
+      <DependentUpon>WarehouseImportListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -223,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\WarehouseImportForm.resx">
       <DependentUpon>WarehouseImportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WarehouseImportListForm.resx">
+      <DependentUpon>WarehouseImportListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
