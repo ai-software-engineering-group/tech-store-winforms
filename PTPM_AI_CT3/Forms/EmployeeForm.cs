@@ -5,24 +5,32 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using DTO;
-using DAL;
+using PTPM_AI_CT3.Constants;
+using PTPM_AI_CT3.Utils;
+using PTPM_AI_CT3.AdressService;
 
 namespace PTPM_AI_CT3.Forms
 {
     public partial class EmployeeForm : Form
     {
         EmployeeBLL employeeBLL = new EmployeeBLL();
-        private EmployeeDAL employeeDAL;
+        UserBLL userBLL = new UserBLL();
+
         public EmployeeForm()
         {
             InitializeComponent();
-            employeeDAL = new EmployeeDAL();
             dgv_NV.CellClick += Dgv_NV_CellClick;
             this.Load += EmployeeForm_Load;
             LoadProvincesAsync(); cb_TimKiem.Items.Add("Mã nhân viên");
             cb_TimKiem.Items.Add("Tên nhân viên");
             cb_TimKiem.Items.Add("Số điện thoại");
             cb_TimKiem.Items.Add("Ngày sinh");
+
+            btn_TimKiem.BackColor = MyColors.LIGHTBLUE;
+            btn_HienThiTatCa.BackColor = MyColors.LIGHTBLUE;
+            btnAdd.BackColor = MyColors.GREEN;
+            btnUpdate.BackColor = MyColors.LIGHTBLUE;
+            btnDelete.BackColor = MyColors.RED;
 
             cb_TimKiem.SelectedIndex = 0;
             cb_TimKiem.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -318,7 +326,6 @@ namespace PTPM_AI_CT3.Forms
                 return;
             Employee newEmployee = new Employee
             {
-                EmployeeId = txt_MaNV.Text,
                 EmployeeName = txt_TenNV.Text,
                 Phone = txt_SDT.Text,
                 Email = txt_Email.Text,
@@ -334,10 +341,36 @@ namespace PTPM_AI_CT3.Forms
                 ProvinceCode = txt_MaTinh.Text
             };
 
-            bool isSuccess = employeeDAL.AddEmployee(newEmployee);
-            if (isSuccess)
+            string employeeId = employeeBLL.AddEmployee(newEmployee);
+            if (employeeId != null)
             {
-                MessageBox.Show("Thêm khách hàng thành công.");
+                string password = RandomUtils.GenerateRandomString(10);
+                string hashKey = RandomUtils.GenerateRandomString(20);
+
+                bool result = userBLL.CreateUser(new User
+                {
+                    Username = employeeId,
+                    PasswordHash = password.HashPasswordMD5(hashKey),
+                    CreateAt = DateTime.Now,
+                    Email = newEmployee.Email,
+                    DOB = newEmployee.DOB,
+                    FirstLogin = true,
+                    Gender = newEmployee.Gender,
+                    FullName = newEmployee.EmployeeName,
+                    Phone = newEmployee.Phone,
+                    RandomKey = hashKey,
+                    IsActive = true,
+                    RoleId = "admin",
+                    EmployeeId = newEmployee.EmployeeId
+                });
+
+                if(result)
+                {
+                    MessageBox.Show($"Thêm nhân viên thành công. \n" +
+                        $"Tài khoản đăng nhập: {employeeId}\n" +
+                        $"Mật khẩu: {password}");
+                }
+
                 LoadEmployee();
             }
             else
@@ -383,7 +416,7 @@ namespace PTPM_AI_CT3.Forms
 
             if (string.IsNullOrWhiteSpace(employeeId))
             {
-                MessageBox.Show("Vui lòng chọn khách hàng để xóa", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Vui lòng chọn nhân viên để xóa", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

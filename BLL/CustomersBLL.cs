@@ -25,6 +25,11 @@ namespace BLL
             }
         }
 
+        public string GenerateCustomerId()
+        {
+            return customersDAL.GenerateCustomerId();
+        }
+
         public bool AddCustomer(Customer customer)
         {
             return customersDAL.AddCustomer(customer);

@@ -27,7 +27,7 @@ namespace BLL
                 return null;
             }
         }
-        public bool AddEmployee(Employee employee)
+        public string AddEmployee(Employee employee)
         {
             return dal.AddEmployee(employee);
         }

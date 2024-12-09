@@ -53,19 +53,19 @@ namespace DAL
         }
 
         // Thêm khách hàng
-        public bool AddEmployee(Employee employee)
+        public string AddEmployee(Employee employee)
         {
             try
             {
                 employee.EmployeeId = GenerateEmployeeId(); // Tạo mã khách hàng mới
                 db.Employees.InsertOnSubmit(employee);
                 db.SubmitChanges(); // Lưu thay đổi vào cơ sở dữ liệu
-                return true;
+                return employee.EmployeeId;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi thêm khách hàng: " + ex.Message);
-                return false;
+                return null;
             }
         }
 
