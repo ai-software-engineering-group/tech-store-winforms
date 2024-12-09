@@ -43,15 +43,33 @@ namespace BLL
         {
             return invoicesdal.UpdateCancelledStatus(invoiceId, isCancelled);
         }
-
-        public InvoicesDTO find_invoicesId(string invoiceId)
+        // Lấy dữ liệu doanh thu cho biểu đồ(mới thêm vào)
+        public List<SalesChartDTO> GetSalesDataForChart()
         {
-            return invoicesdal.FindInvoice(invoiceId);
+            return invoicesdal.GetSalesDataForChart();
+        }
+        // Lấy tổng doanh thu
+        public decimal GetTotalSales()
+        {
+            return invoicesdal.GetTotalSales();
         }
 
-        public InvoicesStatusDTO Find_InvoicesStatusDTO(string invoiceId)
+        // Lấy tổng số đơn hàng
+        public int GetTotalOrders()
         {
-            return invoicesdal.FindinvoiceStatus(invoiceId);
+            return invoicesdal.GetTotalOrders();
+        }
+
+        // Lấy sản phẩm bán chạy
+        public List<ProductSalesDTO> GetTopSellingProducts()
+        {
+            return invoicesdal.GetTopSellingProducts();
+        }
+
+        // Lấy người dùng hoạt động
+        public List<UserActivityDTO> GetActiveUsers()
+        {
+            return invoicesdal.GetActiveUsers();
         }
 
     }
