@@ -4,66 +4,68 @@ using System.Windows.Forms;
 using BLL;
 using DTO;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Globalization;
 
 namespace PTPM_AI_CT3.Forms
 {
     public partial class StatisticalForm : Form
     {
-        private readonly StatisticalBLL statisticalBLL;
+        private InvoiceBLL invoiceBLL;
 
         public StatisticalForm()
         {
             InitializeComponent();
-            statisticalBLL = new StatisticalBLL(); // Khởi tạo lớp BLL
+            invoiceBLL = new InvoiceBLL();
+            LoadData();
         }
 
-        // Cấu hình biểu đồ
-        private void SetupChart()
+        private void LoadData()
         {
-            // Xóa các series cũ nếu có
-            chartRevenue.Series.Clear();
+            // Hiển thị tổng doanh thu
+            var totalSales = invoiceBLL.GetTotalSales();
 
-            // Thêm một Series mới
-            Series revenueSeries = new Series("Doanh thu");
-            chartRevenue.Series.Add(revenueSeries);
+            // Đảm bảo định dạng VND
+            var vietnamCulture = new CultureInfo("vi-VN");
+            lblTotalSales.Text = string.Format(vietnamCulture, "{0:C0}", totalSales);
 
-            // Đặt kiểu biểu đồ là cột (Column)
-            revenueSeries.ChartType = SeriesChartType.Column;
+            // Hiển thị tổng số đơn hàng
+            var totalOrders = invoiceBLL.GetTotalOrders();
+            lblTotalOrders.Text = totalOrders.ToString();
+            LoadSalesChart();
+            // Hiển thị sản phẩm bán chạy
+            var topSellingProducts = invoiceBLL.GetTopSellingProducts();
+            dgvTopSellingProducts.DataSource = topSellingProducts;
 
-            // Thêm dữ liệu vào biểu đồ (sẽ được thực hiện sau khi lấy dữ liệu từ BLL)
-            revenueSeries.XValueMember = "ProductName"; // Trục X: Tên sản phẩm
-            revenueSeries.YValueMembers = "TotalRevenue"; // Trục Y: Tổng doanh thu
+            // Hiển thị người dùng hoạt động
+            var activeUsers = invoiceBLL.GetActiveUsers();
+            dgvActiveUsers.DataSource = activeUsers;
+        }
+        private void LoadSalesChart()
+        {
+            // Tạo một biểu đồ đơn giản cho doanh thu theo thời gian
+            var salesData = invoiceBLL.GetSalesDataForChart(); // Thêm hàm này trong BLL để lấy dữ liệu doanh thu theo tháng
 
-            // Cấu hình các thuộc tính của trục X và Y
-            chartRevenue.ChartAreas[0].AxisX.Title = "Sản phẩm";
-            chartRevenue.ChartAreas[0].AxisY.Title = "Tổng doanh thu";
+            chartSales.Series.Clear();
+            var series = new System.Windows.Forms.DataVisualization.Charting.Series("Doanh thu")
+            {
+                ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+            };
 
-            // Cấu hình hiển thị của trục Y
-            chartRevenue.ChartAreas[0].AxisY.LabelStyle.Format = "C0"; // Định dạng tiền tệ
+            foreach (var data in salesData)
+            {
+                series.Points.AddXY(data.Date, data.TotalSales);
+            }
+
+            chartSales.Series.Add(series);
+        }
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
-        // Hiển thị thống kê doanh thu
-        private void ShowRevenueStats(DateTime startDate, DateTime endDate)
+        private void lblTotalOrders_Click(object sender, EventArgs e)
         {
-            // Lấy dữ liệu thống kê doanh thu từ BLL
-            var revenueStats = statisticalBLL.GetRevenueStats(startDate, endDate);
 
-            // Thiết lập biểu đồ
-            SetupChart();
-
-            // Liên kết dữ liệu vào biểu đồ
-            chartRevenue.DataSource = revenueStats;
-            chartRevenue.DataBind();
-        }
-
-        // Sự kiện khi nhấn nút Xem thống kê
-        private void btnViewStats_Click(object sender, EventArgs e)
-        {
-            DateTime startDate = dateTimePickerStart.Value;
-            DateTime endDate = dateTimePickerEnd.Value;
-
-            // Gọi phương thức để hiển thị thống kê
-            ShowRevenueStats(startDate, endDate);
         }
     }
 }

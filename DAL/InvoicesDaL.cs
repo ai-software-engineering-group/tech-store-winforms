@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Linq;
 using DTO;
-
+using System.Globalization;
 namespace DAL
 {
     public class InvoicesDAL
@@ -144,7 +144,92 @@ namespace DAL
                 return false;
             }
         }
+        // Hàm lấy dữ liệu doanh thu theo tháng
+        public List<SalesChartDTO> GetSalesDataForChart()
+        {
+            var salesData = (from invoice in db.Invoices
+                             where invoice.IsCancelled == false
+                             // Kiểm tra null và lấy Year và Month nếu có giá trị
+                             group invoice by new
+                             {
+                                 Month = invoice.OrderDate.HasValue ? invoice.OrderDate.Value.Month : (int?)null,
+                                 Year = invoice.OrderDate.HasValue ? invoice.OrderDate.Value.Year : (int?)null
+                             } into g
+                             orderby g.Key.Year, g.Key.Month
+                             select new SalesChartDTO
+                             {
+                                 Date = new DateTime(g.Key.Year.Value, g.Key.Month.Value, 1),
+                                 TotalSales = g.Sum(x => x.Total)
+                             }).ToList();
 
+            return salesData;
+        }
 
+        // Hàm tính tổng doanh thu
+        public decimal GetTotalSales()
+        {
+            return db.Invoices
+                .Where(i => i.IsCancelled == false)
+                .Sum(i => i.Total);
+        }
+
+        // Hàm tính tổng số đơn hàng
+        public int GetTotalOrders()
+        {
+            return db.Invoices
+                .Where(i => i.IsCancelled == false)
+                .Count();
+        }
+
+        // Hàm lấy sản phẩm bán chạy
+        public List<ProductSalesDTO> GetTopSellingProducts()
+        {
+            var topSellingProducts = (from id in db.InvoiceDetails
+                                      join p in db.Products on id.ProductId equals p.ProductId
+                                      where id.Invoice.IsCancelled == false
+                                      group id by p.ProductName into g
+                                      orderby g.Sum(x => x.Quantity) descending
+                                      select new ProductSalesDTO
+                                      {
+                                          ProductName = g.Key,
+                                          TotalSold = g.Sum(x => x.Quantity)
+                                      }).Take(10).ToList();
+            return topSellingProducts;
+        }
+
+        // Hàm lấy người dùng hoạt động
+        public List<UserActivityDTO> GetActiveUsers()
+        {
+            var activeUsers = (from u in db.Users
+                               join i in db.Invoices on u.UserId equals i.UserId
+                               where u.IsActive == true
+                               group i by u.FullName into g
+                               orderby g.Count() descending
+                               select new UserActivityDTO
+                               {
+                                   FullName = g.Key,
+                                   OrdersCount = g.Count()
+                               }).ToList();
+            return activeUsers;
+        }
     }
+}
+// DTO để truyền dữ liệu của sản phẩm bán chạy và người dùng hoạt động
+public class ProductSalesDTO
+{
+    public string ProductName { get; set; }
+    public int TotalSold { get; set; }
+}
+
+public class UserActivityDTO
+{
+    public string FullName { get; set; }
+    public int OrdersCount { get; set; }
+}
+public class SalesChartDTO
+{
+    public DateTime Date { get; set; }
+    public decimal TotalSales { get; set; }
+
+    
 }
