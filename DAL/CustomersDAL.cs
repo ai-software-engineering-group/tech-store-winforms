@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DTO;
 using System.Windows.Forms;
+using DAL.Extensions;
 
 namespace DAL
 {
@@ -30,19 +31,7 @@ namespace DAL
         // Sinh mã khách hàng mới
         public string GenerateCustomerId()
         {
-            var lastCustomer = db.Customers.OrderByDescending(c => c.CustomerId).FirstOrDefault();
-            int newId = 1;
-
-            if (lastCustomer != null)
-            {
-                string lastId = lastCustomer.CustomerId.Substring(2); // Loại bỏ "KH" để lấy phần số
-                if (int.TryParse(lastId, out int id))
-                {
-                    newId = id + 1; // Tăng ID lên 1
-                }
-            }
-
-            return "KH" + newId.ToString("D4"); // "KH" + mã khách hàng mới, với 4 chữ số
+           return DateTime.Now.ToString("yyyyMMdd") + RandomUtils.GenerateRandomString(8).ToUpper();
         }
 
         // Thêm khách hàng vào cơ sở dữ liệu

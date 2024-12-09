@@ -50,10 +50,10 @@
     <Compile Include="BrandDAL.cs" />
     <Compile Include="CategoryDAL.cs" />
     <Compile Include="CustomersDAL.cs" />
-    <Compile Include="DisplayAddress.cs" />
     <Compile Include="EmployeeDAL.cs" />
     <Compile Include="Extensions\PaginationExtension.cs" />
     <Compile Include="Extensions\PasswordUtils.cs" />
+    <Compile Include="Extensions\RandomUtils.cs" />
     <Compile Include="InvoicesDAL.cs" />
     <Compile Include="ProductDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

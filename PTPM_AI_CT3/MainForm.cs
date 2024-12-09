@@ -33,12 +33,15 @@ namespace PTPM_AI_CT3
         private Panel leftBorderBtn;
         private Form currentChildForm;
 
+        private bool shouldHandleClosing = false;
+
         public MainForm()
         {
             InitializeComponent();
 
             initUI();
 
+            shouldHandleClosing = false;
             this.FormClosing += MainForm_FormClosing;
         }
 
@@ -101,9 +104,18 @@ namespace PTPM_AI_CT3
             btnWHImport.Click += BtnWHImport_Click;
             btnWHexport.Click += BtnWHexport_Click;
             btnStatistical.Click += BtnStatistical_Click;
+
+            btnSignout.Click += BtnSignout_Click;
         }
 
-      
+        private void BtnSignout_Click(object sender, EventArgs e)
+        {
+            shouldHandleClosing = true;
+            AuthenticatedUser.ClearAuthenticatedUser();
+
+            this.Close();
+            new LoginForm().Show();
+        }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -158,6 +170,7 @@ namespace PTPM_AI_CT3
         private void BtnBrands_Click(object sender, EventArgs e)
         {
             ActiveBtn(sender, Colors.color4);
+            OpenChildForm(new BrandForm());
         }
 
         private void BtnProducts_Click(object sender, EventArgs e)
@@ -204,7 +217,7 @@ namespace PTPM_AI_CT3
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
+            if (!shouldHandleClosing && e.CloseReason == CloseReason.UserClosing)
             {
                 DialogResult r = MessageBox.Show("Bạn chắc chắn muốn thoát?", "Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
 

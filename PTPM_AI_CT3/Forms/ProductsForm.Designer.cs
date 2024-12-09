@@ -51,8 +51,9 @@
             this.panel1.Controls.Add(this.btnAddProduct);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(993, 37);
+            this.panel1.Size = new System.Drawing.Size(1324, 53);
             this.panel1.TabIndex = 3;
             // 
             // panel4
@@ -61,16 +62,18 @@
             this.panel4.Controls.Add(this.label1);
             this.panel4.Controls.Add(this.txtSearch);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(526, 0);
+            this.panel4.Location = new System.Drawing.Point(701, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(467, 37);
+            this.panel4.Size = new System.Drawing.Size(623, 53);
             this.panel4.TabIndex = 1;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(426, 6);
+            this.btnSearch.Location = new System.Drawing.Point(568, 7);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(41, 23);
+            this.btnSearch.Size = new System.Drawing.Size(55, 28);
             this.btnSearch.TabIndex = 5;
             this.btnSearch.Text = "Tim";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -78,17 +81,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(52, 11);
+            this.label1.Location = new System.Drawing.Point(69, 14);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 13);
+            this.label1.Size = new System.Drawing.Size(165, 16);
             this.label1.TabIndex = 4;
             this.label1.Text = "Tìm theo tên/mã sản phẩm";
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(192, 8);
+            this.txtSearch.Location = new System.Drawing.Point(256, 10);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(228, 20);
+            this.txtSearch.Size = new System.Drawing.Size(303, 22);
             this.txtSearch.TabIndex = 3;
             // 
             // btnAddProduct
@@ -100,10 +105,11 @@
             this.btnAddProduct.IconColor = System.Drawing.Color.White;
             this.btnAddProduct.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnAddProduct.IconSize = 17;
-            this.btnAddProduct.Location = new System.Drawing.Point(3, 3);
+            this.btnAddProduct.Location = new System.Drawing.Point(4, 4);
+            this.btnAddProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnAddProduct.Size = new System.Drawing.Size(137, 29);
+            this.btnAddProduct.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.btnAddProduct.Size = new System.Drawing.Size(183, 36);
             this.btnAddProduct.TabIndex = 0;
             this.btnAddProduct.Text = "Thêm sản phẩm";
             this.btnAddProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -113,71 +119,76 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 37);
+            this.panel2.Location = new System.Drawing.Point(0, 53);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(993, 1);
+            this.panel2.Size = new System.Drawing.Size(1324, 1);
             this.panel2.TabIndex = 4;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 38);
+            this.panel3.Location = new System.Drawing.Point(0, 54);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(993, 1);
+            this.panel3.Size = new System.Drawing.Size(1324, 1);
             this.panel3.TabIndex = 5;
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.panelPagination);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 39);
+            this.panel5.Location = new System.Drawing.Point(0, 55);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(993, 37);
+            this.panel5.Size = new System.Drawing.Size(1324, 46);
             this.panel5.TabIndex = 6;
             // 
             // panelPagination
             // 
             this.panelPagination.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelPagination.Location = new System.Drawing.Point(0, 0);
+            this.panelPagination.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelPagination.Name = "panelPagination";
-            this.panelPagination.Size = new System.Drawing.Size(347, 37);
+            this.panelPagination.Size = new System.Drawing.Size(463, 46);
             this.panelPagination.TabIndex = 0;
             // 
             // panelProducts
             // 
             this.panelProducts.AutoScroll = true;
             this.panelProducts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelProducts.Location = new System.Drawing.Point(0, 115);
+            this.panelProducts.Location = new System.Drawing.Point(0, 149);
+            this.panelProducts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelProducts.Name = "panelProducts";
-            this.panelProducts.Size = new System.Drawing.Size(993, 425);
+            this.panelProducts.Size = new System.Drawing.Size(1324, 516);
             this.panelProducts.TabIndex = 9;
             // 
             // productListHeader1
             // 
             this.productListHeader1.BackColor = System.Drawing.Color.White;
             this.productListHeader1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.productListHeader1.Location = new System.Drawing.Point(0, 76);
-            this.productListHeader1.Margin = new System.Windows.Forms.Padding(2);
+            this.productListHeader1.Location = new System.Drawing.Point(0, 101);
+            this.productListHeader1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.productListHeader1.Name = "productListHeader1";
-            this.productListHeader1.Padding = new System.Windows.Forms.Padding(6);
-            this.productListHeader1.Size = new System.Drawing.Size(993, 39);
+            this.productListHeader1.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.productListHeader1.Size = new System.Drawing.Size(1324, 48);
             this.productListHeader1.TabIndex = 8;
             // 
             // ProductsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(993, 540);
+            this.ClientSize = new System.Drawing.Size(1324, 665);
             this.Controls.Add(this.panelProducts);
             this.Controls.Add(this.productListHeader1);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ProductsForm";
             this.Text = "Danh sách sản phẩm";
             this.panel1.ResumeLayout(false);

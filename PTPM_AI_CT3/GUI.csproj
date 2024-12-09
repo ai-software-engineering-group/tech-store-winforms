@@ -124,6 +124,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdressService\DisplayAddress.cs" />
     <Compile Include="Auth\AuthenticatedUser.cs" />
     <Compile Include="AzureServices\CloudStorageService.cs" />
     <Compile Include="Constants\MyColors.cs" />
@@ -138,6 +139,12 @@
     </Compile>
     <Compile Include="Forms\CategoryForm.Designer.cs">
       <DependentUpon>CategoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ChangePasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChangePasswordForm.Designer.cs">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\EmployeeForm.cs">
       <SubType>Form</SubType>
@@ -218,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CategoryForm.resx">
       <DependentUpon>CategoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChangePasswordForm.resx">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EmployeeForm.resx">
       <DependentUpon>EmployeeForm.cs</DependentUpon>
