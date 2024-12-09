@@ -20,7 +20,7 @@ namespace BLL
         {
             return invoicesdal.invoiceStatuses();
         }
-        public List<InvoicesDTO>GetInvoices()
+        public List<InvoicesDTO> GetInvoices()
         {
             return invoicesdal.LoadInvoices();
         }
@@ -52,6 +52,16 @@ namespace BLL
         public decimal GetTotalSales()
         {
             return invoicesdal.GetTotalSales();
+        }
+
+        public InvoicesDTO find_invoicesId(string invoiceId)
+        {
+            return invoicesdal.FindInvoice(invoiceId);
+        }
+
+        public InvoicesStatusDTO Find_InvoicesStatusDTO(string invoiceId)
+        {
+            return invoicesdal.FindinvoiceStatus(invoiceId);
         }
 
         // Lấy tổng số đơn hàng
