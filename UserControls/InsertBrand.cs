@@ -23,6 +23,7 @@ namespace UserControls
             brand.BrandName = textBoxName.Text;
             brand.Address = textBoxAddress.Text;
             brand.Phone = textBoxPhone.Text;
+            brand.LogoSrc = textBoxImg.Text;
 
             if (brandbll.themBrand(brand))
             {

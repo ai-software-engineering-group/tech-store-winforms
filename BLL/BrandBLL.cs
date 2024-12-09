@@ -32,9 +32,9 @@ namespace BLL
             return brandDal.xoaBrand(brand_id);
         }
 
-        public bool updateBrand(string brand_id, string brand_name, string brand_address, string brand_phone)
+        public bool updateBrand(string brand_id, string brand_name, string brand_address, string brand_phone,string brand_Logo)
         {
-            return brandDal.updateBrand(brand_id, brand_name, brand_address, brand_phone);
+            return brandDal.updateBrand(brand_id, brand_name, brand_address, brand_phone,brand_Logo);
         }
     }
 }

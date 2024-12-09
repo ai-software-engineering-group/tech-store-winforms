@@ -149,6 +149,7 @@ namespace PTPM_AI_CT3
         private void BtnBrands_Click(object sender, EventArgs e)
         {
             ActiveBtn(sender, Colors.color4);
+            OpenChildForm(new BrandForm());
         }
 
         private void BtnProducts_Click(object sender, EventArgs e)

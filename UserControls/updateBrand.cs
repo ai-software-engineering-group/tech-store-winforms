@@ -24,8 +24,9 @@ namespace UserControls
             string brandName = textBoxName.Text;
             string brandAddress = textBoxAddress.Text;
             string brandPhone = textBoxPhone.Text;
+            string brandLogo = textBoxLogo.Text;
 
-            if (brandbll.updateBrand(brandId, brandName, brandAddress, brandPhone))
+            if (brandbll.updateBrand(brandId, brandName, brandAddress, brandPhone,brandLogo))
             {
                 MessageBox.Show("Update thành công");
             }

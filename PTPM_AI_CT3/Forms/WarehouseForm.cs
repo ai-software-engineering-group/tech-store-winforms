@@ -19,11 +19,12 @@ namespace PTPM_AI_CT3
         {
             InitializeComponent();
             this.Load += WarehouseForm_Load;
-            this.buttonThem.Click += ButtonThem_Click;
-            this.buttonXoa.Click += ButtonXoa_Click;
-            this.buttonSua.Click += ButtonSua_Click;
+            this.buttonAdd.Click += ButtonThem_Click;
+            this.buttonDelete.Click += ButtonXoa_Click;
+            this.buttonEdit.Click += ButtonSua_Click;
             this.dataGridView1.CellClick += DataGridView1_Click;
         }
+
 
         private void DataGridView1_Click(object sender, DataGridViewCellEventArgs e)
         {
@@ -33,34 +34,24 @@ namespace PTPM_AI_CT3
                 textWareHouseID.Text = selectedRow.Cells["WarehouseId"].Value?.ToString();
                 textWareHouseName.Text = selectedRow.Cells["WarehouseName"].Value?.ToString();
                 textAddress.Text = selectedRow.Cells["Address"].Value?.ToString();
-                textWare.Text = selectedRow.Cells["Ward"].Value?.ToString();
-                textWareCode.Text = selectedRow.Cells["WardCode"].Value?.ToString();
+                textWard.Text = selectedRow.Cells["Ward"].Value?.ToString();
                 textDistrict.Text = selectedRow.Cells["District"].Value?.ToString();
-                textDistrictCode.Text = selectedRow.Cells["DistrictCode"].Value?.ToString();
                 textProvince.Text = selectedRow.Cells["Province"].Value?.ToString();
-                textProvinceCode.Text = selectedRow.Cells["ProvinceCode"].Value?.ToString();
                 cbType.SelectedItem = selectedRow.Cells["Type"].Value?.ToString();
-                textLatitude.Text = selectedRow.Cells["Latitude"].Value?.ToString();
-                textLongtiture.Text = selectedRow.Cells["Longtitude"].Value?.ToString();
             }
         }
 
         private void ButtonSua_Click(object sender, EventArgs e)
         {
-            var warehouse = new Warehouse
+            var warehouse = new warehouseDTO
             {
-                WarehouseId = textWareHouseID.Text,
-                WarehouseName = textWareHouseName.Text,
+                WareHouseId = textWareHouseID.Text,
+                WareHouseName = textWareHouseName.Text,
                 Address = textAddress.Text,
-                Ward = textWare.Text,
-                WardCode = textWareCode.Text,
+                Ward = textWard.Text,
                 District = textDistrict.Text,
-                DistrictCode = textDistrictCode.Text,
                 Province = textProvince.Text,
-                ProvinceCode = textProvinceCode.Text,
                 Type = cbType.SelectedItem?.ToString(),
-                Latitude = decimal.Parse(textLatitude.Text),
-                Longtitude = decimal.Parse(textLongtiture.Text)
             };
             if (wareHouseBll.updaate_warehouse(warehouse))
             {
@@ -94,30 +85,44 @@ namespace PTPM_AI_CT3
 
         private void ButtonThem_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(textWareHouseID.Text) ||
+                string.IsNullOrWhiteSpace(textWareHouseName.Text) ||
+                string.IsNullOrWhiteSpace(textAddress.Text))
+            {
+                MessageBox.Show("Please fill in all required fields.");
+                return;
+            }
+
             var warehouse = new Warehouse
             {
                 WarehouseId = textWareHouseID.Text,
                 WarehouseName = textWareHouseName.Text,
                 Address = textAddress.Text,
-                Ward = textWare.Text,
-                WardCode = textWareCode.Text,
+                Ward = textWard.Text,
+                WardCode = "",
                 District = textDistrict.Text,
-                DistrictCode = textDistrictCode.Text,
+                DistrictCode = "",
                 Province = textProvince.Text,
-                ProvinceCode = textProvinceCode.Text,
+                ProvinceCode ="" ,
                 Type = cbType.SelectedItem?.ToString(),
-                Latitude = decimal.Parse(textLatitude.Text),
-                Longtitude = decimal.Parse(textLongtiture.Text)
+         
             };
 
-            if (wareHouseBll.insertWareHouse(warehouse))
+            try
             {
-                MessageBox.Show("Warehouse added successfully!");
-                loadData();
+                if (wareHouseBll.insertWareHouse(warehouse))
+                {
+                    MessageBox.Show("Warehouse added successfully!");
+                    loadData();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to add warehouse.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Failed to add warehouse.");
+                MessageBox.Show($"An error occurred: {ex.Message}");
             }
         }
 

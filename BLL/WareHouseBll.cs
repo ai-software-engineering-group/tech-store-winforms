@@ -16,14 +16,14 @@ namespace BLL
 
         }
 
-        public List<Warehouse>GetWareHouse()
+        public List<warehouseDTO>GetWareHouse()
         {
             return wareHouseDal.Loadwarehouses();
         }
 
         public bool insertWareHouse(Warehouse wh)
         {
-            return wareHouseDal.insertWareHouse(wh);
+            return wareHouseDal.InsertWareHouse(wh);
         }
 
         public bool delete_wareHouse(string wh_id)
@@ -31,7 +31,7 @@ namespace BLL
             return wareHouseDal.deleteWareHouse(wh_id);
         }
 
-        public bool updaate_warehouse(Warehouse wh)
+        public bool updaate_warehouse(warehouseDTO wh)
         {
             return wareHouseDal.updateWareHouse(wh);
         }

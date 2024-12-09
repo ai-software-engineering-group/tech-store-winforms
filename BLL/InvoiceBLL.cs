@@ -16,6 +16,10 @@ namespace BLL
 
         }
 
+        public List<InvoicesStatusDTO> GetInvoiceStatuses()
+        {
+            return invoicesdal.invoiceStatuses();
+        }
         public List<InvoicesDTO>GetInvoices()
         {
             return invoicesdal.LoadInvoices();
@@ -40,6 +44,15 @@ namespace BLL
             return invoicesdal.UpdateCancelledStatus(invoiceId, isCancelled);
         }
 
+        public InvoicesDTO find_invoicesId(string invoiceId)
+        {
+            return invoicesdal.FindInvoice(invoiceId);
+        }
+
+        public InvoicesStatusDTO Find_InvoicesStatusDTO(string invoiceId)
+        {
+            return invoicesdal.FindinvoiceStatus(invoiceId);
+        }
 
     }
 }

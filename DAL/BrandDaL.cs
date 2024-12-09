@@ -75,7 +75,7 @@ namespace DAL
             }
         }
 
-        public bool updateBrand(string brand_id, string brand_name, string brand_address, string brand_phone)
+        public bool updateBrand(string brand_id, string brand_name, string brand_address, string brand_phone , string brand_logo)
         {
             Brand brandToUpdate = db.Brands.FirstOrDefault(br => br.BrandId == brand_id);
             if (brandToUpdate == null)
@@ -93,6 +93,7 @@ namespace DAL
             brandToUpdate.BrandName = brand_name;
             brandToUpdate.Address = brand_address;
             brandToUpdate.Phone = brand_phone;
+            brandToUpdate.LogoSrc = brand_logo;
 
             try
             {
