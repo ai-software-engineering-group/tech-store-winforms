@@ -106,5 +106,18 @@ namespace DAL
                 return false;
             }
         }
+
+        public Brand FindBrandById(string brand_id)
+        {
+            Brand brand = db.Brands.FirstOrDefault(br => br.BrandId == brand_id);
+
+            if (brand == null)
+            {
+                MessageBox.Show("Không tìm thấy Brand với BrandId đã cung cấp.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return brand;
+        }
     }
+
 }
