@@ -12,16 +12,18 @@ namespace PTPM_AI_CT3.Forms
     public partial class CategoryForm : Form
     {
         CategoryBLL categoryBLL = new CategoryBLL();
-        private CategoryDAL categoryDAL;
         public CategoryForm()
         {
             InitializeComponent();
+<<<<<<< HEAD
             categoryDAL = new CategoryDAL();
 
             btnAdd.BackColor = MyColors.GREEN;
             btnUpdate.BackColor = MyColors.LIGHTBLUE;
             btnDelete.BackColor = MyColors.RED;
 
+=======
+>>>>>>> 94e12daad8e6d412fb18153812a784fa48e8e1a1
             dgv_DM.CellClick += Dgv_DM_CellClick;
             this.Load += CategoryForm_Load;
         }

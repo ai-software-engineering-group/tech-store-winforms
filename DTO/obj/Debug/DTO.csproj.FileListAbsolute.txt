@@ -25,3 +25,9 @@ D:\HUFI\HK7\CNPM_AI\tech-store-winforms\DTO\obj\Debug\DTO.csproj.AssemblyReferen
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\DTO\obj\Debug\DTO.dll
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\DTO\obj\Debug\DTO.pdb
+D:\Thu3\Lamlainua\tech-store-winforms\DTO\bin\Debug\DTO.dll.config
+D:\Thu3\Lamlainua\tech-store-winforms\DTO\bin\Debug\DTO.dll
+D:\Thu3\Lamlainua\tech-store-winforms\DTO\bin\Debug\DTO.pdb
+D:\Thu3\Lamlainua\tech-store-winforms\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+D:\Thu3\Lamlainua\tech-store-winforms\DTO\obj\Debug\DTO.dll
+D:\Thu3\Lamlainua\tech-store-winforms\DTO\obj\Debug\DTO.pdb

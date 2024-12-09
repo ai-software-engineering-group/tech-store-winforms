@@ -12,6 +12,7 @@ namespace PTPM_AI_CT3.Forms
 {
     public partial class CustomerForm : Form
     {
+<<<<<<< HEAD
         List<Customer> customers = new List<Customer>();
         CustomersBLL customersBLL = new CustomersBLL();
 
@@ -19,6 +20,13 @@ namespace PTPM_AI_CT3.Forms
         {
             InitializeComponent();
             customersBLL = new CustomersBLL();
+=======
+        private readonly CustomersBLL customersBLL; // Thêm BLL vào GUI
+        public CustomerForm()
+        {
+            InitializeComponent();
+            customersBLL = new CustomersBLL(); // Khởi tạo BLL
+>>>>>>> 94e12daad8e6d412fb18153812a784fa48e8e1a1
             dgv_DSKH.CellClick += Dgv_DSKH_CellClick;
             cb_TimKiem.SelectedIndexChanged += Cb_TimKiem_SelectedIndexChanged;
             this.Load += QLKhachHang_Load;
@@ -56,6 +64,15 @@ namespace PTPM_AI_CT3.Forms
             }
         }
 
+<<<<<<< HEAD
+=======
+        private void AddCustomerForm_Load(object sender, EventArgs e)
+        {
+            string customerId = customersBLL.GenerateCustomerId();
+            txt_MaKH.Text = customerId;
+            Console.WriteLine("Mã khách hàng: " + customerId);
+        }
+>>>>>>> 94e12daad8e6d412fb18153812a784fa48e8e1a1
         private async void Dgv_DSKH_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Data.Linq;
 using DTO;
 using System.Windows.Forms;
 
@@ -9,19 +8,15 @@ namespace DAL
 {
     public class CustomersDAL
     {
-        STechDBDataContext db = new STechDBDataContext();
+        private STechDBDataContext db = new STechDBDataContext();
 
         public CustomersDAL() { }
 
+        // Lấy danh sách khách hàng
         public List<Customer> LoadCustomes()
         {
             try
             {
-                if (db == null)
-                {
-                    throw new InvalidOperationException("Chưa có dữ liệu");
-                }
-
                 var customersList = db.Customers.ToList();
                 return customersList ?? new List<Customer>();
             }
@@ -32,6 +27,7 @@ namespace DAL
             }
         }
 
+        // Sinh mã khách hàng mới
         public string GenerateCustomerId()
         {
             var lastCustomer = db.Customers.OrderByDescending(c => c.CustomerId).FirstOrDefault();
@@ -39,7 +35,6 @@ namespace DAL
 
             if (lastCustomer != null)
             {
-                // Lấy ID cuối cùng và tạo ID mới
                 string lastId = lastCustomer.CustomerId.Substring(2); // Loại bỏ "KH" để lấy phần số
                 if (int.TryParse(lastId, out int id))
                 {
@@ -50,7 +45,7 @@ namespace DAL
             return "KH" + newId.ToString("D4"); // "KH" + mã khách hàng mới, với 4 chữ số
         }
 
-        // Thêm khách hàng
+        // Thêm khách hàng vào cơ sở dữ liệu
         public bool AddCustomer(Customer customer)
         {
             try
@@ -67,11 +62,11 @@ namespace DAL
             }
         }
 
+        // Cập nhật thông tin khách hàng
         public bool UpdateCustomer(Customer customer)
         {
             try
             {
-
                 var existingCustomer = db.Customers.FirstOrDefault(c => c.CustomerId == customer.CustomerId);
                 if (existingCustomer != null)
                 {
@@ -100,7 +95,6 @@ namespace DAL
             }
         }
 
-
         // Xóa khách hàng
         public bool DeleteCustomer(string customerId)
         {
@@ -121,6 +115,5 @@ namespace DAL
                 return false;
             }
         }
-
     }
 }

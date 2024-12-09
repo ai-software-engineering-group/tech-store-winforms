@@ -5,12 +5,12 @@ using System.Data.Linq;
 using DTO;
 using System.Windows.Forms;
 
-
 namespace DAL
 {
     public class EmployeeDAL
     {
         private STechDBDataContext db;
+
         public EmployeeDAL()
         {
             db = new STechDBDataContext();
@@ -22,7 +22,7 @@ namespace DAL
             {
                 if (db == null)
                 {
-                    throw new InvalidOperationException("Chưa có dữ liệu");
+                    throw new InvalidOperationException("Database context is not initialized.");
                 }
 
                 var employeeList = db.Employees.ToList();
@@ -34,31 +34,36 @@ namespace DAL
                 return new List<Employee>();
             }
         }
+
         public string GenerateEmployeeId()
         {
-            var lastEmployee = db.Employees.OrderByDescending(c => c.EmployeeId).FirstOrDefault();
+            var lastEmployee = db.Employees.OrderByDescending(e => e.EmployeeId).FirstOrDefault();
             int newId = 1;
 
             if (lastEmployee != null)
             {
-                // Lấy ID cuối cùng và tạo ID mới
-                string lastId = lastEmployee.EmployeeId.Substring(2); // Loại bỏ "KH" để lấy phần số
+                string lastId = lastEmployee.EmployeeId.Substring(2); // Remove "NV" to get the numeric part
                 if (int.TryParse(lastId, out int id))
                 {
-                    newId = id + 1; // Tăng ID lên 1
+                    newId = id + 1; // Increment ID by 1
                 }
             }
 
-            return "NV" + newId.ToString("D4"); // "KH" + mã khách hàng mới, với 4 chữ số
+            return "NV" + newId.ToString("D4"); // "NV" + new employee ID with 4 digits
         }
 
+<<<<<<< HEAD
         // Thêm khách hàng
         public string AddEmployee(Employee employee)
+=======
+        public bool AddEmployee(Employee employee)
+>>>>>>> 94e12daad8e6d412fb18153812a784fa48e8e1a1
         {
             try
             {
-                employee.EmployeeId = GenerateEmployeeId(); // Tạo mã khách hàng mới
+                employee.EmployeeId = GenerateEmployeeId(); // Generate new Employee ID
                 db.Employees.InsertOnSubmit(employee);
+<<<<<<< HEAD
                 db.SubmitChanges(); // Lưu thay đổi vào cơ sở dữ liệu
                 return employee.EmployeeId;
             }
@@ -66,6 +71,15 @@ namespace DAL
             {
                 MessageBox.Show("Lỗi khi thêm khách hàng: " + ex.Message);
                 return null;
+=======
+                db.SubmitChanges(); // Save changes to the database
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding employee: " + ex.Message);
+                return false;
+>>>>>>> 94e12daad8e6d412fb18153812a784fa48e8e1a1
             }
         }
 
@@ -73,11 +87,10 @@ namespace DAL
         {
             try
             {
-
-                var existingEmployee = db.Employees.FirstOrDefault(c => c.EmployeeId == employee.EmployeeId);
+                var existingEmployee = db.Employees.FirstOrDefault(e => e.EmployeeId == employee.EmployeeId);
                 if (existingEmployee != null)
                 {
-                    existingEmployee.EmployeeId = employee.EmployeeName;
+                    existingEmployee.EmployeeName = employee.EmployeeName;
                     existingEmployee.Phone = employee.Phone;
                     existingEmployee.Email = employee.Email;
                     existingEmployee.DOB = employee.DOB;
@@ -91,36 +104,34 @@ namespace DAL
                     existingEmployee.DistrictCode = employee.DistrictCode;
                     existingEmployee.ProvinceCode = employee.ProvinceCode;
 
-                    db.SubmitChanges(); // Lưu thay đổi vào cơ sở dữ liệu
+                    db.SubmitChanges(); // Save changes to the database
                     return true;
                 }
                 return false;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi sửa khách hàng: " + ex.Message);
+                MessageBox.Show("Error updating employee: " + ex.Message);
                 return false;
             }
         }
 
-
-        // Xóa khách hàng
-        public bool DeleteEmployee(string employId)
+        public bool DeleteEmployee(string employeeId)
         {
             try
             {
-                var employee = db.Employees.FirstOrDefault(c => c.EmployeeId == employId);
-                if (employId != null)
+                var employee = db.Employees.FirstOrDefault(e => e.EmployeeId == employeeId);
+                if (employee != null)
                 {
                     db.Employees.DeleteOnSubmit(employee);
-                    db.SubmitChanges(); // Lưu thay đổi vào cơ sở dữ liệu
+                    db.SubmitChanges(); // Save changes to the database
                     return true;
                 }
                 return false;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi xóa khách hàng: " + ex.Message);
+                MessageBox.Show("Error deleting employee: " + ex.Message);
                 return false;
             }
         }
