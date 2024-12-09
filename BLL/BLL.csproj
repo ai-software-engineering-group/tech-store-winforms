@@ -45,6 +45,7 @@
     <Compile Include="BrandBLL.cs" />
     <Compile Include="CategoryBLL.cs" />
     <Compile Include="CustomersBLL.cs" />
+    <Compile Include="EmployeeBLL.cs" />
     <Compile Include="InvoiceBLL.cs" />
     <Compile Include="ProductBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
