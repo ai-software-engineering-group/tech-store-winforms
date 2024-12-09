@@ -11,13 +11,11 @@ namespace PTPM_AI_CT3.Forms
 {
     public partial class CustomerForm : Form
     {
-        List<Customer> customers = new List<Customer>();
-        CustomersBLL customersBLL = new CustomersBLL();
-        private CustomersDAL customersDAL;
+        private readonly CustomersBLL customersBLL; // Thêm BLL vào GUI
         public CustomerForm()
         {
             InitializeComponent();
-            customersDAL = new CustomersDAL();
+            customersBLL = new CustomersBLL(); // Khởi tạo BLL
             dgv_DSKH.CellClick += Dgv_DSKH_CellClick;
             cb_TimKiem.SelectedIndexChanged += Cb_TimKiem_SelectedIndexChanged;
             this.Load += QLKhachHang_Load;
@@ -50,7 +48,7 @@ namespace PTPM_AI_CT3.Forms
 
         private void AddCustomerForm_Load(object sender, EventArgs e)
         {
-            string customerId = customersDAL.GenerateCustomerId();
+            string customerId = customersBLL.GenerateCustomerId();
             txt_MaKH.Text = customerId;
             Console.WriteLine("Mã khách hàng: " + customerId);
         }
@@ -292,7 +290,7 @@ namespace PTPM_AI_CT3.Forms
                 ProvinceCode = txt_MaTinh.Text
             };
 
-            bool isSuccess = customersDAL.AddCustomer(newCustomer);
+            bool isSuccess = customersBLL.AddCustomer(newCustomer);
             if (isSuccess)
             {
                 MessageBox.Show("Thêm khách hàng thành công.");

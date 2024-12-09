@@ -26,6 +26,7 @@ namespace PTPM_AI_CT3
             public static Color color7 = Color.FromArgb(24, 161, 251);
             public static Color color8 = Color.FromArgb(24, 161, 251);
             public static Color color9 = Color.FromArgb(24, 161, 251);
+            public static Color color10 = Color.FromArgb(24, 161, 251);
         }
 
         private IconButton currentBtn;
@@ -99,7 +100,10 @@ namespace PTPM_AI_CT3
             btnWarehouses.Click += BtnWarehouses_Click;
             btnWHImport.Click += BtnWHImport_Click;
             btnWHexport.Click += BtnWHexport_Click;
+            btnStatistical.Click += BtnStatistical_Click;
         }
+
+      
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -122,7 +126,11 @@ namespace PTPM_AI_CT3
             ActiveBtn(sender, Colors.color8);
             OpenChildForm(new WarehouseImportForm());
         }
-
+        private void BtnStatistical_Click(object sender, EventArgs e)
+        {
+            ActiveBtn(sender, Colors.color10);
+             OpenChildForm(new StatisticalForm());
+        }
         private void BtnWarehouses_Click(object sender, EventArgs e)
         {
             ActiveBtn(sender, Colors.color8);
@@ -211,5 +219,6 @@ namespace PTPM_AI_CT3
             }
 
         }
+
     }
 }

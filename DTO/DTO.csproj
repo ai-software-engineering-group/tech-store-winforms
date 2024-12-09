@@ -50,6 +50,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="RevenueStatDTO.cs" />
     <Compile Include="STechDB.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

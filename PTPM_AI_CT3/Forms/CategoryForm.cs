@@ -11,11 +11,9 @@ namespace PTPM_AI_CT3.Forms
     public partial class CategoryForm : Form
     {
         CategoryBLL categoryBLL = new CategoryBLL();
-        private CategoryDAL categoryDAL;
         public CategoryForm()
         {
             InitializeComponent();
-            categoryDAL = new CategoryDAL();
             dgv_DM.CellClick += Dgv_DM_CellClick;
             this.Load += CategoryForm_Load;
         }

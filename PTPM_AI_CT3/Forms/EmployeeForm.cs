@@ -11,12 +11,11 @@ namespace PTPM_AI_CT3.Forms
 {
     public partial class EmployeeForm : Form
     {
-        EmployeeBLL employeeBLL = new EmployeeBLL();
-        private EmployeeDAL employeeDAL;
+        private readonly EmployeeBLL employeeBLL;
         public EmployeeForm()
         {
             InitializeComponent();
-            employeeDAL = new EmployeeDAL();
+            employeeBLL = new EmployeeBLL();
             dgv_NV.CellClick += Dgv_NV_CellClick;
             this.Load += EmployeeForm_Load;
             LoadProvincesAsync(); cb_TimKiem.Items.Add("Mã nhân viên");
@@ -334,7 +333,7 @@ namespace PTPM_AI_CT3.Forms
                 ProvinceCode = txt_MaTinh.Text
             };
 
-            bool isSuccess = employeeDAL.AddEmployee(newEmployee);
+            bool isSuccess = employeeBLL.AddEmployee(newEmployee);
             if (isSuccess)
             {
                 MessageBox.Show("Thêm khách hàng thành công.");
