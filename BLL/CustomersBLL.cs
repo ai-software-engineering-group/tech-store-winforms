@@ -26,15 +26,11 @@ namespace BLL
             }
         }
 
-<<<<<<< HEAD
         public string GenerateCustomerId()
         {
             return customersDAL.GenerateCustomerId();
         }
 
-=======
-        // Thêm khách hàng
->>>>>>> 94e12daad8e6d412fb18153812a784fa48e8e1a1
         public bool AddCustomer(Customer customer)
         {
             return customersDAL.AddCustomer(customer); // Gọi DAL từ đây
@@ -84,10 +80,5 @@ namespace BLL
                 .ToList();
         }
 
-        // Sinh mã khách hàng
-        public string GenerateCustomerId()
-        {
-            return customersDAL.GenerateCustomerId(); // Gọi DAL để sinh mã khách hàng
-        }
     }
 }

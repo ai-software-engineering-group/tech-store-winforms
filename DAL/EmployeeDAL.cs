@@ -42,44 +42,29 @@ namespace DAL
 
             if (lastEmployee != null)
             {
-                string lastId = lastEmployee.EmployeeId.Substring(2); // Remove "NV" to get the numeric part
+                string lastId = lastEmployee.EmployeeId.Substring(2);
                 if (int.TryParse(lastId, out int id))
                 {
-                    newId = id + 1; // Increment ID by 1
+                    newId = id + 1;
                 }
             }
 
-            return "NV" + newId.ToString("D4"); // "NV" + new employee ID with 4 digits
+            return "NV" + newId.ToString("D4");
         }
 
-<<<<<<< HEAD
-        // Thêm khách hàng
         public string AddEmployee(Employee employee)
-=======
-        public bool AddEmployee(Employee employee)
->>>>>>> 94e12daad8e6d412fb18153812a784fa48e8e1a1
         {
             try
             {
-                employee.EmployeeId = GenerateEmployeeId(); // Generate new Employee ID
+                employee.EmployeeId = GenerateEmployeeId();
                 db.Employees.InsertOnSubmit(employee);
-<<<<<<< HEAD
-                db.SubmitChanges(); // Lưu thay đổi vào cơ sở dữ liệu
+                db.SubmitChanges();
                 return employee.EmployeeId;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi thêm khách hàng: " + ex.Message);
                 return null;
-=======
-                db.SubmitChanges(); // Save changes to the database
-                return true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error adding employee: " + ex.Message);
-                return false;
->>>>>>> 94e12daad8e6d412fb18153812a784fa48e8e1a1
             }
         }
 

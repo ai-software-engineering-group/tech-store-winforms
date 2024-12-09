@@ -356,6 +356,7 @@ namespace PTPM_AI_CT3.Forms
 
                 bool result = userBLL.CreateUser(new User
                 {
+                    UserId = Guid.NewGuid().ToString(),
                     Username = employeeId,
                     PasswordHash = password.HashPasswordMD5(hashKey),
                     CreateAt = DateTime.Now,
@@ -373,9 +374,11 @@ namespace PTPM_AI_CT3.Forms
 
                 if(result)
                 {
+                    Clipboard.SetText(password);
                     MessageBox.Show($"Thêm nhân viên thành công. \n" +
                         $"Tài khoản đăng nhập: {employeeId}\n" +
-                        $"Mật khẩu: {password}");
+                        $"Mật khẩu: {password} \n\n" +
+                        $"Đã copy mật khẩu vào clipboard");
                 }
 
                 LoadEmployee();

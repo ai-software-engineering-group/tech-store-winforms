@@ -15,15 +15,15 @@ namespace PTPM_AI_CT3.Forms
         public CategoryForm()
         {
             InitializeComponent();
-<<<<<<< HEAD
-            categoryDAL = new CategoryDAL();
 
             btnAdd.BackColor = MyColors.GREEN;
             btnUpdate.BackColor = MyColors.LIGHTBLUE;
             btnDelete.BackColor = MyColors.RED;
 
-=======
->>>>>>> 94e12daad8e6d412fb18153812a784fa48e8e1a1
+            btnAdd.Click += btnAdd_Click;
+            btnUpdate.Click += btnUpdate_Click;
+            btnDelete.Click += btnDelete_Click;
+
             dgv_DM.CellClick += Dgv_DM_CellClick;
             this.Load += CategoryForm_Load;
         }

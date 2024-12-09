@@ -27,22 +27,16 @@ namespace BLL
                 return null;
             }
         }
-<<<<<<< HEAD
         public string AddEmployee(Employee employee)
-=======
-
-        public bool AddEmployee(Employee employee)
->>>>>>> 94e12daad8e6d412fb18153812a784fa48e8e1a1
         {
             try
             {
-                // You can include validation or business logic here
                 return employeeDAL.AddEmployee(employee);
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error adding employee: " + ex.Message);
-                return false;
+                return null;
             }
         }
 
