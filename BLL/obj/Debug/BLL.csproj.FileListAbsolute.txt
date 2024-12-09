@@ -45,6 +45,10 @@ D:\HUFI\HK7\CNPM_AI\tech-store-winforms\BLL\bin\Debug\DTO.dll
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\BLL\bin\Debug\DAL.pdb
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\BLL\bin\Debug\DTO.pdb
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\BLL\bin\Debug\DTO.dll.config
+<<<<<<< HEAD
+=======
+D:\HUFI\HK7\CNPM_AI\tech-store-winforms\BLL\bin\Debug\Newtonsoft.Json.xml
+>>>>>>> af9c62fe328072428e10845f85b09c72fcc3ef32
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
 D:\HUFI\HK7\CNPM_AI\tech-store-winforms\BLL\obj\Debug\BLL.csproj.Up2Date
