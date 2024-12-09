@@ -42,13 +42,8 @@
             this.dataGridView1.GridColor = System.Drawing.Color.LightGray;
             this.dataGridView1.Location = new System.Drawing.Point(12, 59);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.RowTemplate.Height = 15;
             this.dataGridView1.Size = new System.Drawing.Size(1200, 500);  // Set to full size
-            this.dataGridView1.Location = new System.Drawing.Point(10, 84);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(448, 227);
             this.dataGridView1.TabIndex = 1;
             // 
             // panelButtons
@@ -74,10 +69,6 @@
             this.buttonInsert.Location = new System.Drawing.Point(30, 5);
             this.buttonInsert.Name = "buttonInsert";
             this.buttonInsert.Size = new System.Drawing.Size(100, 40);
-            this.buttonInsert.Location = new System.Drawing.Point(10, 61);
-            this.buttonInsert.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.buttonInsert.Name = "buttonInsert";
-            this.buttonInsert.Size = new System.Drawing.Size(56, 19);
             this.buttonInsert.TabIndex = 2;
             this.buttonInsert.Text = "Add";
             this.buttonInsert.UseVisualStyleBackColor = false;
@@ -91,10 +82,6 @@
             this.buttonDelete.Location = new System.Drawing.Point(150, 5);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(100, 40);
-            this.buttonDelete.Location = new System.Drawing.Point(137, 61);
-            this.buttonDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(56, 19);
             this.buttonDelete.TabIndex = 3;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.UseVisualStyleBackColor = false;
@@ -108,10 +95,6 @@
             this.buttonUpdate.Location = new System.Drawing.Point(270, 5);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(100, 40);
-            this.buttonUpdate.Location = new System.Drawing.Point(270, 61);
-            this.buttonUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(56, 19);
             this.buttonUpdate.TabIndex = 4;
             this.buttonUpdate.Text = "Edit";
             this.buttonUpdate.UseVisualStyleBackColor = false;
@@ -125,10 +108,6 @@
             this.buttonRefresh.Location = new System.Drawing.Point(390, 5);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(100, 40);
-            this.buttonRefresh.Location = new System.Drawing.Point(394, 60);
-            this.buttonRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(56, 19);
             this.buttonRefresh.TabIndex = 5;
             this.buttonRefresh.Text = "Refresh";
             this.buttonRefresh.UseVisualStyleBackColor = false;
@@ -143,15 +122,6 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "BrandForm";
             this.Text = "Brand Management";
-            this.ClientSize = new System.Drawing.Size(466, 335);
-            this.Controls.Add(this.buttonRefresh);
-            this.Controls.Add(this.buttonUpdate);
-            this.Controls.Add(this.buttonDelete);
-            this.Controls.Add(this.buttonInsert);
-            this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "BrandForm";
-            this.Text = "Hãng sản xuất";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panelButtons.ResumeLayout(false);
             this.ResumeLayout(false);
