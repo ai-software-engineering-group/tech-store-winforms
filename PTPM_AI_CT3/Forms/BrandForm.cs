@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+using System.Net;
 using System.Windows.Forms;
 using BLL;
 using DTO;
@@ -18,6 +20,76 @@ namespace PTPM_AI_CT3.Forms
             this.buttonDelete.Click += ButtonDelete_Click;
             this.buttonUpdate.Click += ButtonUpdate_Click;
             this.buttonRefresh.Click += ButtonRefresh_Click;
+
+        }
+
+
+        private void loadBrand(object sender, EventArgs e)
+        {
+            loadDB();
+        }
+
+        public void loadDB()
+        {
+            var brands = brandbll.GetBrands();
+
+            if (dataGridView1.Columns["BrandId"] == null)
+            {
+                dataGridView1.Columns.Add("BrandId", "Mã Thương Hiệu");
+            }
+
+            if (dataGridView1.Columns["BrandName"] == null)
+            {
+                dataGridView1.Columns.Add("BrandName", "Tên Thương Hiệu");
+            }
+
+            if (dataGridView1.Columns["Logo"] == null)
+            {
+                DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
+                imageColumn.HeaderText = "Logo";
+                imageColumn.Name = "Logo";
+                imageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                dataGridView1.Columns.Add(imageColumn);
+            }
+
+            dataGridView1.Rows.Clear();
+            foreach (var brand in brands)
+            {
+                string imageUrl = brand.LogoSrc;
+                Bitmap brandImage = LoadImageFromUrl(imageUrl);
+
+                dataGridView1.Rows.Add(brand.BrandId, brand.BrandName, brandImage);
+            }
+
+            dataGridView1.Width = 800;  
+            dataGridView1.Height = 400;  
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+        }
+
+
+
+
+
+
+        private Bitmap LoadImageFromUrl(string imageUrl)
+        {
+            try
+            {
+                using (WebClient webClient = new WebClient())
+                {
+                    byte[] imageData = webClient.DownloadData(imageUrl);
+                    using (var memoryStream = new System.IO.MemoryStream(imageData))
+                    {
+                        return new Bitmap(memoryStream);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+               
+                return null; 
+            }
         }
 
         private void ButtonRefresh_Click(object sender, EventArgs e)
@@ -25,21 +97,19 @@ namespace PTPM_AI_CT3.Forms
             loadDB();
         }
 
-        private void ButtonUpdate_Click(object sender, EventArgs e)
+        private void ButtonInsert_Click(object sender, EventArgs e)
         {
-            updateBrand updateBrandControl = new updateBrand();
-            updateBrandControl.Dock = DockStyle.Fill;
-            this.Controls.Add(updateBrandControl);
-            updateBrandControl.BringToFront();
+            InsertBrand insertBrandControl = new InsertBrand();
+            insertBrandControl.Dock = DockStyle.Fill;
+            this.Controls.Add(insertBrandControl);
+            insertBrandControl.BringToFront();
         }
 
         private void ButtonDelete_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentRow != null)
+            if (dataGridView1.CurrentRow != null && dataGridView1.CurrentRow.Cells["BrandId"].Value != null)
             {
-          
                 string selectedBrandId = dataGridView1.CurrentRow.Cells["BrandId"].Value.ToString();
-
                 var result = MessageBox.Show("Bạn có chắc chắn muốn xóa thương hiệu này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
@@ -47,7 +117,7 @@ namespace PTPM_AI_CT3.Forms
                     if (brandbll.xoaBrand(selectedBrandId))
                     {
                         MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        loadDB(); 
+                        loadDB();
                     }
                     else
                     {
@@ -61,24 +131,12 @@ namespace PTPM_AI_CT3.Forms
             }
         }
 
-
-        private void ButtonInsert_Click(object sender, EventArgs e)
+        private void ButtonUpdate_Click(object sender, EventArgs e)
         {
-            InsertBrand insertBrandControl = new InsertBrand();
-            insertBrandControl.Dock = DockStyle.Fill;
-            this.Controls.Add(insertBrandControl);
-            insertBrandControl.BringToFront();
-        }
-
-       
-        public void loadDB()
-        {
-            dataGridView1.DataSource = brandbll.GetBrands();
-        }
-
-        private void loadBrand(object sender, EventArgs e)
-        {
-            loadDB();
+            updateBrand updateBrandControl = new updateBrand();
+            updateBrandControl.Dock = DockStyle.Fill;
+            this.Controls.Add(updateBrandControl);
+            updateBrandControl.BringToFront();
         }
     }
 }

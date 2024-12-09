@@ -16,6 +16,10 @@ namespace BLL
 
         }
 
+        public List<InvoicesStatusDTO> GetInvoiceStatuses()
+        {
+            return invoicesdal.invoiceStatuses();
+        }
         public List<InvoicesDTO>GetInvoices()
         {
             return invoicesdal.LoadInvoices();
