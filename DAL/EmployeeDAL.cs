@@ -89,7 +89,7 @@ namespace DAL
                     existingEmployee.DistrictCode = employee.DistrictCode;
                     existingEmployee.ProvinceCode = employee.ProvinceCode;
 
-                    db.SubmitChanges(); // Save changes to the database
+                    db.SubmitChanges(); 
                     return true;
                 }
                 return false;
@@ -109,7 +109,7 @@ namespace DAL
                 if (employee != null)
                 {
                     db.Employees.DeleteOnSubmit(employee);
-                    db.SubmitChanges(); // Save changes to the database
+                    db.SubmitChanges(); 
                     return true;
                 }
                 return false;

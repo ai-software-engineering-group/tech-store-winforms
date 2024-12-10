@@ -13,7 +13,6 @@ namespace DAL
 
         public CustomersDAL() { }
 
-        // Lấy danh sách khách hàng
         public List<Customer> LoadCustomes()
         {
             try
@@ -28,20 +27,18 @@ namespace DAL
             }
         }
 
-        // Sinh mã khách hàng mới
         public string GenerateCustomerId()
         {
            return DateTime.Now.ToString("yyyyMMdd") + RandomUtils.GenerateRandomString(8).ToUpper();
         }
 
-        // Thêm khách hàng vào cơ sở dữ liệu
         public bool AddCustomer(Customer customer)
         {
             try
             {
-                customer.CustomerId = GenerateCustomerId(); // Tạo mã khách hàng mới
+                customer.CustomerId = GenerateCustomerId(); 
                 db.Customers.InsertOnSubmit(customer);
-                db.SubmitChanges(); // Lưu thay đổi vào cơ sở dữ liệu
+                db.SubmitChanges();
                 return true;
             }
             catch (Exception ex)
@@ -51,7 +48,6 @@ namespace DAL
             }
         }
 
-        // Cập nhật thông tin khách hàng
         public bool UpdateCustomer(Customer customer)
         {
             try
@@ -72,7 +68,7 @@ namespace DAL
                     existingCustomer.DistrictCode = customer.DistrictCode;
                     existingCustomer.ProvinceCode = customer.ProvinceCode;
 
-                    db.SubmitChanges(); // Lưu thay đổi vào cơ sở dữ liệu
+                    db.SubmitChanges(); 
                     return true;
                 }
                 return false;
@@ -84,7 +80,6 @@ namespace DAL
             }
         }
 
-        // Xóa khách hàng
         public bool DeleteCustomer(string customerId)
         {
             try
@@ -93,7 +88,7 @@ namespace DAL
                 if (customer != null)
                 {
                     db.Customers.DeleteOnSubmit(customer);
-                    db.SubmitChanges(); // Lưu thay đổi vào cơ sở dữ liệu
+                    db.SubmitChanges(); 
                     return true;
                 }
                 return false;

@@ -211,7 +211,7 @@ namespace PTPM_AI_CT3.Forms
             // 
             this.btn_HienThiTatCa.AutoSize = true;
             this.btn_HienThiTatCa.BackColor = System.Drawing.Color.Navy;
-            this.btn_HienThiTatCa.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_HienThiTatCa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_HienThiTatCa.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_HienThiTatCa.Location = new System.Drawing.Point(293, 184);
             this.btn_HienThiTatCa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -237,7 +237,7 @@ namespace PTPM_AI_CT3.Forms
             // 
             this.btn_TimKiem.AutoSize = true;
             this.btn_TimKiem.BackColor = System.Drawing.Color.Navy;
-            this.btn_TimKiem.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_TimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_TimKiem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_TimKiem.Location = new System.Drawing.Point(213, 184);
             this.btn_TimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

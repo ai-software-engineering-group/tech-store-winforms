@@ -20,8 +20,36 @@ namespace PTPM_AI_CT3.Forms
             this.buttonDelete.Click += ButtonDelete_Click;
             this.buttonUpdate.Click += ButtonUpdate_Click;
             this.buttonRefresh.Click += ButtonRefresh_Click;
+            this.buttonFind.Click += ButtonFind_Click;
 
         }
+
+        private void ButtonFind_Click(object sender, EventArgs e)
+        {
+            string brandId = textBoxSearch.Text;  
+            if (string.IsNullOrEmpty(brandId))
+            {
+                MessageBox.Show("Vui lòng nhập Mã Thương Hiệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Brand foundBrand = brandbll.find_brand(brandId);
+
+            if (foundBrand != null)
+            {
+                dataGridView1.Rows.Clear();
+                string imageUrl = foundBrand.LogoSrc;
+                Bitmap brandImage = LoadImageFromUrl(imageUrl);
+                dataGridView1.Rows.Add(foundBrand.BrandId, foundBrand.BrandName, brandImage);
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy thương hiệu với Mã đã cung cấp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
 
 
         private void loadBrand(object sender, EventArgs e)
@@ -60,9 +88,6 @@ namespace PTPM_AI_CT3.Forms
 
                 dataGridView1.Rows.Add(brand.BrandId, brand.BrandName, brandImage);
             }
-
-            dataGridView1.Width = 800;  
-            dataGridView1.Height = 400;  
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
@@ -133,10 +158,19 @@ namespace PTPM_AI_CT3.Forms
 
         private void ButtonUpdate_Click(object sender, EventArgs e)
         {
-            updateBrand updateBrandControl = new updateBrand();
-            updateBrandControl.Dock = DockStyle.Fill;
-            this.Controls.Add(updateBrandControl);
-            updateBrandControl.BringToFront();
+            if (dataGridView1.CurrentRow != null && dataGridView1.CurrentRow.Cells["BrandId"].Value != null)
+            {
+                string selectedBrandId = dataGridView1.CurrentRow.Cells["BrandId"].Value.ToString();
+
+                updateBrand updateBrandControl = new updateBrand(selectedBrandId);
+                updateBrandControl.Dock = DockStyle.Fill;
+                this.Controls.Add(updateBrandControl);
+                updateBrandControl.BringToFront();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một thương hiệu để cập nhật.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

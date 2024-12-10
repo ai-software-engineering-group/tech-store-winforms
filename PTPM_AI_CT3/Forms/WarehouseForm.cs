@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO;
 using BLL;
+using PTPM_AI_CT3.Constants;
 
 namespace PTPM_AI_CT3
 {
@@ -18,6 +19,11 @@ namespace PTPM_AI_CT3
         public WarehouseForm()
         {
             InitializeComponent();
+
+            buttonAdd.BackColor = MyColors.GREEN;
+            buttonDelete.BackColor = MyColors.RED;
+            buttonEdit.BackColor = MyColors.LIGHTBLUE;
+
             this.Load += WarehouseForm_Load;
             this.buttonAdd.Click += ButtonThem_Click;
             this.buttonDelete.Click += ButtonXoa_Click;
@@ -37,7 +43,6 @@ namespace PTPM_AI_CT3
                 textWard.Text = selectedRow.Cells["Ward"].Value?.ToString();
                 textDistrict.Text = selectedRow.Cells["District"].Value?.ToString();
                 textProvince.Text = selectedRow.Cells["Province"].Value?.ToString();
-                cbType.SelectedItem = selectedRow.Cells["Type"].Value?.ToString();
             }
         }
 
@@ -51,7 +56,6 @@ namespace PTPM_AI_CT3
                 Ward = textWard.Text,
                 District = textDistrict.Text,
                 Province = textProvince.Text,
-                Type = cbType.SelectedItem?.ToString(),
             };
             if (wareHouseBll.updaate_warehouse(warehouse))
             {
@@ -104,7 +108,6 @@ namespace PTPM_AI_CT3
                 DistrictCode = "",
                 Province = textProvince.Text,
                 ProvinceCode ="" ,
-                Type = cbType.SelectedItem?.ToString(),
          
             };
 
@@ -126,18 +129,6 @@ namespace PTPM_AI_CT3
             }
         }
 
-
-        private void combobox_item()
-        {
-            cbType.Items.Clear();
-            cbType.Items.Add("");
-            cbType.Items.Add("online");
-            if (cbType.Items.Count > 0)
-            {
-                cbType.SelectedIndex = 0;
-            }
-        }
-
         private void WarehouseForm_Load(object sender, EventArgs e)
         {
             loadData();
@@ -146,7 +137,15 @@ namespace PTPM_AI_CT3
         private void loadData()
         {
             this.dataGridView1.DataSource = wareHouseBll.GetWareHouse();
-            combobox_item();
+
+            dataGridView1.Columns[nameof(Warehouse.WarehouseId)].HeaderText = "Mã kho";
+            dataGridView1.Columns[nameof(Warehouse.WarehouseName)].HeaderText = "Tên kho";
+            dataGridView1.Columns[nameof(Warehouse.Address)].HeaderText = "Địa chỉ";
+            dataGridView1.Columns[nameof(Warehouse.Ward)].HeaderText = "Xã/phường";
+            dataGridView1.Columns[nameof(Warehouse.District)].HeaderText = "Quận/huyện";
+            dataGridView1.Columns[nameof(Warehouse.Province)].HeaderText = "Tỉnh/TP";
+
+            dataGridView1.Columns[nameof(Warehouse.Type)].Visible = false;
         }
     }
 }

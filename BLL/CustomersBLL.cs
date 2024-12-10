@@ -8,16 +8,16 @@ namespace BLL
 {
     public class CustomersBLL
     {
-        private CustomersDAL customersDAL = new CustomersDAL(); // DAL vẫn được sử dụng trong BLL
+        private CustomersDAL customersDAL = new CustomersDAL(); 
 
         public CustomersBLL() { }
 
-        // Lấy danh sách khách hàng từ DAL
+       
         public List<Customer> GetCustomers()
         {
             try
             {
-                return customersDAL.LoadCustomes(); // Gọi DAL từ đây
+                return customersDAL.LoadCustomes(); 
             }
             catch (Exception ex)
             {
@@ -33,22 +33,19 @@ namespace BLL
 
         public bool AddCustomer(Customer customer)
         {
-            return customersDAL.AddCustomer(customer); // Gọi DAL từ đây
+            return customersDAL.AddCustomer(customer);
         }
 
-        // Cập nhật thông tin khách hàng
         public bool UpdateCustomer(Customer customer)
         {
-            return customersDAL.UpdateCustomer(customer); // Gọi DAL từ đây
+            return customersDAL.UpdateCustomer(customer); 
         }
 
-        // Xóa khách hàng
         public bool DeleteCustomer(string customerId)
         {
-            return customersDAL.DeleteCustomer(customerId); // Gọi DAL từ đây
+            return customersDAL.DeleteCustomer(customerId);
         }
 
-        // Tìm khách hàng theo mã
         public List<Customer> SearchCustomersById(string id)
         {
             return customersDAL.LoadCustomes()
@@ -56,7 +53,6 @@ namespace BLL
                 .ToList();
         }
 
-        // Tìm khách hàng theo tên
         public List<Customer> SearchCustomersByName(string name)
         {
             return customersDAL.LoadCustomes()
@@ -64,7 +60,6 @@ namespace BLL
                 .ToList();
         }
 
-        // Tìm khách hàng theo số điện thoại
         public List<Customer> SearchCustomersByPhone(string phone)
         {
             return customersDAL.LoadCustomes()
@@ -72,7 +67,6 @@ namespace BLL
                 .ToList();
         }
 
-        // Tìm khách hàng theo ngày sinh
         public List<Customer> SearchCustomersByDOB(DateTime startDate, DateTime endDate)
         {
             return customersDAL.LoadCustomes()

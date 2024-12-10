@@ -130,6 +130,7 @@ namespace PTPM_AI_CT3
         private void BtnWHexport_Click(object sender, EventArgs e)
         {
             ActiveBtn(sender, Colors.color8);
+            OpenChildForm(new WareHouseExportForm());
 
         }
 

@@ -66,7 +66,6 @@ namespace BLL
             }
         }
 
-        // You can add more search functions here to encapsulate DAL functionality
         public List<Employee> SearchEmployeesById(string id)
         {
             try

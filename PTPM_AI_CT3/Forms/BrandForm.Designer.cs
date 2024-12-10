@@ -20,10 +20,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panelButtons = new System.Windows.Forms.Panel();
+            this.buttonFind = new System.Windows.Forms.Button();
             this.buttonInsert = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelButtons.SuspendLayout();
             this.SuspendLayout();
@@ -32,9 +34,9 @@
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Lavender;
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                    | System.Windows.Forms.AnchorStyles.Right)
-                    | System.Windows.Forms.AnchorStyles.Bottom)));  // Anchor it to all sides
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -42,119 +44,106 @@
             this.dataGridView1.GridColor = System.Drawing.Color.LightGray;
             this.dataGridView1.Location = new System.Drawing.Point(12, 59);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1200, 500);  // Set to full size
-            this.dataGridView1.Location = new System.Drawing.Point(10, 84);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(448, 227);
+            this.dataGridView1.RowTemplate.Height = 15;
+            this.dataGridView1.Size = new System.Drawing.Size(884, 500);
             this.dataGridView1.TabIndex = 1;
             // 
             // panelButtons
             // 
-            this.panelButtons.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                    | System.Windows.Forms.AnchorStyles.Right))));
+            this.panelButtons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelButtons.BackColor = System.Drawing.Color.White;
+            this.panelButtons.Controls.Add(this.buttonFind);
             this.panelButtons.Controls.Add(this.buttonInsert);
             this.panelButtons.Controls.Add(this.buttonDelete);
             this.panelButtons.Controls.Add(this.buttonUpdate);
             this.panelButtons.Controls.Add(this.buttonRefresh);
             this.panelButtons.Location = new System.Drawing.Point(12, 3);
             this.panelButtons.Name = "panelButtons";
-            this.panelButtons.Size = new System.Drawing.Size(1200, 50);
+            this.panelButtons.Size = new System.Drawing.Size(884, 50);
             this.panelButtons.TabIndex = 2;
+            // 
+            // buttonFind
+            // 
+            this.buttonFind.BackColor = System.Drawing.Color.OrangeRed;
+            this.buttonFind.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkOrange;
+            this.buttonFind.ForeColor = System.Drawing.Color.White;
+            this.buttonFind.Location = new System.Drawing.Point(453, 5);
+            this.buttonFind.Name = "buttonFind";
+            this.buttonFind.Size = new System.Drawing.Size(80, 30);
+            this.buttonFind.TabIndex = 6;
+            this.buttonFind.Text = "Tìm";
+            this.buttonFind.UseVisualStyleBackColor = false;
             // 
             // buttonInsert
             // 
             this.buttonInsert.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.buttonInsert.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.buttonInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInsert.ForeColor = System.Drawing.Color.White;
-            this.buttonInsert.Location = new System.Drawing.Point(30, 5);
+            this.buttonInsert.Location = new System.Drawing.Point(10, 5);
             this.buttonInsert.Name = "buttonInsert";
-            this.buttonInsert.Size = new System.Drawing.Size(100, 40);
-            this.buttonInsert.Location = new System.Drawing.Point(10, 61);
-            this.buttonInsert.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.buttonInsert.Name = "buttonInsert";
-            this.buttonInsert.Size = new System.Drawing.Size(56, 19);
+            this.buttonInsert.Size = new System.Drawing.Size(80, 30);
             this.buttonInsert.TabIndex = 2;
-            this.buttonInsert.Text = "Add";
+            this.buttonInsert.Text = "Thêm";
             this.buttonInsert.UseVisualStyleBackColor = false;
             // 
             // buttonDelete
             // 
             this.buttonDelete.BackColor = System.Drawing.Color.Crimson;
             this.buttonDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkRed;
-            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDelete.ForeColor = System.Drawing.Color.White;
-            this.buttonDelete.Location = new System.Drawing.Point(150, 5);
+            this.buttonDelete.Location = new System.Drawing.Point(96, 5);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(100, 40);
-            this.buttonDelete.Location = new System.Drawing.Point(137, 61);
-            this.buttonDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(56, 19);
+            this.buttonDelete.Size = new System.Drawing.Size(80, 30);
             this.buttonDelete.TabIndex = 3;
-            this.buttonDelete.Text = "Delete";
+            this.buttonDelete.Text = "Xóa ";
             this.buttonDelete.UseVisualStyleBackColor = false;
             // 
             // buttonUpdate
             // 
             this.buttonUpdate.BackColor = System.Drawing.Color.DodgerBlue;
             this.buttonUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumBlue;
-            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUpdate.ForeColor = System.Drawing.Color.White;
-            this.buttonUpdate.Location = new System.Drawing.Point(270, 5);
+            this.buttonUpdate.Location = new System.Drawing.Point(182, 5);
             this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(100, 40);
-            this.buttonUpdate.Location = new System.Drawing.Point(270, 61);
-            this.buttonUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(56, 19);
+            this.buttonUpdate.Size = new System.Drawing.Size(80, 30);
             this.buttonUpdate.TabIndex = 4;
-            this.buttonUpdate.Text = "Edit";
+            this.buttonUpdate.Text = "Sửa";
             this.buttonUpdate.UseVisualStyleBackColor = false;
             // 
             // buttonRefresh
             // 
             this.buttonRefresh.BackColor = System.Drawing.Color.Orange;
             this.buttonRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkOrange;
-            this.buttonRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRefresh.ForeColor = System.Drawing.Color.White;
-            this.buttonRefresh.Location = new System.Drawing.Point(390, 5);
+            this.buttonRefresh.Location = new System.Drawing.Point(354, 5);
             this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(100, 40);
-            this.buttonRefresh.Location = new System.Drawing.Point(394, 60);
-            this.buttonRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(56, 19);
+            this.buttonRefresh.Size = new System.Drawing.Size(80, 30);
             this.buttonRefresh.TabIndex = 5;
-            this.buttonRefresh.Text = "Refresh";
+            this.buttonRefresh.Text = "Làm mới";
             this.buttonRefresh.UseVisualStyleBackColor = false;
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Location = new System.Drawing.Point(808, 16);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(389, 20);
+            this.textBoxSearch.TabIndex = 7;
             // 
             // BrandForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(1225, 566);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(909, 566);
             this.Controls.Add(this.panelButtons);
             this.Controls.Add(this.dataGridView1);
             this.Name = "BrandForm";
-            this.Text = "Brand Management";
-            this.ClientSize = new System.Drawing.Size(466, 335);
-            this.Controls.Add(this.buttonRefresh);
-            this.Controls.Add(this.buttonUpdate);
-            this.Controls.Add(this.buttonDelete);
-            this.Controls.Add(this.buttonInsert);
-            this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "BrandForm";
-            this.Text = "Hãng sản xuất";
+            this.Text = "Quản lý hãng sản xuất";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panelButtons.ResumeLayout(false);
             this.ResumeLayout(false);
+
         }
 
 
@@ -167,5 +156,7 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Button buttonRefresh;
+        private System.Windows.Forms.Button buttonFind;
+        private System.Windows.Forms.TextBox textBoxSearch;
     }
 }

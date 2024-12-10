@@ -43,17 +43,6 @@ namespace BLL
         {
             return invoicesdal.UpdateCancelledStatus(invoiceId, isCancelled);
         }
-        // Lấy dữ liệu doanh thu cho biểu đồ(mới thêm vào)
-        public List<SalesChartDTO> GetSalesDataForChart()
-        {
-            return invoicesdal.GetSalesDataForChart();
-        }
-        // Lấy tổng doanh thu
-        public decimal GetTotalSales()
-        {
-            return invoicesdal.GetTotalSales();
-        }
-
         public InvoicesDTO find_invoicesId(string invoiceId)
         {
             return invoicesdal.FindInvoice(invoiceId);
@@ -64,23 +53,38 @@ namespace BLL
             return invoicesdal.FindinvoiceStatus(invoiceId);
         }
 
-        // Lấy tổng số đơn hàng
-        public int GetTotalOrders()
+        public int GetMonthlyProductsSold(int month, int year)
         {
-            return invoicesdal.GetTotalOrders();
+            return invoicesdal.GetMonthlyProductsSold(month, year);
         }
 
-        // Lấy sản phẩm bán chạy
-        public List<ProductSalesDTO> GetTopSellingProducts()
+        public decimal GetMonthlySales(int month, int year)
         {
-            return invoicesdal.GetTopSellingProducts();
+            return invoicesdal.GetMonthlySales(month, year);
         }
 
-        // Lấy người dùng hoạt động
+        public int GetMonthlyOrders(int month, int year)
+        {
+            return invoicesdal.GetMonthlyOrders(month, year);
+        }
+
+        public List<ProductSalesDTO> GetTopSellingProducts(int month, int year)
+        {
+            return invoicesdal.GetTopSellingProducts(month, year);
+        }
+
+        public List<SalesChartDTO> GetSalesDataForChart(int month, int year)
+        {
+            return invoicesdal.GetSalesDataForChart(month, year);
+        }
+
         public List<UserActivityDTO> GetActiveUsers()
         {
             return invoicesdal.GetActiveUsers();
         }
-
+        public List<SalesData> GetSalesDataForChart(int year)
+        {
+            return invoicesdal.GetSalesDataForChart(year);
+        }
     }
 }

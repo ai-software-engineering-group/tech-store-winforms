@@ -36,5 +36,11 @@ namespace BLL
         {
             return brandDal.updateBrand(brand_id, brand_name, brand_address, brand_phone,brand_Logo);
         }
+
+        public Brand find_brand(string brand_id)
+        { 
+            return brandDal.FindBrandById(brand_id);
+        }
+
     }
 }
