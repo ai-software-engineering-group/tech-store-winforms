@@ -52,6 +52,7 @@
     <Compile Include="SupplierBLL.cs" />
     <Compile Include="UserBLL.cs" />
     <Compile Include="WarehouseBLL.cs" />
+    <Compile Include="WareHouseExportBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

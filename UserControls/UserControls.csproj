@@ -58,12 +58,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="deleteBrand.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="deleteBrand.Designer.cs">
-      <DependentUpon>deleteBrand.cs</DependentUpon>
-    </Compile>
     <Compile Include="InsertBrand.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -109,9 +103,6 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="deleteBrand.resx">
-      <DependentUpon>deleteBrand.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="InsertBrand.resx">
       <DependentUpon>InsertBrand.cs</DependentUpon>
     </EmbeddedResource>

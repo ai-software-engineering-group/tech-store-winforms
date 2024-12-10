@@ -60,6 +60,7 @@
     <Compile Include="SupplierDAL.cs" />
     <Compile Include="UserDAL.cs" />
     <Compile Include="WareHouseDAL.cs" />
+    <Compile Include="WareHouseExportDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">
