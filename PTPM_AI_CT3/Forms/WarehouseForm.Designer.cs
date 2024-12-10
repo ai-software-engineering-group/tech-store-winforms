@@ -15,8 +15,6 @@
 
         private void InitializeComponent()
         {
-            this.panelHeader = new System.Windows.Forms.Panel();
-            this.labelTitle = new System.Windows.Forms.Label();
             this.panelForm = new System.Windows.Forms.Panel();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
@@ -36,31 +34,12 @@
             this.labelWarehouseName = new System.Windows.Forms.Label();
             this.labelWarehouseID = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panelHeader.SuspendLayout();
+            this.labelTitle = new System.Windows.Forms.Label();
+            this.panelHeader = new System.Windows.Forms.Panel();
             this.panelForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panelHeader.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panelHeader
-            // 
-            this.panelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
-            this.panelHeader.Controls.Add(this.labelTitle);
-            this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelHeader.Location = new System.Drawing.Point(0, 0);
-            this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(800, 60);
-            this.panelHeader.TabIndex = 2;
-            // 
-            // labelTitle
-            // 
-            this.labelTitle.AutoSize = true;
-            this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold);
-            this.labelTitle.ForeColor = System.Drawing.Color.White;
-            this.labelTitle.Location = new System.Drawing.Point(20, 10);
-            this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(257, 45);
-            this.labelTitle.TabIndex = 1;
-            this.labelTitle.Text = "Warehouse Info";
             // 
             // panelForm
             // 
@@ -246,6 +225,27 @@
             this.dataGridView1.Size = new System.Drawing.Size(800, 290);
             this.dataGridView1.TabIndex = 0;
             // 
+            // labelTitle
+            // 
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold);
+            this.labelTitle.ForeColor = System.Drawing.Color.White;
+            this.labelTitle.Location = new System.Drawing.Point(20, 10);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(257, 45);
+            this.labelTitle.TabIndex = 1;
+            this.labelTitle.Text = "Warehouse Info";
+            // 
+            // panelHeader
+            // 
+            this.panelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
+            this.panelHeader.Controls.Add(this.labelTitle);
+            this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelHeader.Location = new System.Drawing.Point(0, 0);
+            this.panelHeader.Name = "panelHeader";
+            this.panelHeader.Size = new System.Drawing.Size(800, 60);
+            this.panelHeader.TabIndex = 2;
+            // 
             // WarehouseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,19 +256,16 @@
             this.Controls.Add(this.panelHeader);
             this.Name = "WarehouseForm";
             this.Text = "Warehouse Management";
-            this.panelHeader.ResumeLayout(false);
-            this.panelHeader.PerformLayout();
             this.panelForm.ResumeLayout(false);
             this.panelForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panelHeader.ResumeLayout(false);
+            this.panelHeader.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #region Windows Form Designer generated code
-
-        private System.Windows.Forms.Panel panelHeader;
-        private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Panel panelForm;
         private System.Windows.Forms.Label labelWarehouseID;
         private System.Windows.Forms.Label labelWarehouseName;
@@ -290,5 +287,8 @@
         private System.Windows.Forms.DataGridView dataGridView1;
 
         #endregion
+
+        private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.Panel panelHeader;
     }
 }
