@@ -158,10 +158,19 @@ namespace PTPM_AI_CT3.Forms
 
         private void ButtonUpdate_Click(object sender, EventArgs e)
         {
-            updateBrand updateBrandControl = new updateBrand();
-            updateBrandControl.Dock = DockStyle.Fill;
-            this.Controls.Add(updateBrandControl);
-            updateBrandControl.BringToFront();
+            if (dataGridView1.CurrentRow != null && dataGridView1.CurrentRow.Cells["BrandId"].Value != null)
+            {
+                string selectedBrandId = dataGridView1.CurrentRow.Cells["BrandId"].Value.ToString();
+
+                updateBrand updateBrandControl = new updateBrand(selectedBrandId);
+                updateBrandControl.Dock = DockStyle.Fill;
+                this.Controls.Add(updateBrandControl);
+                updateBrandControl.BringToFront();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một thương hiệu để cập nhật.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

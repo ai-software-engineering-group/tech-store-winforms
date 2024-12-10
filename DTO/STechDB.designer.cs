@@ -185,6 +185,7 @@ namespace DTO
 		public STechDBDataContext() : 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				base(global::DTO.Properties.Settings.Default.STechDBConnectionString2, mappingSource)
 =======
 				base(global::DTO.Properties.Settings.Default.STechDBConnectionString3, mappingSource)
@@ -192,6 +193,9 @@ namespace DTO
 =======
 				base(global::DTO.Properties.Settings.Default.STechDBConnectionString3, mappingSource)
 >>>>>>> a61df4b60c17c5b2abe1ebf7bfc13d0c7de50710
+=======
+				base(global::DTO.Properties.Settings.Default.STechDBConnectionString1, mappingSource)
+>>>>>>> update_brandfrom
 		{
 			OnCreated();
 		}

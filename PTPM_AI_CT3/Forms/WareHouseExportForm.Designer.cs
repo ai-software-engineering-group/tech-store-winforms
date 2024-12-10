@@ -128,7 +128,12 @@
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
+<<<<<<< HEAD
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
+=======
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RichTextBox textBox2;
+>>>>>>> update_brandfrom
     }
 }
