@@ -146,6 +146,11 @@ namespace DAL
                         }
                     }
 
+                    if(invoice.IsAccepted == false)
+                    {
+                        db.InvoiceStatus.DeleteOnSubmit(db.InvoiceStatus.SingleOrDefault(s => s.Status == "Đã xác nhận"));
+                    }
+
                     db.SubmitChanges();
                     return true;
                 }

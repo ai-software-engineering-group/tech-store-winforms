@@ -150,7 +150,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 255F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 258F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(842, 255);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
@@ -243,6 +243,7 @@
             this.dgvSpecifications.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSpecifications.Location = new System.Drawing.Point(417, 3);
             this.dgvSpecifications.Name = "dgvSpecifications";
+            this.dgvSpecifications.RowHeadersWidth = 51;
             this.dgvSpecifications.Size = new System.Drawing.Size(422, 249);
             this.dgvSpecifications.TabIndex = 0;
             // 
@@ -250,12 +251,14 @@
             // 
             this.SpecName.DataPropertyName = "SpecName";
             this.SpecName.HeaderText = "Tên thông số";
+            this.SpecName.MinimumWidth = 6;
             this.SpecName.Name = "SpecName";
             // 
             // SpecValue
             // 
             this.SpecValue.DataPropertyName = "SpecValue";
             this.SpecValue.HeaderText = "Mô tả thông số";
+            this.SpecValue.MinimumWidth = 6;
             this.SpecValue.Name = "SpecValue";
             // 
             // panel5
@@ -396,7 +399,7 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 4;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -429,7 +432,7 @@
             this.label4.Location = new System.Drawing.Point(3, 72);
             this.label4.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 15);
+            this.label4.Size = new System.Drawing.Size(132, 15);
             this.label4.TabIndex = 4;
             this.label4.Text = "Hãng sản xuất";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -441,7 +444,7 @@
             this.label3.Location = new System.Drawing.Point(3, 8);
             this.label3.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 15);
+            this.label3.Size = new System.Drawing.Size(132, 15);
             this.label3.TabIndex = 3;
             this.label3.Text = "Giá bán";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -453,7 +456,7 @@
             this.label5.Location = new System.Drawing.Point(3, 40);
             this.label5.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 15);
+            this.label5.Size = new System.Drawing.Size(132, 15);
             this.label5.TabIndex = 5;
             this.label5.Text = "Năm sản xuất";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -462,7 +465,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label6.Location = new System.Drawing.Point(409, 8);
+            this.label6.Location = new System.Drawing.Point(428, 8);
             this.label6.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(114, 15);
@@ -474,7 +477,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label7.Location = new System.Drawing.Point(409, 40);
+            this.label7.Location = new System.Drawing.Point(428, 40);
             this.label7.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(114, 15);
@@ -486,7 +489,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label8.Location = new System.Drawing.Point(409, 72);
+            this.label8.Location = new System.Drawing.Point(428, 72);
             this.label8.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(114, 15);
@@ -498,62 +501,62 @@
             // 
             this.cbbBrands.Dock = System.Windows.Forms.DockStyle.Top;
             this.cbbBrands.FormattingEnabled = true;
-            this.cbbBrands.Location = new System.Drawing.Point(103, 72);
+            this.cbbBrands.Location = new System.Drawing.Point(141, 72);
             this.cbbBrands.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.cbbBrands.Name = "cbbBrands";
-            this.cbbBrands.Size = new System.Drawing.Size(300, 23);
+            this.cbbBrands.Size = new System.Drawing.Size(281, 23);
             this.cbbBrands.TabIndex = 13;
             // 
             // cbbCategories
             // 
             this.cbbCategories.Dock = System.Windows.Forms.DockStyle.Top;
             this.cbbCategories.FormattingEnabled = true;
-            this.cbbCategories.Location = new System.Drawing.Point(529, 72);
+            this.cbbCategories.Location = new System.Drawing.Point(548, 72);
             this.cbbCategories.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.cbbCategories.Name = "cbbCategories";
-            this.cbbCategories.Size = new System.Drawing.Size(300, 23);
+            this.cbbCategories.Size = new System.Drawing.Size(281, 23);
             this.cbbCategories.TabIndex = 14;
             // 
             // txtPrice
             // 
             this.txtPrice.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtPrice.Location = new System.Drawing.Point(103, 8);
+            this.txtPrice.Location = new System.Drawing.Point(141, 8);
             this.txtPrice.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(300, 21);
+            this.txtPrice.Size = new System.Drawing.Size(281, 21);
             this.txtPrice.TabIndex = 15;
             // 
             // txtOriginalPrice
             // 
             this.txtOriginalPrice.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtOriginalPrice.Location = new System.Drawing.Point(529, 8);
+            this.txtOriginalPrice.Location = new System.Drawing.Point(548, 8);
             this.txtOriginalPrice.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.txtOriginalPrice.Name = "txtOriginalPrice";
-            this.txtOriginalPrice.Size = new System.Drawing.Size(300, 21);
+            this.txtOriginalPrice.Size = new System.Drawing.Size(281, 21);
             this.txtOriginalPrice.TabIndex = 16;
             // 
             // txtManuYear
             // 
             this.txtManuYear.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtManuYear.Location = new System.Drawing.Point(103, 40);
+            this.txtManuYear.Location = new System.Drawing.Point(141, 40);
             this.txtManuYear.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.txtManuYear.Name = "txtManuYear";
-            this.txtManuYear.Size = new System.Drawing.Size(300, 21);
+            this.txtManuYear.Size = new System.Drawing.Size(281, 21);
             this.txtManuYear.TabIndex = 17;
             // 
             // txtWarranty
             // 
             this.txtWarranty.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtWarranty.Location = new System.Drawing.Point(529, 40);
+            this.txtWarranty.Location = new System.Drawing.Point(548, 40);
             this.txtWarranty.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.txtWarranty.Name = "txtWarranty";
-            this.txtWarranty.Size = new System.Drawing.Size(300, 21);
+            this.txtWarranty.Size = new System.Drawing.Size(281, 21);
             this.txtWarranty.TabIndex = 18;
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtProductName, 1, 1);
@@ -575,7 +578,7 @@
             this.label2.Location = new System.Drawing.Point(3, 38);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 15);
+            this.label2.Size = new System.Drawing.Size(131, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "Tên sản phẩm";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -583,10 +586,10 @@
             // txtProductName
             // 
             this.txtProductName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtProductName.Location = new System.Drawing.Point(103, 38);
+            this.txtProductName.Location = new System.Drawing.Point(140, 38);
             this.txtProductName.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(726, 21);
+            this.txtProductName.Size = new System.Drawing.Size(689, 21);
             this.txtProductName.TabIndex = 3;
             // 
             // label1
@@ -596,7 +599,7 @@
             this.label1.Location = new System.Drawing.Point(3, 8);
             this.label1.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 15);
+            this.label1.Size = new System.Drawing.Size(131, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã sản phẩm";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -604,10 +607,10 @@
             // txtProductId
             // 
             this.txtProductId.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtProductId.Location = new System.Drawing.Point(103, 8);
+            this.txtProductId.Location = new System.Drawing.Point(140, 8);
             this.txtProductId.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.txtProductId.Name = "txtProductId";
-            this.txtProductId.Size = new System.Drawing.Size(726, 21);
+            this.txtProductId.Size = new System.Drawing.Size(689, 21);
             this.txtProductId.TabIndex = 1;
             // 
             // AddUpdateProductForm
@@ -623,7 +626,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Name = "AddUpdateProductForm";
-            this.Padding = new System.Windows.Forms.Padding(12);
+            this.Padding = new System.Windows.Forms.Padding(12, 12, 12, 12);
             this.Text = "Thêm sản phẩm";
             this.panel1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);

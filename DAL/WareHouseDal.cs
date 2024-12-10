@@ -126,7 +126,7 @@ namespace DAL
 
                 foreach (WarehouseImportDetail detail in slip.WarehouseImportDetails)
                 {
-                    WarehouseProduct wp = db.WarehouseProducts.FirstOrDefault(w => w.WarehouseId == detail.WIId
+                    WarehouseProduct wp = db.WarehouseProducts.FirstOrDefault(w => w.WarehouseId == slip.WarehouseId
                     && w.ProductId == detail.ProductId);
 
                     if (wp != null)
