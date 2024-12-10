@@ -103,9 +103,11 @@ namespace PTPM_AI_CT3
             btnWarehouses.Click += BtnWarehouses_Click;
             btnWHImport.Click += BtnWHImport_Click;
             btnWHexport.Click += BtnWHexport_Click;
-            btnStatistical.Click += BtnStatistical_Click;
 
             btnSignout.Click += BtnSignout_Click;
+
+            ActiveBtn(btnHome, Colors.color1);
+            OpenChildForm(new StatisticalForm());
         }
 
         private void BtnSignout_Click(object sender, EventArgs e)
@@ -189,6 +191,7 @@ namespace PTPM_AI_CT3
         private void BtnHome_Click(object sender, EventArgs e)
         {
             ActiveBtn(sender, Colors.color1);
+            OpenChildForm(new StatisticalForm());
         }
 
         private void OpenChildForm(Form form)

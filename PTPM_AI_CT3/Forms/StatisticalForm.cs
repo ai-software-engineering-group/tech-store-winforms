@@ -12,112 +12,122 @@ namespace PTPM_AI_CT3.Forms
     public partial class StatisticalForm : Form
     {
         private InvoiceBLL invoiceBLL;
+        private ProductBLL productBLL;
+        private UserBLL userBLL;
+        private EmployeeBLL employeeBLL;
+
 
         public StatisticalForm()
         {
             InitializeComponent();
+
             invoiceBLL = new InvoiceBLL();
-            InitializeMonthComboBox(); 
-            LoadData(DateTime.Now.Month, DateTime.Now.Year); 
+            productBLL = new ProductBLL();
+            userBLL = new UserBLL();
+            employeeBLL = new EmployeeBLL();
+
+            this.Load += StatisticalForm_Load;
         }
 
-        private void InitializeMonthComboBox()
+        private void StatisticalForm_Load(object sender, EventArgs e)
         {
-            cmbMonth.DropDownStyle = ComboBoxStyle.DropDownList;
-            for (int i = 1; i <= 12; i++)
+            LoadRevenueChart(DateTime.Now.Year);
+            LoadBestSellingChart();
+
+            labelTotalStaffs.Text = employeeBLL.GetEmployees().Count.ToString();
+            labelTotalUsers.Text = userBLL.Load().Count.ToString();
+        }
+
+        private void LoadRevenueChart(int year)
+        {
+            try
             {
-                cmbMonth.Items.Add(i);
+                var invoices = invoiceBLL.GetInvoices();
+                labelTotalOrders.Text = invoices.Count.ToString();
+                labelTotalRevenue.Text = invoices.Sum(i => i.Total).ToString("##,###") + "đ";
+
+                var monthlyRevenue = invoices
+                    .Where(i => i.OrderDate.Value.Year == year)
+                    .GroupBy(i => i.OrderDate.Value.Month)
+                    .Select(g => new
+                    {
+                        Month = g.Key,
+                        Revenue = g.Sum(i => i.Total)
+                    })
+                    .OrderBy(i => i.Month)
+                    .ToList();
+
+                chartYearRevenue.Series.Clear();
+
+                Series series = new Series
+                {
+                    Name = "Revenue",
+                    IsVisibleInLegend = true,
+                    IsXValueIndexed = true,
+                    ChartType = SeriesChartType.Column,
+                    XValueType = ChartValueType.Int32,
+                    YValueType = ChartValueType.Double
+                };
+
+                foreach (var data in monthlyRevenue)
+                {
+                    series.Points.AddXY(data.Month, data.Revenue);
+                }
+
+                chartYearRevenue.Series.Add(series);
+                chartYearRevenue.ChartAreas[0].AxisX.Title = "Tháng";
+                chartYearRevenue.ChartAreas[0].AxisY.Title = "Doanh thu (VNĐ)";
+                chartYearRevenue.ChartAreas[0].AxisX.Interval = 1;
+
             }
-
-            cmbMonth.SelectedIndex = DateTime.Now.Month - 1;
-
-            cmbMonth.SelectedIndexChanged += cmbMonth_SelectedIndexChanged;
-        }
-
-        private void cmbMonth_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmbMonth.SelectedItem != null)
+            catch (Exception ex)
             {
-                int selectedMonth = Convert.ToInt32(cmbMonth.SelectedItem);
-                int selectedYear = DateTime.Now.Year; 
 
-                LoadData(selectedMonth, selectedYear);
             }
         }
 
-        private void LoadData(int selectedMonth, int selectedYear)
+        private void LoadBestSellingChart()
         {
-            var totalProducts = invoiceBLL.GetMonthlyProductsSold(selectedMonth, selectedYear);
-            lblTotalProducts.Text = totalProducts.ToString();
+            var products = productBLL.GetProducts();
+            labelTotalProducts.Text = products.Count.ToString();
 
-            var totalSales = invoiceBLL.GetMonthlySales(selectedMonth, selectedYear);
-            lblTotalSales.Text = string.Format(new CultureInfo("vi-VN"), "{0:C0}", totalSales);
+            var topProducts = products
+                .Select(p => new
+                {
+                    p.ProductId,
+                    p.ProductName,
+                    TotalQuantity = p.InvoiceDetails.Sum(d => d.Quantity)
+                })
+                .OrderByDescending(p => p.TotalQuantity)
+                .Take(5)
+                .ToList();
 
-            var totalOrders = invoiceBLL.GetMonthlyOrders(selectedMonth, selectedYear);
-            lblTotalOrders.Text = totalOrders.ToString();
+            chartBestSelling.Series.Clear();
 
-            LoadSalesChart(selectedMonth, selectedYear);
-
-            var topSellingProducts = invoiceBLL.GetTopSellingProducts(selectedMonth, selectedYear);
-            dgvTopSellingProducts.DataSource = topSellingProducts;
-
-            var activeUsers = invoiceBLL.GetActiveUsers();
-            dgvActiveUsers.DataSource = activeUsers;
-        }
-
-        private void LoadSalesChart(int selectedMonth, int selectedYear)
-        {
-            var salesData = invoiceBLL.GetSalesDataForChart(selectedYear);
-
-            foreach (var data in salesData)
+            Series series = new Series
             {
-                Console.WriteLine($"Month: {data.Date.Month}, TotalSales: {data.TotalSales}, TotalOrders: {data.TotalOrders}");
-            }
-
-            var months = Enumerable.Range(1, 12).ToList();
-
-            chartSales.Series.Clear();
-
-            var revenueSeries = new Series("Doanh thu")
-            {
-                ChartType = SeriesChartType.Line,
-                BorderWidth = 3,
-                Color = Color.Blue
+                Name = "TopProducts",
+                ChartType = SeriesChartType.Doughnut,
+                XValueType = ChartValueType.String,
+                YValueType = ChartValueType.Int32
             };
 
-
-            foreach (var month in months)
+            foreach (var product in topProducts)
             {
-                var dataForMonth = salesData.FirstOrDefault(data => data.Date.Month == month);
-                var totalSales = dataForMonth?.TotalSales ?? 0;
-                var totalOrders = dataForMonth?.TotalOrders ?? 0;
-
-                revenueSeries.Points.AddXY(month.ToString("00") + "/" + selectedYear, totalSales);
+                DataPoint point = new DataPoint();
+                point.SetValueXY(product.ProductId, product.TotalQuantity);
+                point.Label = product.ProductId;
+                point.SetCustomProperty("LegendText", product.ProductName);
+                series.Points.Add(point);
             }
 
-            chartSales.Series.Add(revenueSeries);
+            chartBestSelling.Series.Add(series);
 
-            chartSales.ChartAreas[0].AxisX.Interval = 1;
-            chartSales.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
-            chartSales.ChartAreas[0].AxisX.Title = "Tháng";
-            chartSales.ChartAreas[0].AxisY.Title = "Giá trị (VND)";
-        }
-
-
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-       
-        }
-
-        private void lblTotalOrders_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void cmbMonth_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
+            chartBestSelling.Titles.Clear();
+            chartBestSelling.Titles.Add("Top 5 sản phẩm bán chạy nhất");
+            chartBestSelling.Series[0]["PieLabelStyle"] = "Inside";
+            chartBestSelling.Series[0].BorderWidth = 1;
+            chartBestSelling.Series[0].BorderColor = System.Drawing.Color.Black;
         }
     }
 }

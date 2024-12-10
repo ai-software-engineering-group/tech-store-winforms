@@ -148,7 +148,7 @@ namespace PTPM_AI_CT3.Forms
             foreach (var product in result)
             {
                 dgvSearchedProduct.Rows
-                    .Add(product.ProductId, product.ProductName, product.Price.ToString("##.###") + "đ", product.Brand.BrandName, product.Category.CategoryName);
+                    .Add(product.ProductId, product.ProductName, product.Price.ToString("##,###") + "đ", product.Brand.BrandName, product.Category.CategoryName);
             }
         }
 
@@ -213,7 +213,7 @@ namespace PTPM_AI_CT3.Forms
         {
             decimal totalPrice = importDetails
                .Sum(d => d.Quantity * d.UnitPrice);
-            lblTotalPrice.Text = totalPrice > 0 ? totalPrice.ToString("##.###") : "0" + "đ";
+            lblTotalPrice.Text = totalPrice > 0 ? totalPrice.ToString("##,###") : "0" + "đ";
         }
 
         private void DgvImportDetails_CellContentClick(object sender, DataGridViewCellEventArgs e)
